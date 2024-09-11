@@ -1,0 +1,29 @@
+/* Estilos para la sección Hero */
+.hero {
+    background: linear-gradient(135deg, #004d00, #00c6ff);
+    color: #fff;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #333;
+    border-radius: 50px;
+}
+
+/* Estilos para la sección Features */
+.features .feature-box {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.features .feature-box:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilos para el Footer */
+.footer {
+    background: #222;
+}

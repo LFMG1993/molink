@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Tienda Virtual</title>
-    <?php 
-    include_once './app/librerias-css.php';
-    ?>
+    <link rel="stylesheet" href="./librerias/css/bootstrap5.min.css">
+    <link rel="stylesheet" href="./librerias/css/bootstrap-icons-1.10.3/bootstrap-icons.css">
+    <link rel="stylesheet" href="./librerias/css/custom.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,15 +66,20 @@
             </div>
         </div>
     </section>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
     <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-3">
-        <p>&copy; 2024 Mi Tienda Virtual. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Molink Tienda Virtual. Todos los derechos reservados.</p>
     </footer>
-
-    <?php 
-    include_once './app/librerias-js.php';
-    ?>
+    <script src="./librerias/js/popper.min.js"></script>
+    <script src="./librerias/js/bootstrap5.min.js"></script>
+    <script src="./librerias/js/jquery-3.6.4.min.js"></script>
 
 </body>
+
 </html>

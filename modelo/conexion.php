@@ -5,10 +5,10 @@ date_default_timezone_set('America/Bogota');
 class Conexion extends PDO
 {
     private $tipoBase = 'mysql';
-    private $host = 'localhost';
+    private $host = 'db';
     private $nombreBase = 'molink';
     private $usuario = 'root';
-    private $contrasena = '';
+    private $contrasena = 'root_password';
     // Constructor
     public function __construct()
     {

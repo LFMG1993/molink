@@ -23,6 +23,8 @@ services:
       - db_data:/var/lib/mysql
       - ./database/molink.sql:/docker-entrypoint-initdb.d/molink.sql
     command: --default-time-zone='America/Bogota'
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

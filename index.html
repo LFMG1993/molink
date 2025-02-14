@@ -22,11 +22,9 @@
 
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
         <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
             <img src="assets/logo-white.png" alt="">
         </a>
-
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="#hero" class="active">Inicio<br></a></li>
@@ -35,9 +33,6 @@
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
-        <a class="btn-getstarted" href="#">Iniciar Sesión</a>
-
     </div>
 </header>
 
@@ -56,40 +51,46 @@
                 </div>
             </div>
 
+
             <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box">
+                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
+                         title="Creamos soluciones de desarrollo web que se adapte a las necesidades de cada negocio">
                         <i class="bi bi-filetype-html"></i>
-                        <h3><a href="">Desarrollo Web</a></h3>
+                        <h3><a href="app/details.html">Desarrollo Web</a></h3>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon-box">
+                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
+                         title="Implementamos soluciones que se ajusten a las necesidades más actuales del mercado">
                         <i class="bi bi-phone"></i>
                         <h3><a href="">Desarrollo Móvil</a></h3>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="icon-box">
-                        <i class="bi bi-aspect-ratio"></i>
-                        <h3><a href="">Diseño UI/UX</a></h3>
+                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
+                         title="Desde SEO y redes sociales hasta publicidad y analítica web">
+                        <i class="bi bi-shop"></i>
+                        <h3><a href="">Marketing Digital</a></h3>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="icon-box">
-                        <i class="bi bi-motherboard"></i>
-                        <h3><a href="">Hardware</a></h3>
+                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
+                         title="Sitio web siempre activo y seguro: Nos encargamos de la gestión técnica para que tú te enfoques en tu negocio.">
+                        <i class="bi bi-body-text"></i>
+                        <h3><a href="">Administración de Sitios</a></h3>
                     </div>
                 </div>
 
                 <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
-                    <div class="icon-box">
+                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
+                         title="Adquiere licencias Originales con nosotros, de los software más solicitados en el
+                            mercado.">
                         <i class="bi bi-disc"></i>
                         <h3><a href="">Software</a></h3>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -97,68 +98,65 @@
 
         <div class="container section-title" data-aos="fade-up">
             <h2>Servicios</h2>
-            <p>Consulta Nuestros Servicios</p>
+            <p>Resumen de servicios</p>
         </div>
 
-        <div class="container">
-
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-item position-relative">
-                        <div class="icon">
+        <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
+                        <div class="icon mb-3">
                             <i class="bi bi-file-earmark-code"></i>
                         </div>
-                        <h3>Desarrollo Web</h3>
-                        <p>Creamos soluciones de desarrollo web que se adapte a las necesidades de cada negocio,
-                            mejorando los procesos.</p>
+                        <h3>Pàginas de Presentación</h3>
+                        <p>Máximo rendimiento para tu sitio web: Mantenimiento, seguridad y optimización para resultados formidables.</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-item position-relative">
-                        <div class="icon">
+                <div class="carousel-item">
+                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
+                        <div class="icon mb-3">
                             <i class="bi bi-phone-vibrate"></i>
                         </div>
                         <h3>Desarrollo Móvil</h3>
-                        <p>Implementamos soluciones que se ajusten a las necesidades más actuales del mercado, creando o
-                            complementando lo que su negocio necesite. </p>
+                        <p>Implementamos soluciones que se ajusten a las necesidades más actuales del mercado, creando o complementando lo que su negocio necesite.</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-item position-relative">
-                        <div class="icon">
+                <div class="carousel-item">
+                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
+                        <div class="icon mb-3">
                             <i class="bi bi-easel"></i>
                         </div>
                         <h3>Diseño UI/UX</h3>
-                        <p>Ofrecemos estos servicios para crear productos digitales que no solo luzcan bien, sino que
-                            también sean fáciles de usar y brinden una experiencia positiva al usuario.</p>
+                        <p>Ofrecemos estos servicios para crear productos digitales que no solo luzcan bien, sino que también sean fáciles de usar y brinden una experiencia positiva al usuario.</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-item position-relative">
-                        <div class="icon">
+                <div class="carousel-item">
+                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
+                        <div class="icon mb-3">
                             <i class="bi bi-bounding-box-circles"></i>
                         </div>
                         <h3>Hardware</h3>
-                        <p>Encuentra alternativas de hardware como la venta de repuestos para computadores, cámaras de
-                            vigilancia, domótica y mucho mas.</p>
+                        <p>Encuentra alternativas de hardware como la venta de repuestos para computadores, cámaras de vigilancia, domótica y mucho más.</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-item position-relative">
-                        <div class="icon">
+                <div class="carousel-item">
+                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
+                        <div class="icon mb-3">
                             <i class="bi bi-calendar4-week"></i>
                         </div>
                         <h3>Software</h3>
-                        <p>Adquiere licencias Originales con nosotros, de los software más solicitados en el
-                            mercado.</p>
+                        <p>Adquiere licencias Originales con nosotros, de los software más solicitados en el mercado.</p>
                     </div>
                 </div>
-
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </section>
 
@@ -230,7 +228,7 @@
                     <div class="footer-contact pt-3">
                         <p>Villa del Rosario</p>
                         <p>Norte de Santander - Colombia</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+57 315 575 6600</span></p>
+                        <p class="mt-3"><strong>Teléfono:</strong> <span>+57 315 575 6600</span></p>
                         <p><strong>Correo:</strong> <span>contacto@molink.com.co</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
@@ -246,11 +244,11 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Enlaces de Interés</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Inicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Contacto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Servicios</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Terminos del servicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Politica de Privacidad</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#hero"> Inicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#services"> Servicios Detallados</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#contact"> Contacto</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="app/termService.html"> Terminos del servicio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="app/privacity.html"> Politica de Privacidad</a></li>
                     </ul>
                 </div>
 
@@ -262,6 +260,17 @@
                         <li><i class="bi bi-chevron-right"></i> <a href="#"> Dirección de Proyectos</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#"> Marketing</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#"> Diseño UI / UX</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>...</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Páginas de Presentación</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Software Licenciado</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Administración de Sitios web</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Hosting y Dominio</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#"> Aprende</a></li>
                     </ul>
                 </div>
 
@@ -286,6 +295,7 @@
 
 <div id="preloader"></div>
 
+<script src="library/js/popper.min.js"></script>
 <script src="library/js/bootstrap5.min.js"></script>
 <script src="library/js/aos.js"></script>
 <script src="library/js/swiper-bundle.min.js"></script>
@@ -294,6 +304,7 @@
 <script src="library/js/isotope.pkgd.min.js"></script>
 <script src="library/js/purecounter_vanilla.js"></script>
 <script src="library/js/main.js"></script>
+<script src="library/js/custom.js"></script>
 
 </body>
 </html>

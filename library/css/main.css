@@ -1713,3 +1713,7 @@ section,
   background-color: #fff; /* Fondo blanco para mejor contraste */
   border-radius: 8px; /* Bordes redondeados */
 }
+
+.justify-text {
+  text-align: justify;
+}

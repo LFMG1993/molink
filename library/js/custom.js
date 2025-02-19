@@ -19,5 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
         tooltipDiv.addEventListener('click', handleEvent);
         tooltipDiv.addEventListener('touchstart', handleEvent);
     });
+    const links = document.querySelectorAll(".service-link");
+
+    links.forEach(link => {
+        link.addEventListener("click", function () {
+            // Remueve la clase 'active' de todos los enlaces
+            links.forEach(l => l.classList.remove("active"));
+
+            // Agrega la clase 'active' al enlace seleccionado
+            this.classList.add("active");
+        });
+    });
 });
 //Fin tooltip

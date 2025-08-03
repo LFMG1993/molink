@@ -1,0 +1,25 @@
+{
+  "name": "molink",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node_modules/.bin/vite",
+    "build": "node_modules/.bin/tsc && vite build",
+    "preview": "node_modules/.bin/vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^24.1.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.13.1",
+    "gsap": "^3.13.0",
+    "swiper": "^11.2.10"
+  }
+}

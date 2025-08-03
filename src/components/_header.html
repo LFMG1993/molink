@@ -1,0 +1,55 @@
+<!-- =======================================================
+* Header
+======================================================== -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+    <div class="container mx-auto flex items-center justify-between p-4">
+        <a href="/" class="flex items-center">
+            <img src="/assets/logo-white.webp" alt="Logo de Molink Tecnologia Blanco" class="h-12 w-auto">
+        </a>
+
+        <!-- Menú de Navegación Desktop -->
+        <nav id="navmenu" class="hidden lg:flex">
+            <ul class="flex items-center space-x-2">
+                <li>
+                    <a href="/#start" aria-label="boton inicio"
+                       class="block rounded-md px-4 py-2 font-nav text-xl text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="/src/pages/portfolio.html" aria-label="boton Portafolio"
+                       class="block rounded-md px-4 py-2 font-nav text-xl text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                        Portafolio
+                    </a>
+                </li>
+                <li>
+                    <a href="/#services" aria-label="boton servicios"
+                       class="block rounded-md px-4 py-2 font-nav text-xl text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="/#contact" aria-label="boton contacto"
+                       class="block rounded-md px-4 py-2 font-nav text-xl text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Botón del Menú Móvil -->
+        <button id="mobile-nav-toggle" class="lg:hidden text-nav text-3xl z-[9999]" aria-label="Abrir menú móvil">
+            <i class="bi bi-list"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Menú Móvil Desplegable -->
+<div id="mobile-nav-menu" class="hidden fixed inset-0 bg-black/90 z-[9998] lg:hidden">
+    <ul class="flex flex-col items-center justify-center h-full space-y-8">
+        <li><a href="/#start" aria-label="boton inicio" class="mobile-nav-link font-nav text-2xl text-white hover:text-accent">Inicio</a></li>
+        <li><a href="/src/pages/portfolio.html" aria-label="boton portafolio" class="mobile-nav-link font-nav text-2xl text-white hover:text-accent">Portafolio</a></li>
+        <li><a href="/#services" aria-label="boton servicios" class="mobile-nav-link font-nav text-2xl text-white hover:text-accent">Servicios</a>
+        </li>
+        <li><a href="/#contact" aria-label="boton contacto" class="mobile-nav-link font-nav text-2xl text-white hover:text-accent">Contacto</a></li>
+    </ul>
+</div>

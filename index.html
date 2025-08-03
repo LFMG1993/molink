@@ -1,302 +1,329 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Molink Tecnología</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link href="assets/favicon.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
-    <link href="library/css/bootstrap5.min.css" rel="stylesheet">
-    <link href="library/css/bootstrap-icons-1.10.3/bootstrap-icons.css" rel="stylesheet">
-    <link href="library/css/aos.css" rel="stylesheet">
-    <link href="library/css/swiper-bundle.min.css" rel="stylesheet">
-    <link href="library/css/glightbox.min.css" rel="stylesheet">
-    <link href="library/css/main.css" rel="stylesheet">
+    <title>Molink Tecnología | Desarrollo Web y Móvil en Cúcuta</title>
+    <meta name="description"
+          content="Soluciones tecnológicas a medida. Ofrecemos desarrollo de páginas web, aplicaciones móviles, administración de sitios y SEO para impulsar tu negocio.">
+    <meta name="keywords"
+          content="desarrollo web, desarrollo movil, paginas web, programador, Cúcuta, Colombia, Molink, tecnologia">
+    <meta property="og:title" content="Molink Tecnología | Desarrollo Web y Móvil en Cúcuta">
+    <meta property="og:description"
+          content="Soluciones tecnológicas a medida. Ofrecemos desarrollo de páginas web, aplicaciones móviles, administración de sitios y SEO para impulsar tu negocio.">
+    <meta property="og:image" content="https://molink.com.co/og-image.png">
+    <meta property="og:url" content="https://molink.com.co/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <!--  Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Molink Tecnología | Desarrollo Web y Móvil en Cúcuta">
+    <meta name="twitter:description"
+          content="Soluciones tecnológicas a medida. Ofrecemos desarrollo de páginas web, aplicaciones móviles, administración de sitios y SEO para impulsar tu negocio.">
+    <meta name="twitter:image" content="https://molink.com.co/og-image.jpg">
+    <!--  Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Molink Tecnología",
+            "image": "https://molink.com.co/assets/logo-white.webp",
+            "@id": "https://molink.com.co/",
+            "url": "https://molink.com.co/",
+            "telephone": "+573155756600",
+            "priceRange": "$$$",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Cúcuta",
+                "addressCountry": "CO"
+            },
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ],
+                "opens": "08:00",
+                "closes": "21:00"
+            },
+            "sameAs": [
+                "https://www.instagram.com/_molink_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+                "https://www.linkedin.com/in/lfmg1993/",
+                "https://github.com/LFMG1993"
+            ]
+        }
+    </script>
+    <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml">
+    <link rel="preload" as="image" href="/assets/background/cucutaGuadua-mobile.avif" media="(max-width: 768px)">
 </head>
 
-<body class="index-page">
+<body class="bg-black text-white font-default">
 
-<header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-            <img src="assets/logo-white.png" alt="">
-        </a>
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="#hero" class="active">Inicio<br></a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-    </div>
-</header>
+<div id="header-placeholder"></div>
 
-<main class="main">
-
-    <section id="hero" class="hero section dark-background">
-
-        <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
-
-        <div class="container">
-
-            <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-xl-6 col-lg-8">
-                    <h2>Ofrecemos Múltiples Soluciones Tecnológicas</h2>
-                    <p>Abriendo nuevos horizontes</p>
-                </div>
+<main>
+    <section id="start" class="relative w-full min-h-screen flex items-center justify-center text-white">
+        <!-- Imagen de fondo -->
+        <div class="absolute inset-0 z-0">
+            <picture>
+                <source media="(max-width: 768px)" srcset="/assets/background/cucutaGuadua-mobile.avif">
+                <source media="(max-width: 1280px)" srcset="/assets/background/cucutaGuadua-tablet.avif">
+                <img src="/assets/background/cucutaGuadua-desktop.avif" alt="Fondo de la ciudad de Cúcuta"
+                     class="w-full h-full object-cover">
+            </picture>
+            <!-- Capa de superposición oscura -->
+            <div class="absolute inset-0 bg-black/70"></div>
+        </div>
+        <!-- Contenido -->
+        <div class="relative z-10 container mx-auto text-center px-8 fade-in-section">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="font-nav font-bold text-5xl md:text-6xl">Ofrecemos Múltiples Soluciones Tecnológicas</h1>
             </div>
-
-
-            <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
-                         title="Creamos soluciones de desarrollo web que se adapte a las necesidades de cada negocio">
-                        <i class="bi bi-filetype-html"></i>
-                        <h3><a href="app/details.html">Desarrollo Web</a></h3>
+            <!-- Grid de Iconos -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Icon Box 1: Desarrollo Web -->
+                <a href="/src/pages/details.html"
+                   class="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
+                    <i class="bi bi-filetype-html text-4xl text-accent"></i>
+                    <h2 class="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
+                        Desarrollo Web</h2>
+                </a>
+                <!-- Icon Box 2: Desarrollo Móvil -->
+                <a href="/src/pages/details.html"
+                   class="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
+                    <i class="bi bi-phone text-4xl text-accent"></i>
+                    <h2 class="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
+                        Desarrollo Móvil</h2>
+                </a>
+                <!-- Icon Box 3: Administración -->
+                <a href="/src/pages/details.html"
+                   class="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
+                    <i class="bi bi-body-text text-4xl text-accent"></i>
+                    <h2 class="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
+                        Administración</h2>
+                </a>
+                <!-- Icon Box 4: Software -->
+                <a href="/src/pages/details.html"
+                   class="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
+                    <i class="bi bi-disc text-4xl text-accent"></i>
+                    <h2 class="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
+                        Software</h2>
+                </a>
+            </div>
+        </div>
+    </section>
+    <hr class="container mx-auto border-t border-white/30 my-16">
+    <!-- =======================================================
+    * Services Section
+    ======================================================== -->
+    <section id="services" class="py-16 bg-black text-white">
+        <div class="container mx-auto px-4 md:px-16">
+            <!-- Section Title -->
+            <div class="mb-12 fade-in-section">
+                <h2 class="font-heading text-4xl font-bold uppercase text-white mt-2 title-underline">Resumen de
+                    servicios</h2>
+            </div>
+            <div class="relative group">
+                <!-- El contenedor principal del carrusel -->
+                <div class="swiper services-carousel h-auto overflow-visible">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-surface p-10 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 h-full flex flex-col aspect-video">
+                                <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-md bg-red-800 text-white">
+                                    <i class="bi bi-file-earmark-code text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Páginas de Presentación</h3>
+                                <p class="text-white/80 flex-grow text-lg">Máximo rendimiento para tu sitio web:
+                                    Mantenimiento, seguridad y optimización.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-surface p-10 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 h-full flex flex-col aspect-video">
+                                <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-md bg-red-800 text-white">
+                                    <i class="bi bi-phone-vibrate text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Desarrollo Móvil</h3>
+                                <p class="text-white/80 flex-grow text-lg">Soluciones que se ajustan a las necesidades
+                                    actuales del mercado, creando o complementando tu negocio.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-surface p-10 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 h-full flex flex-col aspect-video">
+                                <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-md bg-red-800 text-white">
+                                    <i class="bi bi-fullscreen text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Diseño UI/UX</h3>
+                                <p class="text-white/80 flex-grow text-lg">Creamos productos digitales que lucen bien,
+                                    son
+                                    fáciles de usar y brindan una experiencia positiva.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-surface p-10 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 h-full flex flex-col aspect-video">
+                                <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-md bg-red-800 text-white">
+                                    <i class="bi bi-motherboard text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Hardware</h3>
+                                <p class="text-white/80 flex-grow text-lg">Venta de repuestos, cámaras de vigilancia,
+                                    domótica y mucho más para potenciar tu infraestructura.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide h-auto">
+                            <div class="bg-surface p-10 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 h-full flex flex-col aspect-video">
+                                <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-md bg-red-800 text-white">
+                                    <i class="bi bi-disc-fill text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Software</h3>
+                                <p class="text-white/80 flex-grow text-lg">Adquiere licencias originales de los software
+                                    más
+                                    solicitados en el mercado para tu empresa.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
-                         title="Implementamos soluciones que se ajusten a las necesidades más actuales del mercado">
-                        <i class="bi bi-phone"></i>
-                        <h3><a href="app/details.html#service3">Desarrollo Móvil</a></h3>
-                    </div>
+                <div class="swiper-button-prev absolute top-1/2 -translate-y-1/2 w-12 h-12 bg-surface rounded-full
+               transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:scale-110
+               after:text-xl [--swiper-navigation-color:white] hover:[--swiper-navigation-color:#f30519]
+               left-[-24px] md:left-[-64px] opacity-100 md:opacity-0 group-hover:md:opacity-100">
                 </div>
-                <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
-                         title="Sitio web siempre activo y seguro: Nos encargamos de la gestión técnica para que tú te enfoques en tu negocio.">
-                        <i class="bi bi-body-text"></i>
-                        <h3><a href="app/details.html#service4">Administración de Sitios</a></h3>
-                    </div>
-                </div>
-
-                <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
-                    <div class="icon-box tooltipDivClass" data-bs-toggle="tooltip" data-bs-placement="top"
-                         title="Adquiere licencias Originales con nosotros, de los software más solicitados en el
-                            mercado.">
-                        <i class="bi bi-disc"></i>
-                        <h3><a href="app/details.html#service6">Software</a></h3>
-                    </div>
+                <div class="swiper-button-next absolute top-1/2 -translate-y-1/2 w-12 h-12 bg-surface rounded-full
+               transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:scale-110
+               after:text-xl [--swiper-navigation-color:white] hover:[--swiper-navigation-color:#f30519]
+               right-[-24px] md:right-[-64px] opacity-100 md:opacity-0 group-hover:md:opacity-100">
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="services" class="services section dark-background">
-
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Servicios</h2>
-            <p>Resumen de servicios</p>
-        </div>
-
-        <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
-                        <div class="icon mb-3">
-                            <i class="bi bi-file-earmark-code"></i>
-                        </div>
-                        <h3>Pàginas de Presentación</h3>
-                        <p>Máximo rendimiento para tu sitio web: Mantenimiento, seguridad y optimización para resultados formidables.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
-                        <div class="icon mb-3">
-                            <i class="bi bi-phone-vibrate"></i>
-                        </div>
-                        <h3>Desarrollo Móvil</h3>
-                        <p>Implementamos soluciones que se ajusten a las necesidades más actuales del mercado, creando o complementando lo que su negocio necesite.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
-                        <div class="icon mb-3">
-                            <i class="bi bi-easel"></i>
-                        </div>
-                        <h3>Diseño UI/UX</h3>
-                        <p>Ofrecemos estos servicios para crear productos digitales que no solo luzcan bien, sino que también sean fáciles de usar y brinden una experiencia positiva al usuario.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
-                        <div class="icon mb-3">
-                            <i class="bi bi-bounding-box-circles"></i>
-                        </div>
-                        <h3>Hardware</h3>
-                        <p>Encuentra alternativas de hardware como la venta de repuestos para computadores, cámaras de vigilancia, domótica y mucho más.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="service-item d-flex flex-column align-items-center justify-content-center text-center p-4 rounded shadow">
-                        <div class="icon mb-3">
-                            <i class="bi bi-calendar4-week"></i>
-                        </div>
-                        <h3>Software</h3>
-                        <p>Adquiere licencias Originales con nosotros, de los software más solicitados en el mercado.</p>
-                    </div>
-                </div>
+    <hr class="container mx-auto border-t border-white/30 my-16">
+    <!-- =======================================================
+    * Process Section
+    ======================================================== -->
+    <section id="process" class="py-16 bg-surface text-white">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-end mb-16 fade-in-section">
+                <h2 class="font-heading text-4xl font-bold uppercase text-white mt-2 title-underline">Nuestro Proceso de
+                    Trabajo</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
-
-    <section id="contact" class="contact section dark-background">
-
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Contacto</h2>
-            <p>Contactanos</p>
-        </div>
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-                <iframe style="border:0; width: 100%; height: 370px;"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d988.0720935855105!2d-72.47731603039394!3d7.864861127999812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6645c4a8160b11%3A0x436e19ed9104e630!2sMolink%20Tecnologia!5e0!3m2!1ses!2sco!4v1737513405897!5m2!1ses!2sco"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="row gy-4">
-
-                <div class="col-lg-4">
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <i class="bi bi-geo-alt flex-shrink-0"></i>
-                        <div>
-                            <h3>Dirección</h3>
-                            <p>CR Maranta Casa E3</p>
-                        </div>
+            <!-- Grid del Proceso -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Paso 1: Consulta -->
+                <div class="relative p-8 border border-white/10 text-center fade-in-section hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
+                    <div class="absolute top-4 right-4 font-heading text-6xl text-red-800">01</div>
+                    <div class="mb-4 text-accent text-4xl">
+                        <i class="bi bi-search"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Análisis y Consulta</h3>
+                    <p class="text-white/70">Escuchamos tus ideas y objetivos para definir el alcance y la estrategia
+                        perfecta para tu proyecto.</p>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <i class="bi bi-telephone flex-shrink-0"></i>
-                        <div>
-                            <h3>Teléfono</h3> <a href="https://wa.me/573155756600" target="_blank">
-                            <p>+57 315 575 6600</p>
-                        </a>
-                        </div>
+                <!-- Paso 2: Diseño -->
+                <div class="relative p-8 border border-white/10 text-center fade-in-section hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3"
+                     style="animation-delay: 150ms;">
+                    <div class="absolute top-4 right-4 font-heading text-6xl text-red-800">02</div>
+                    <div class="mb-4 text-accent text-4xl">
+                        <i class="bi bi-palette"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Diseño y Prototipo</h3>
+                    <p class="text-white/70">Creamos interfaces intuitivas y atractivas, presentándote un prototipo
+                        interactivo antes de programar.</p>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                        <i class="bi bi-envelope flex-shrink-0"></i>
-                        <div>
-                            <h3>Correo</h3> <a href="mailto:contacto@molink.com.co" target="_blank">
-                            <p>contacto@molink.com.co</p>
-                        </a>
-                        </div>
+                <!-- Paso 3: Desarrollo -->
+                <div class="relative p-8 border border-white/10 text-center fade-in-section hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3"
+                     style="animation-delay: 300ms;">
+                    <div class="absolute top-4 right-4 font-heading text-6xl text-red-800">03</div>
+                    <div class="mb-4 text-accent text-4xl">
+                        <i class="bi bi-code-slash"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Desarrollo</h3>
+                    <p class="text-white/70">Nuestros expertos dan vida al diseño con código limpio, escalable y
+                        optimizado
+                        para el rendimiento.</p>
                 </div>
-
+                <!-- Paso 4: Lanzamiento -->
+                <div class="relative p-8 border border-white/10 text-center fade-in-section hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3"
+                     style="animation-delay: 450ms;">
+                    <div class="absolute top-4 right-4 font-heading text-6xl text-red-800">04</div>
+                    <div class="mb-4 text-accent text-4xl">
+                        <i class="bi bi-rocket-takeoff"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Lanzamiento y Soporte</h3>
+                    <p class="text-white/70">Desplegamos tu proyecto al mundo y ofrecemos soporte continuo para asegurar
+                        su
+                        funcionamiento óptimo.</p>
+                </div>
             </div>
         </div>
     </section>
-
+    <hr class="container mx-auto border-t border-white/30 my-16">
+    <!-- =======================================================
+    * Portfolio Section
+    ======================================================== -->
+    <section id="portfolio" class="py-16 bg-surface">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="relative z-10 container mx-auto text-center px-4 fade-in-section my-8">
+                <h2 class="font-heading text-4xl font-bold uppercase text-white title-underline">Proyectos que Hablan
+                    por Sí Mismos</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-white/80 text-lg">
+                    Cada línea de código y cada pixel están diseñados con un propósito.
+                    Explora nuestro portafolio y descubre cómo transformamos ideas en realidades digitales.
+                </p>
+                <a href="src/pages/portfolio.html"
+                   class="inline-block mt-8 bg-accent text-white font-bold uppercase tracking-wider py-3 px-8 rounded-md transition-all duration-300 hover:bg-red-800 hover:text-accent hover:scale-105">
+                    Ver Portafolio Completo
+                </a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                <!-- Logo 1  -->
+                <div class="flex justify-center items-center p-4 fade-in-section">
+                    <img src="/assets/clients/liderplast.webp" alt="Logo del cliente Liderplast"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+                <!-- Logo 2  -->
+                <div class="flex justify-center items-center p-4 fade-in-section" style="animation-delay: 100ms;">
+                    <img src="/assets/clients/sena2023.webp" alt="Logo de Otro Cliente"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+                <!-- Logo 3  -->
+                <div class="flex justify-center items-center p-4 fade-in-section" style="animation-delay: 200ms;">
+                    <img src="/assets/clients/encontrable.webp" alt="Logo de Otro Cliente 2"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+                <!-- Logo 4 -->
+                <div class="flex justify-center items-center p-4 fade-in-section" style="animation-delay: 300ms;">
+                    <img src="/assets/clients/powerTeam.webp" alt="Logo de Otro Cliente 3"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+                <!-- Logo 5 -->
+                <div class="flex justify-center items-center p-4 fade-in-section" style="animation-delay: 400ms;">
+                    <img src="/assets/clients/advise.webp" alt="Logo de Otro Cliente 4"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+                <!-- Logo 6 -->
+                <div class="flex justify-center items-center p-4 fade-in-section" style="animation-delay: 500ms;">
+                    <img src="/assets/clients/gallinasCasa.webp" alt="Logo de Otro Cliente 5"
+                         class="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
+<!-- Footer -->
+<div id="footer-placeholder"></div>
 
-<footer id="footer" class="footer dark-background">
-
-    <div class="footer-top">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">MOLINK Tecnologia</span>
-                    </a>
-                    <div class="footer-contact pt-3">
-                        <p>Villa del Rosario</p>
-                        <p>Norte de Santander - Colombia</p>
-                        <p class="mt-3"><strong>Teléfono:</strong> <span>+57 315 575 6600</span></p>
-                        <p><strong>Correo:</strong> <span>contacto@molink.com.co</span></p>
-                    </div>
-                    <div class="social-links d-flex mt-4">
-                        <a href="https://wa.me/573155756600" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                        <a href="https://web.facebook.com/MolinkSeguridad" target="_blank"><i
-                                class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/_molink_/" target="_blank"><i
-                                class="bi bi-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@_molink_" target="_blank"><i class="bi bi-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Enlaces de Interés</h4>
-                    <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#hero"> Inicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html"> Servicios Detallados</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#contact"> Contacto</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/termService.html"> Terminos del servicio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/privacity.html"> Politica de Privacidad</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nuestros Servicios</h4>
-                    <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service3"> Desarrollo Móvil</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service2"> Desarrollo Web</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html"> Dirección de Proyectos</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service7"> Soporte Remoto</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>...</h4>
-                    <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service1"> Páginas de Presentación</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service6"> Software Licenciado</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="app/details.html#service4"> Administración de Sitios web</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="https://www.cloudflare.com/es-es/" target="_blank"> Hosting y Dominio</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="https://www.w3schools.com/" target="_blank"> Aprende</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="copyright">
-        <div class="container text-center">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Molink</strong> <span>Todos los Derechos Reservados</span>
-            </p>
-            <div class="credits">
-                Diseñado por <a href="https://lfmg1993.github.io/LFMG1993/index.html">Leonardo Montes</a>
-            </div>
-        </div>
-    </div>
-
-</footer>
-
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-<div id="preloader"></div>
-
-<script src="library/js/popper.min.js"></script>
-<script src="library/js/bootstrap5.min.js"></script>
-<script src="library/js/aos.js"></script>
-<script src="library/js/swiper-bundle.min.js"></script>
-<script src="library/js/glightbox.min.js"></script>
-<script src="library/js/imagesloaded.pkgd.min.js"></script>
-<script src="library/js/isotope.pkgd.min.js"></script>
-<script src="library/js/purecounter_vanilla.js"></script>
-<script src="library/js/main.js"></script>
-<script src="library/js/custom.js"></script>
+<script type="module" src="src/main.ts"></script>
 
 </body>
 </html>

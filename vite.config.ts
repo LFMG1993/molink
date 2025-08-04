@@ -1,16 +1,15 @@
 import {defineConfig} from 'vite'
-import path from 'path'
 
 export default defineConfig({
     plugins: [],
     build: {
         rollupOptions: {
             input: {
-                main: path.resolve(__dirname, 'index.html'),
-                details: path.resolve(__dirname, 'src/pages/details.html'),
-                privacity: path.resolve(__dirname, 'src/pages/privacity.html'),
-                termService: path.resolve(__dirname, 'src/pages/termService.html'),
-                portfolio: path.resolve(__dirname, 'src/pages/portfolio.html'),
+                main: new URL('./index.html', import.meta.url).pathname,
+                details: new URL('./src/pages/details.html', import.meta.url).pathname,
+                privacity: new URL('./src/pages/privacity.html', import.meta.url).pathname,
+                termService: new URL('./src/pages/termService.html', import.meta.url).pathname,
+                portfolio: new URL('./src/pages/portfolio.html', import.meta.url).pathname,
             },
         },
     },

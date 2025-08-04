@@ -1,21 +1,3 @@
-# Cabeceras para CSS
-/assets/*.css
-  Content-Type: text/css; charset=UTF-8
-
-# Cabeceras para JS
-/assets/*.js
-  Content-Type: application/javascript; charset=UTF-8
-
-# Cabeceras para fuentes
-/assets/*.woff2
-  Content-Type: font/woff2
-/assets/*.woff
-  Content-Type: font/woff
-
-# Opcional: HTML
-/*.html
-  Content-Type: text/html; charset=UTF-8
-
-# Caching por defecto para assets de Vite
+# Caching agresivo para todo lo que vaya en /assets
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

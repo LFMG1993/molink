@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { portfolioData } from '../data/portfolio.data';
-import { SEO } from '../components/general/SEO';
+import { portfolioData } from '../data/portfolio.data.ts';
+import { SEO } from '../components/general/SEO.tsx';
 import { Globe, Github, Download, Youtube } from 'react-bootstrap-icons';
 import type { ProjectLink } from '../types';
 
@@ -38,9 +38,13 @@ const PortfolioDetailsPage = () => {
             <SEO title={`${project.title} | Molink`} description={project.objective} />
             <main className="bg-black text-white py-20">
                 <div className="container mx-auto px-4">
-                    {/* Aquí iría el reproductor de video */}
-                    {project.videoUrl && (
-                        <video src={project.videoUrl} controls className="w-full lg:w-3/4 xl:w-2/3 mx-auto rounded-lg mb-12"></video>
+                    {/* Renderizado condicional: Muestra el video si existe, si no, muestra la imagen. */}
+                    {project.videoUrl ? (
+                        <video src={project.videoUrl} controls className="w-full lg:w-3/4 xl:w-2/3 mx-auto rounded-lg mb-12 shadow-lg"></video>
+                    ) : (
+                        project.imageUrl && (
+                            <img src={project.imageUrl} alt={project.title} className="w-full md:w-5/6 lg:w-1/2 mx-auto rounded-lg mb-12 shadow-lg object-contain" />
+                        )
                     )}
 
                     <h1 className="font-heading text-5xl mb-4">{project.title}</h1>

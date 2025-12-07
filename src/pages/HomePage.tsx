@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import {SEO} from '../components/general/SEO';
-import Carousel from '../components/general/Carousel';
-import {ImagesHome, ImagesClients} from "../utils/images";
+import {SEO} from '../components/general/SEO.tsx';
+import Carousel from '../components/general/Carousel.tsx';
+import {ImagesHome, ImagesClients} from "../utils/images.ts";
 import {
     FileEarmarkCode,
     PhoneVibrate,
@@ -96,25 +96,25 @@ const HomePage = () => {
                             Tecnológicas</h1>
                     </div>
                     <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <Link to="/details"
+                        <Link to="/details#service2"
                               className="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
                             <FiletypeHtml className="text-4xl text-accent"/>
                             <h2 className="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
                                 Desarrollo Web</h2>
                         </Link>
-                        <Link to="/details"
+                        <Link to="/details#service3"
                               className="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
                             <Phone className="text-4xl text-accent"/>
                             <h2 className="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
                                 Desarrollo Móvil</h2>
                         </Link>
-                        <Link to="/details"
+                        <Link to="/details#service4"
                               className="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
                             <BodyText className="text-4xl text-accent"/>
                             <h2 className="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
                                 Administración</h2>
                         </Link>
-                        <Link to="/details"
+                        <Link to="/details#service5"
                               className="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">
                             <Disc className="text-4xl text-accent"/>
                             <h2 className="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
@@ -211,7 +211,7 @@ const HomePage = () => {
                             portafolio y descubre cómo transformamos ideas en realidades digitales.
                         </p>
                         <Link to="/portfolio"
-                              className="inline-block mt-8 bg-accent text-white font-bold uppercase tracking-wider py-3 px-8 rounded-md transition-all duration-300 hover:bg-red-800 hover:text-accent hover:scale-105">
+                              className="inline-block mt-8 bg-accent text-white font-bold uppercase tracking-wider py-3 px-8 rounded-md transition-all duration-300 shadow-lg shadow-[#f30519]/50 hover:bg-red-800 hover:scale-105">
                             Ver Portafolio Completo
                         </Link>
                     </div>

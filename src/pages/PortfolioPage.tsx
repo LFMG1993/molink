@@ -1,23 +1,31 @@
-import FlipCard from '../components/portfolio/FlipCard';
-import { SEO } from '../components/general/SEO';
-import {ImagesClients} from "../utils/images";
+import FlipCard from '../components/portfolio/FlipCard.tsx';
+import { SEO } from '../components/general/SEO.tsx';
+import {ImagesClients} from "../utils/images.ts";
 
 // Datos de ejemplo para los proyectos
 const portfolioData = [
     {
-        imageUrl: ImagesClients.gallinasCasa,
-        slug: 'gallinas-en-casa',
-        date: '2023',
-        title: 'Gallinas en Casa',
-        description: 'Proyecto desarrollado en mi etapa lectiva del SENA, es una aplicación movil desarrollada en Flutter con APK para android. Busca ayudar a pequeños granjeros de la region de norte de santander a llevar un control de  la recoleccion de huevos, consejos utiles y un foro de apoyo para toda la comunidad de la app.',
+        imageUrl: ImagesClients.liderplast,
+        slug: 'distribuciones-liderplast',
+        date: '2025',
+        title: 'Distribuciones LiderPlast',
+        description: 'Desarrollamos desde cero un E-commerce para una empresa distribuidora de plasticos, donde se puede ingresar a consultar precios, llenar el carrito, buscar productos, clasificacion por categorias y sub categorias y su area administrativa donde se puede gestionar toda la tienda.',
         flipDirection: 'horizontal' as const,
     },
     {
-        imageUrl: ImagesClients.sena2023,
-        slug: 'proyecto-productivas',
-        date: '2024',
-        title: 'Proyecto Productivas',
-        description: 'Desarrollamos en equipo una aplicación web basada en php y js, donde se buscaba tener un control sobre los aprendices que salieron a etapas productivas y requieren llenar un informe cada 15 dias, esta plataforma une a directivos, instructores y aprendices, llevando una trazabilidad de las bitacoras presentadas, control de datos e informes del progreso sobre la etapa productva.',
+        imageUrl: ImagesClients.congelados,
+        slug: 'congelados',
+        date: '2025',
+        title: 'Congelados',
+        description: 'Desarrollo de origen propio donde ofrecemos un aplicativo web para la gestion de heladerias o fruterias, dandole al usuario todo lo que requiere, desde la gestion de empleados, hasta la creacion de recetas en base a los ingredientes, cuenta con una versión siempre libre.',
+        flipDirection: 'horizontal' as const,
+    },
+    {
+        imageUrl: ImagesClients.masterYoel,
+        slug: 'el-master-yoel',
+        date: '2025',
+        title: 'El master Yoel',
+        description: 'Plantilla Desarrollada para un sistema wordPress, todo el diseño y funcionalidades fueron hechas a medida para cubrir su uso desde wordpress.',
         flipDirection: 'horizontal' as const,
     },
     {
@@ -45,29 +53,22 @@ const portfolioData = [
         flipDirection: 'horizontal' as const,
     },
     {
-        imageUrl: ImagesClients.liderplast,
-        slug: 'distribuciones-liderplast',
-        date: '2025',
-        title: 'Distribuciones LiderPlast',
-        description: 'Desarrollamos desde cero un E-commerce para una empresa distribuidora de plasticos, donde se puede ingresar a consultar precios, llenar el carrito, buscar productos, clasificacion por categorias y sub categorias y su area administrativa donde se puede gestionar toda la tienda.',
+        imageUrl: ImagesClients.sena2023,
+        slug: 'proyecto-productivas',
+        date: '2024',
+        title: 'Proyecto Productivas',
+        description: 'Desarrollamos en equipo una aplicación web basada en php y js, donde se buscaba tener un control sobre los aprendices que salieron a etapas productivas y requieren llenar un informe cada 15 dias, esta plataforma une a directivos, instructores y aprendices, llevando una trazabilidad de las bitacoras presentadas, control de datos e informes del progreso sobre la etapa productva.',
         flipDirection: 'horizontal' as const,
     },
     {
-        imageUrl: ImagesClients.congelados,
-        slug: 'congelados',
-        date: '2025',
-        title: 'Congelados',
-        description: 'Desarrollo de origen propio donde ofrecemos un aplicativo web para la gestion de heladerias o fruterias, dandole al usuario todo lo que requiere, desde la gestion de empleados, hasta la creacion de recetas en base a los ingredientes, cuenta con una versión siempre libre.',
+        imageUrl: ImagesClients.gallinasCasa,
+        slug: 'gallinas-en-casa',
+        date: '2023',
+        title: 'Gallinas en Casa',
+        description: 'Proyecto desarrollado en mi etapa lectiva del SENA, es una aplicación movil desarrollada en Flutter con APK para android. Busca ayudar a pequeños granjeros de la region de norte de santander a llevar un control de  la recoleccion de huevos, consejos utiles y un foro de apoyo para toda la comunidad de la app.',
         flipDirection: 'horizontal' as const,
-    },
-    {
-        imageUrl: ImagesClients.masterYoel,
-        slug: 'el-master-yoel',
-        date: '2025',
-        title: 'El master Yoel',
-        description: 'Plantilla Desarrollada para un sistema wordPress, todo el diseño y funcionalidades fueron hechas a medida para cubrir su uso desde wordpress.',
-        flipDirection: 'horizontal' as const,
-    },
+    }
+
 ];
 
 const PortfolioPage = () => {

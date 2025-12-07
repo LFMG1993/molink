@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {ImagesHome} from "../../utils/images";
+import {ImagesHome} from "../../utils/images.ts";
 import { List, X } from 'react-bootstrap-icons';
 
 const Header = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SEO} from '../components/general/SEO'
+import {SEO} from '../components/general/SEO.tsx'
 const PrivacyPolicy: React.FC = () => {
 
     return (

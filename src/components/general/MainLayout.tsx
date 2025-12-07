@@ -1,10 +1,10 @@
 import React from 'react';
 import {Outlet} from 'react-router-dom';
-import {useHashScroll} from "../../hooks/useHashScroll";
-import Header from './Header';
-import Footer from './Footer';
-import ScrollToTopButton from "./ScrollToTopButton";
-import { CookieBanner } from './CookieBanner';
+import {useHashScroll} from "../../hooks/useHashScroll.ts";
+import Header from './Header.tsx';
+import Footer from './Footer.tsx';
+import ScrollToTopButton from "./ScrollToTopButton.tsx";
+import { CookieBanner } from './CookieBanner.tsx';
 
 const MainLayout: React.FC = () => {
     useHashScroll();

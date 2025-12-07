@@ -7,7 +7,7 @@ export const CookieBanner = () => {
 
     useEffect(() => {
         // Comprueba si el consentimiento ya ha sido dado.
-        const consent = localStorage.getItem('cookie_consent');
+        const consent = localStorage.getItem('cookie_consent_molink');
         if (!consent) {
             // Si no hay registro, muestra el banner.
             setIsVisible(true);

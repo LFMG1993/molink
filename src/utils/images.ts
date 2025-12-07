@@ -16,7 +16,10 @@ import congelados from "../assets/clients/congeladoBlanco.webp";
 import masterYoel from "../assets/clients/leonNegro.webp"
 
 // Videos Clientes
-import productivasVideo from "../assets/videos/videoProjectProductivas.mp4"
+import productivasVideo from "../assets/videos/videoProjectProductivas.mp4";
+import encontrableVideo from "../assets/videos/videoEncontrable.mp4";
+import liderplastVideo from "../assets/videos/videoLiderplast.mp4";
+import congeladosVideo from "../assets/videos/videoCongelados.mp4"
 
 // Imagenes de Lenguajes
 import apache from "../assets/languages/apache.webp";
@@ -58,7 +61,10 @@ export const ImagesClients = {
     masterYoel} as const;
 
 export const VideoClients = {
-    productivasVideo
+    productivasVideo,
+    encontrableVideo,
+    liderplastVideo,
+    congeladosVideo
 }
 
 export const ImagesLanguages = {

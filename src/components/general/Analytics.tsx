@@ -8,7 +8,7 @@ declare global {
     }
 }
 
-const GA_MEASUREMENT_ID = 'G-4NLXPVS4W2';
+const GA_MEASUREMENT_ID = 'G-EVWSP8LGVM';
 const CLARITY_PROJECT_ID = import.meta.env.VITE_CLARITY_PROJECT_ID;
 
 export const Analytics = () => {

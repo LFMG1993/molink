@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { SEO } from '../components/general/SEO';
-import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll';
+import { SEO } from '../components/general/SEO.tsx';
+import { useFadeInOnScroll } from '../hooks/useFadeInOnScroll.ts';
 
 // Componente reutilizable para cada sección del documento legal.
 // Aplica la animación de fade-in automáticamente.

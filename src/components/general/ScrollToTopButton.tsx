@@ -39,7 +39,7 @@ const ScrollToTopButton = () => {
     return (
         <button
             onClick={scrollToTop}
-            className={`fixed bottom-4 right-4 z-[9999] h-10 w-10 rounded bg-red-800 text-white flex items-center justify-center transition-all duration-300 hover:bg-red-700 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            className={`fixed bottom-4 right-4 z-[9999] h-12 w-12 rounded-lg bg-red-800 text-white flex items-center justify-center transition-all duration-300 hover:bg-red-700 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             aria-label="Volver arriba"
         >
             <ArrowUpShort className="text-2xl" />

@@ -43,19 +43,34 @@ const Carousel: React.FC<CarouselProps> = ({ children, slidesToShow = 1 }) => {
             </div>
 
             {/* Botón Izquierdo */}
-            <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-8 z-10 p-2 bg-surface rounded-full text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ChevronLeft className="text-2xl" />
+            <button
+                onClick={prevSlide}
+                aria-label="Anterior Slide"
+                className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-10 z-10 p-3 bg-surface rounded-full text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ChevronLeft className="h-6 w-6" />
             </button>
 
             {/* Botón Derecho */}
-            <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-8 z-10 p-2 bg-surface rounded-full text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ChevronRight className="text-2xl" />
+            <button
+                onClick={nextSlide}
+                aria-label="Siguiente Slide"
+                className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 z-10 p-3 bg-surface rounded-full text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ChevronRight className="h-6 w-6" />
             </button>
 
             {/* Puntos de Navegación */}
-            <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 flex space-x-2">
+            <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 flex items-center justify-center space-x-2">
                 {children.map((_, slideIndex) => (
-                    <button key={slideIndex} onClick={() => goToSlide(slideIndex)} className={`w-3 h-3 rounded-full transition-colors ${currentIndex === slideIndex ? 'bg-red-700' : 'bg-white/50 hover:bg-white'}`}></button>
+                    <button
+                        key={slideIndex}
+                        onClick={() => goToSlide(slideIndex)}
+                        aria-label={`Ir a la diapositiva ${slideIndex + 1}`}
+                        className="p-2 rounded-full group"
+                    >
+                        <div
+                            className={`w-3 h-3 rounded-full transition-colors ${currentIndex === slideIndex ? 'bg-accent' : 'bg-white/50 group-hover:bg-white'}`}
+                        ></div>
+                    </button>
                 ))}
             </div>
         </div>

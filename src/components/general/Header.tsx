@@ -74,7 +74,7 @@ const Header = () => {
                     <button
                         id="mobile-nav-toggle"
                         className="lg:hidden text-white text-3xl z-50"
-                        aria-label="Abrir menú móvil"
+                        aria-label={isMobileMenuOpen ? "Cerrar menú móvil" : "Abrir menú móvil"}
                         onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X /> : <List />}

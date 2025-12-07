@@ -143,7 +143,7 @@ const HomePage = () => {
                                         <IconComponent className="text-4xl"/>
                                     </div>
                                     <h3 className="text-2xl font-bold mb-3 text-white">{title}</h3>
-                                    <p className="text-white/80 flex-grow text-lg">{description}</p>
+                                    <p className="text-white/90 flex-grow text-lg">{description}</p>
                                 </div>
                             ))}
                         </Carousel>
@@ -166,33 +166,29 @@ const HomePage = () => {
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
                             <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">01</div>
                             <div className="mb-4 text-accent text-4xl"><Search/></div>
-                            <h3 className="text-xl font-bold mb-2">Análisis y Consulta</h3>
-                            <p className="text-white/70">Escuchamos tus ideas y objetivos para definir el alcance y la
-                                estrategia perfecta.</p>
+                            <h3 className="text-xl font-bold mb-2 text-white">Análisis y Consulta</h3>
+                            <p className="text-white/90">Escuchamos tus ideas y objetivos para definir el alcance y la estrategia perfecta.</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
                             <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">02</div>
                             <div className="mb-4 text-accent text-4xl"><Palette/></div>
-                            <h3 className="text-xl font-bold mb-2">Diseño y Prototipo</h3>
-                            <p className="text-white/70">Creamos interfaces intuitivas y atractivas, presentándote un
-                                prototipo interactivo.</p>
+                            <h3 className="text-xl font-bold mb-2 text-white">Diseño y Prototipo</h3>
+                            <p className="text-white/90">Creamos interfaces intuitivas y atractivas, presentándote un prototipo interactivo.</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
                             <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">03</div>
                             <div className="mb-4 text-accent text-4xl"><CodeSlash/></div>
-                            <h3 className="text-xl font-bold mb-2">Desarrollo</h3>
-                            <p className="text-white/70">Nuestros expertos dan vida al diseño con código limpio,
-                                escalable y optimizado.</p>
+                            <h3 className="text-xl font-bold mb-2 text-white">Desarrollo</h3>
+                            <p className="text-white/90">Nuestros expertos dan vida al diseño con código limpio, escalable y optimizado.</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
                             <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">04</div>
                             <div className="mb-4 text-accent text-4xl"><RocketTakeoff/></div>
-                            <h3 className="text-xl font-bold mb-2">Lanzamiento y Soporte</h3>
-                            <p className="text-white/70">Desplegamos tu proyecto y ofrecemos soporte continuo para
-                                asegurar su funcionamiento.</p>
+                            <h3 className="text-xl font-bold mb-2 text-white">Lanzamiento y Soporte</h3>
+                            <p className="text-white/90">Desplegamos tu proyecto y ofrecemos soporte continuo para asegurar su funcionamiento.</p>
                         </div>
                     </div>
                 </div>

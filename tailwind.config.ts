@@ -1,14 +1,15 @@
-/** @type {import('tailwindcss').Config} */
+import type {Config} from 'tailwindcss';
+
 export default {
     content: [
         './index.html',
-        './pages/**/*.{html,js,ts}',
-        './src/components/**/*.html',
-        './src/**/*.{js,ts}',
+        './src/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
         extend: {
             colors: {
+                surface: 'var(--color-surface)',
+                accent: 'var(--color-accent)',
             },
             fontFamily: {
                 'default': ['Roboto', 'system-ui', 'sans-serif'],
@@ -18,4 +19,4 @@ export default {
         },
     },
     plugins: [],
-}
+} satisfies Config

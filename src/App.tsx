@@ -7,10 +7,12 @@ import PortfolioDetailsPage from "./pages/PortfolioDetailsPage.tsx";
 import PrivacyPolicy from './pages/PrivacyPolicyPage.tsx';
 import CookiePolicyPage from "./pages/CookiesPolicyPage.tsx";
 import TermsOfService from './pages/TermsOfServicePage.tsx';
+import {Analytics} from "./components/general/Analytics.tsx";
 
 function App() {
     return (
         <BrowserRouter>
+            <Analytics />
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<HomePage />} />

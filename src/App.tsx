@@ -8,6 +8,7 @@ import PrivacyPolicy from './pages/PrivacyPolicyPage.tsx';
 import CookiePolicyPage from "./pages/CookiesPolicyPage.tsx";
 import TermsOfService from './pages/TermsOfServicePage.tsx';
 import {Analytics} from "./components/general/Analytics.tsx";
+import StorePage from "./pages/shop/StorePage.tsx";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path="cookie-policy" element={<CookiePolicyPage />} />
                     <Route path="termService" element={<TermsOfService />} />
                 </Route>
+                <Route path="/store" element={<StorePage />} />
             </Routes>
         </BrowserRouter>
     );

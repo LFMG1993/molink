@@ -22,9 +22,9 @@ const portfolioData = [
     },
     {
         imageUrl: ImagesClients.masterYoel,
-        slug: 'el-master-yoel',
-        date: '2025',
-        title: 'El master Yoel',
+        slug: 'siempre-modo-leon',
+        date: '2026',
+        title: 'Siempre Modo Leon',
         description: 'Plantilla Desarrollada para un sistema wordPress, todo el diseño y funcionalidades fueron hechas a medida para cubrir su uso desde wordpress.',
         flipDirection: 'horizontal' as const,
     },

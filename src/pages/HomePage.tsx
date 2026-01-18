@@ -19,7 +19,6 @@ import {
     RocketTakeoff
 } from 'react-bootstrap-icons';
 
-
 const HomePage = () => {
     const services = [
         {

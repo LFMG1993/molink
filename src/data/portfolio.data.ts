@@ -190,9 +190,9 @@ export const portfolioData: Project[] = [
     },
     {
         id: 8,
-        slug: 'el-master-yoel',
-        title: 'El Master Yoel',
-        date: '2025',
+        slug: 'siempre-modo-leon',
+        title: 'Siempre Modo Leon',
+        date: '2026',
         projectType: 'Tema Para WordPress',
         imageUrl: ImagesClients.masterYoel,
         videoUrl: '',
@@ -208,7 +208,7 @@ export const portfolioData: Project[] = [
             {name: 'CSS', icon: ImagesLanguages.css, category: 'Frontend'},
         ],
         links: [
-            { type: 'live', url: 'https://elmasteryoel.com/', label: 'Visitar Proyecto' },
+            { type: 'live', url: 'https://siempremodoleon.com/', label: 'Visitar Proyecto' },
         ],
     }
 ];

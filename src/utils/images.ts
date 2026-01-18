@@ -13,7 +13,7 @@ import powerTeam from "../assets/clients/powerTeam.webp";
 import sena2023 from "../assets/clients/sena2023.webp";
 import gallinasCasa from "../assets/clients/gallinasCasa.webp";
 import congelados from "../assets/clients/congeladoBlanco.webp";
-import masterYoel from "../assets/clients/leonNegro.webp"
+import masterYoel from "../assets/clients/SiempreLeon.webp"
 
 // Videos Clientes
 import productivasVideo from "../assets/videos/videoProjectProductivas.mp4";

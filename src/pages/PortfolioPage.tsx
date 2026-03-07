@@ -1,9 +1,17 @@
 import FlipCard from '../components/portfolio/FlipCard.tsx';
-import { SEO } from '../components/general/SEO.tsx';
+import {SEO} from '../components/general/SEO.tsx';
 import {ImagesClients} from "../utils/images.ts";
 
 // Datos de ejemplo para los proyectos
 const portfolioData = [
+    {
+        imageUrl: ImagesClients.tocheOn,
+        slug: 'toche-on',
+        date: '2026',
+        title: 'Toche On',
+        description: 'Desarrollo de un aplicativo web PWA, nacido en Talento Tech para ayudar a los usuarios a traves de la inteligencia artificial puedan encontrar lugares de comida saludable cerca de sus coordenadas',
+        flipDirection: 'horizontal' as const,
+    },
     {
         imageUrl: ImagesClients.liderplast,
         slug: 'distribuciones-liderplast',
@@ -68,7 +76,6 @@ const portfolioData = [
         description: 'Proyecto desarrollado en mi etapa lectiva del SENA, es una aplicación movil desarrollada en Flutter con APK para android. Busca ayudar a pequeños granjeros de la region de norte de santander a llevar un control de  la recoleccion de huevos, consejos utiles y un foro de apoyo para toda la comunidad de la app.',
         flipDirection: 'horizontal' as const,
     }
-
 ];
 
 const PortfolioPage = () => {
@@ -80,7 +87,8 @@ const PortfolioPage = () => {
                 keywords="portafolio, proyectos, desarrollo web, react, molink"
                 canonicalUrl="/portfolio"
             />
-            <section className="bg-black min-h-screen w-full flex flex-wrap justify-center items-center gap-24 p-8 pt-32">
+            <section
+                className="bg-black min-h-screen w-full flex flex-wrap justify-center items-center gap-24 p-8 pt-32">
                 {portfolioData.map((project, index) => (
                     <FlipCard
                         key={index}

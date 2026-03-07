@@ -155,7 +155,7 @@ export const portfolioData: Project[] = [
             { name: 'MySQL', icon: ImagesLanguages.mysql, category: 'Base de Datos' },
             { name: 'TypeScript', icon: ImagesLanguages.typescript, category: 'Frontend' },
             {name: 'React', icon: ImagesLanguages.react, category: 'Frontend'},
-            { name: 'CloudFlare', icon: ImagesLanguages.ubuntu, category: 'DevOps' },
+            { name: 'CloudFlare', icon: ImagesLanguages.cloudflare, category: 'DevOps' },
         ],
         links: [
             { type: 'live', url: 'https://distribucioneslider.com.co/', label: 'Visitar Proyecto' },
@@ -182,7 +182,7 @@ export const portfolioData: Project[] = [
             { name: 'Firestore DataBase', icon: ImagesLanguages.firebase, category: 'Base de Datos' },
             { name: 'TypeScript', icon: ImagesLanguages.typescript, category: 'Frontend' },
             {name: 'React', icon: ImagesLanguages.react, category: 'Frontend'},
-            { name: 'CloudFlare', icon: ImagesLanguages.ubuntu, category: 'DevOps' },
+            { name: 'CloudFlare', icon: ImagesLanguages.cloudflare, category: 'DevOps' },
         ],
         links: [
             { type: 'live', url: 'https://congelados.com.co/', label: 'Visitar Proyecto' },
@@ -209,6 +209,33 @@ export const portfolioData: Project[] = [
         ],
         links: [
             { type: 'live', url: 'https://siempremodoleon.com/', label: 'Visitar Proyecto' },
+        ],
+    },
+    {
+        id: 9,
+        slug: 'toche-on',
+        title: 'Toche On',
+        date: '2026',
+        projectType: 'Aplicación PWA',
+        imageUrl: ImagesClients.tocheOn,
+        videoUrl: '',
+        shortDescription: 'Aplicativo web enfocado en la experiencia de usuario movil',
+        objective: 'El objetivo de este proyecto es a traves de las coordenadas del usuario la inteligencia artificial buscara los lugares de comida saludable mas cercano.',
+        fullDescription: [
+            'Se diseño el sistema para que este basado en React + Typescript y Vite',
+            'El sistema maneja autenticación por WhatsApp, Google y Correo',
+            'Se gestiona la persistencia de datos con Firestore Database, Worker para llamadas a la API de AI, Cloudinary para gestionar imagenes'
+        ],
+        techStack: [
+            { name: 'TailwindCSS', icon: ImagesLanguages.tailwindcss, category: 'Frontend' },
+            {name: 'React', icon: ImagesLanguages.react, category: 'Frontend'},
+            {name: 'Typescript', icon: ImagesLanguages.typescript, category: 'Frontend' },
+            {name: 'Firebase', icon: ImagesLanguages.firebase, category: 'Backend' },
+            {name: 'Cloudinary', icon: ImagesLanguages.cloudinary, category: 'DevOps' },
+            {name: 'Cloudflare', icon: ImagesLanguages.cloudflare, category: 'DevOps' },
+        ],
+        links: [
+            { type: 'live', url: 'https://tocheon.pages.dev/', label: 'Visitar Proyecto' },
         ],
     }
 ];

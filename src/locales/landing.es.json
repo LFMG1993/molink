@@ -1,0 +1,663 @@
+{
+  "landing": {
+    "nav": {
+      "home": "Inicio",
+      "portfolio": "Portafolio",
+      "services": "Servicios",
+      "pricing": "Precios",
+      "faq": "Preguntas Frecuentes",
+      "contact": "Contacto"
+    },
+    "contact_page": {
+      "title": "Ponte en Contacto",
+      "subtitle": "¿Tienes un proyecto en mente? Estamos listos para ayudarte a hacerlo realidad.",
+      "form_title": "Envíanos un mensaje",
+      "info_title": "Información de contacto",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "message": "Cuéntanos sobre tu proyecto",
+      "send": "Enviar mensaje"
+    },
+    "footer": {
+      "description": "Soluciones tecnológicas a medida para impulsar tu negocio.",
+      "quick_links": "Enlaces Rápidos",
+      "contact_info": "Información de Contacto",
+      "rights": "Todos los derechos reservados.",
+      "subscription": "Suscripciones"
+    },
+    "cookie_banner": {
+      "aria_label": "Banner de consentimiento de cookies",
+      "message": "Utilizamos cookies para mejorar tu experiencia. Al hacer clic en Aceptar, aceptas nuestro uso de cookies.",
+      "policy_link": "Política de Cookies",
+      "reject": "Rechazar",
+      "accept": "Aceptar"
+    },
+    "pricing": {
+      "section_title": "Precios de Desarrollo",
+      "section_subtitle": "Conoce nuestros paquetes y precios. Cada proyecto es único, así que estos valores son referenciales.",
+      "page_title": "Precios y Paquetes de Desarrollo Web",
+      "page_subtitle": "Paquetes de desarrollo web a medida. Precios transparentes, resultados garantizados.",
+      "toggle_subscription": "Suscripción Mensual",
+      "toggle_one_time": "Pago Único",
+      "toggle_hint": "Te recomendamos la suscripción: incluye hosting, dominio y soporte continuo sin preocupaciones.",
+      "from": "Desde",
+      "per_project": "por proyecto",
+      "popular_badge": "Más Popular",
+      "currency_label": "Aceptamos Visa, MasterCard, Amex, Criptomonedas, BinancePay, Paypal",
+      "disclaimer": "Precios referenciales. Pueden variar según la complejidad del proyecto.",
+      "cta_section_title": "¿No encuentras lo que buscas?",
+      "cta_section_desc": "Cada proyecto es único. Cuéntanos tu idea y te daremos un presupuesto sin compromiso.",
+      "cta_button": "Hablar con un Asesor",
+      "setup_fee": "Configuración Inicial",
+      "monthly_label": "/mes",
+      "annual_label": "/año",
+      "annual_savings": "Ahorras",
+      "annual_hint": "Facturación anual",
+      "monthly_hint": "Contrato mínimo 12 meses",
+      "includes_label": "Incluido siempre:",
+      "subs_disclaimer": "Todos los planes de suscripción incluyen hosting, dominio y certificado SSL mientras dure el contrato mínimo de 12 meses."
+    },
+    "calculator": {
+      "title": "Calcula tu Presupuesto",
+      "subtitle": "Selecciona las opciones y obtén un estimado al instante.",
+      "select_package": "¿Qué necesitas?",
+      "select_pages": "¿Cuántas páginas aprox.?",
+      "select_addons": "Funcionalidades extras",
+      "estimated": "Estimado",
+      "range_text": "Tu proyecto estaría entre",
+      "cta_button": "Solicitar Cotización",
+      "pages": {
+        "1_3": "1-3 páginas",
+        "4_7": "4-7 páginas",
+        "8_15": "8-15 páginas",
+        "15_plus": "15+ páginas"
+      },
+      "total": "Total estimado"
+    },
+    "hero": {
+      "title": "Ofrecemos Múltiples Soluciones Tecnológicas",
+      "web_dev": "Desarrollo Web",
+      "mobile_dev": "Desarrollo Móvil",
+      "admin": "Administración",
+      "software": "Tienda"
+    },
+    "services": {
+      "title": "Resumen de servicios",
+      "items": {
+        "web_pages": {
+          "title": "Páginas de Presentación",
+          "description": "Máximo rendimiento: Mantenimiento, seguridad y optimización."
+        },
+        "mobile": {
+          "title": "Desarrollo Móvil",
+          "description": "Soluciones para las necesidades actuales del mercado."
+        },
+        "uiux": {
+          "title": "Diseño UI/UX",
+          "description": "Productos digitales atractivos y fáciles de usar."
+        },
+        "hardware": {
+          "title": "Hardware",
+          "description": "Repuestos, cámaras, domótica y más."
+        },
+        "software": {
+          "title": "Tienda",
+          "description": "Licencias originales y productos tecnológicos a un clic."
+        }
+      }
+    },
+    "process": {
+      "title": "Nuestro Proceso",
+      "steps": {
+        "analysis": {
+          "title": "Análisis y Consulta",
+          "description": "Escuchamos tus ideas para definir la estrategia perfecta."
+        },
+        "design": {
+          "title": "Diseño y Prototipo",
+          "description": "Creamos interfaces intuitivas con prototipos interactivos."
+        },
+        "development": {
+          "title": "Desarrollo",
+          "description": "Código limpio, escalable y optimizado."
+        },
+        "launch": {
+          "title": "Lanzamiento y Soporte",
+          "description": "Desplegamos tu proyecto con soporte continuo."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Proyectos que Hablan por Sí Mismos",
+      "description": "Cada línea de código está diseñada con un propósito. Explora nuestro portafolio.",
+      "cta": "Ver Portafolio Completo",
+      "seo": {
+        "title": "Portafolio de Proyectos | Molink",
+        "description": "Explora nuestros casos de éxito en desarrollo web y móvil. Soluciones tecnológicas reales para empresas reales.",
+        "keywords": "portafolio software, desarrollo web colombia, casos de éxito tecnología, proyectos móviles"
+      }
+    },
+    "details": {
+      "seo": {
+        "title": "Detalles de Servicios",
+        "description": "Conoce nuestros servicios en detalle."
+      },
+      "header": {
+        "title": "Nuestros Servicios",
+        "subtitle": "Soluciones a la medida."
+      },
+      "nav_title": "Lista de Servicios",
+      "help_box": {
+        "title": "¿Tienes Preguntas?",
+        "subtitle": "Contáctanos.",
+        "whatsapp": "WhatsApp"
+      },
+      "services": {
+        "service1": {
+          "title": "Páginas de Presentación",
+          "intro": "En la era digital, tu presencia en línea es fundamental. Una página web estática es la solución perfecta para establecer una base sólida en Internet de forma rápida, sencilla y económica.",
+          "features": [
+            {
+              "strong": "Diseño profesional y personalizado:",
+              "text": " Creamos páginas a medida, adaptadas a la imagen de tu marca."
+            },
+            {
+              "strong": "SEO básico:",
+              "text": " Mejoramos la visibilidad de tu página en buscadores como Google."
+            },
+            {
+              "strong": "Fácil mantenimiento:",
+              "text": " Sencillas de gestionar para mantener tu información al día sin complicaciones."
+            }
+          ],
+          "outro": "No esperes más y da el salto a la presencia en línea. ¡Contáctanos hoy mismo para obtener un presupuesto personalizado!"
+        },
+        "service2": {
+          "title": "Aplicaciones Web",
+          "intro": "Las aplicaciones web son una herramienta imprescindible para impulsar el crecimiento, ya sea para mejorar la interacción con clientes, optimizar la gestión interna o lanzar nuevas funcionalidades.",
+          "features": [
+            {
+              "strong": "Desarrollo a medida:",
+              "text": " Creamos aplicaciones adaptadas a tus necesidades y objetivos estratégicos."
+            },
+            {
+              "strong": "Tecnologías de vanguardia:",
+              "text": " Usamos herramientas modernas para crear aplicaciones robustas, seguras y escalables."
+            },
+            {
+              "strong": "Integración:",
+              "text": " Conectamos tu aplicación con tus plataformas actuales para optimizar procesos."
+            }
+          ]
+        },
+        "service3": {
+          "title": "Aplicaciones Móviles",
+          "intro": "Lleva tu negocio a la palma de la mano de tus clientes. Una aplicación móvil es esencial para expandir tu alcance, mejorar la interacción y optimizar tus procesos.",
+          "features": [
+            {
+              "strong": "Desarrollo nativo y multiplataforma:",
+              "text": " Creamos apps para iOS y Android, adaptadas a tu marca y objetivos."
+            },
+            {
+              "strong": "UI/UX optimizado:",
+              "text": " Priorizamos la usabilidad para que tu aplicación sea atractiva y fácil de usar."
+            },
+            {
+              "strong": "Publicación:",
+              "text": " Te ayudamos a publicar tu aplicación en la App Store y Google Play."
+            }
+          ]
+        },
+        "service4": {
+          "title": "Administración de Sitios",
+          "intro": "Tu sitio web es tu carta de presentación. Mantenerlo funcional, seguro y actualizado requiere tiempo y conocimientos. Te liberamos de estas tareas para que te concentres en tu negocio.",
+          "features": [
+            {
+              "strong": "Mantenimiento:",
+              "text": " Mantenemos tu sitio actualizado y protegido contra vulnerabilidades."
+            },
+            {
+              "strong": "Contenidos:",
+              "text": " Te ayudamos a mantener tu sitio fresco y relevante con contenido de calidad."
+            },
+            {
+              "strong": "SEO continuo:",
+              "text": " Mejoramos la visibilidad de tu sitio en los resultados de búsqueda de forma constante."
+            }
+          ]
+        },
+        "service6": {
+          "title": "Soporte Remoto",
+          "intro": "¿Problemas con tu ordenador o software? Nuestro servicio de soporte remoto te ofrece asistencia técnica experta para solucionar tus incidencias de forma rápida y eficiente, sin necesidad de desplazarte.",
+          "features": [
+            {
+              "strong": "Conexión segura:",
+              "text": " Nos conectamos a tu ordenador de forma segura para diagnosticar y solucionar problemas."
+            },
+            {
+              "strong": "Asistencia personalizada:",
+              "text": " Te brindamos atención y te guiamos paso a paso en la resolución de incidencias."
+            },
+            {
+              "strong": "Multidispositivo:",
+              "text": " Ofrecemos soporte para ordenadores, portátiles, tablets y smartphones."
+            }
+          ]
+        }
+      }
+    },
+    "seo": {
+      "home": {
+        "title": "Desarrollo Web y Móvil en Cúcuta",
+        "description": "Soluciones tecnológicas a medida.",
+        "keywords": "desarrollo web, desarrollo movil, paginas web, programador, Cúcuta, Colombia, Molink"
+      }
+    },
+    "faq": {
+      "seo": {
+        "title": "Preguntas Frecuentes sobre Desarrollo de Software",
+        "description": "Resolvemos las dudas más comunes sobre desarrollo de software, aplicaciones web y móvil, precios, plazos y tecnologías en Latinoamérica.",
+        "keywords": "preguntas frecuentes desarrollo software, cuánto cuesta una app, cuánto tarda desarrollo web, mejor empresa desarrollo software latinoamérica, contratar desarrolladores remotos, precio página web Colombia"
+      },
+      "hero_title": "Preguntas Frecuentes",
+      "hero_subtitle": "Resolvemos las dudas más comunes sobre desarrollo de software, precios, plazos y tecnologías. Si no encuentras lo que buscas, contáctanos directamente.",
+      "cta_title": "¿Tienes otra pregunta?",
+      "cta_desc": "Escríbenos por WhatsApp y te respondemos al instante.",
+      "categories": {
+        "services": {
+          "title": "Servicios",
+          "items": {
+            "q1_q": "¿Qué es el desarrollo de software a medida?",
+            "q1_a": "El desarrollo de software a medida es la creación de aplicaciones diseñadas específicamente para las necesidades únicas de tu negocio. A diferencia del software genérico, una solución personalizada se adapta a tus procesos, escala con tu crecimiento y te da una ventaja competitiva. En Molink, cada proyecto comienza con un análisis profundo de tus objetivos para ofrecer una solución que realmente transforme tu operación.",
+            "q2_q": "¿Cuál es la diferencia entre una página web y una aplicación web?",
+            "q2_a": "Una página web es principalmente informativa: muestra contenido como textos, imágenes y formularios de contacto. Una aplicación web es interactiva y funcional: permite a los usuarios realizar acciones como gestionar inventarios, procesar pagos, administrar usuarios o generar reportes. Si tu negocio necesita funcionalidad más allá de mostrar información, necesitas una aplicación web. Ambos tipos de desarrollo requieren enfoques y presupuestos diferentes.",
+            "q3_q": "¿Desarrollan aplicaciones para iOS y Android?",
+            "q3_a": "Sí. Desarrollamos aplicaciones móviles tanto nativas como multiplataforma. Para la mayoría de proyectos, utilizamos tecnologías como React Native o Flutter que permiten crear una sola base de código que funciona en iOS y Android, reduciendo costos y tiempos de desarrollo sin sacrificar calidad. Evaluamos tu caso particular para recomendar la mejor opción técnica y económica.",
+            "q4_q": "¿Qué incluye un proyecto de desarrollo web completo?",
+            "q4_a": "Un proyecto completo incluye: análisis de requerimientos, diseño UI/UX, desarrollo frontend y backend, pruebas de funcionalidad, optimización de rendimiento, configuración de hosting y dominio, implementación de certificado SSL, SEO básico, capacitación para el uso del panel administrativo y soporte técnico post-lanzamiento. Entregamos un producto listo para operar, no solo código.",
+            "q5_q": "¿Trabajan con clientes fuera de Colombia?",
+            "q5_a": "Absolutamente. Trabajamos con clientes en toda Latinoamérica, Estados Unidos y Europa. Nuestro modelo de trabajo remoto nos permite colaborar con empresas en México, Argentina, Chile, Perú, España y muchos más países. Usamos herramientas como WhatsApp, videollamadas y plataformas de gestión de proyectos para mantener una comunicación fluida sin importar la zona horaria."
+          }
+        },
+        "pricing": {
+          "title": "Precios y Costos",
+          "items": {
+            "q1_q": "¿Cuánto cuesta desarrollar una aplicación en Latinoamérica?",
+            "q1_a": "El costo varía según la complejidad. Una landing page puede costar desde $300 USD, una aplicación web intermedia entre $1,500 y $5,000 USD, y una aplicación móvil completa entre $3,000 y $10,000+ USD. En Molink ofrecemos planes de suscripción mensuales desde $49 USD/mes que incluyen hosting, dominio y soporte continuo. Cada proyecto es único, así que contacta con nosotros para un presupuesto personalizado sin compromiso.",
+            "q2_q": "¿Cuáles son las formas de pago que aceptan?",
+            "q2_a": "Aceptamos pagos en múltiples monedas: COP (pesos colombianos), USD (dólares), EUR (euros), PEN (soles), MXN (pesos mexicanos), ARS (pesos argentinos) y CLP (pesos chilenos). Los métodos de pago incluyen transferencia bancaria, Nequi, Daviplata, PayPal y pagos con tarjeta a través de pasarelas seguras. Ofrecemos facilidades de pago para proyectos grandes.",
+            "q3_q": "¿Es más barato contratar un freelancer que una agencia?",
+            "q3_a": "Un freelancer puede tener tarifas más bajas, pero una agencia como Molink ofrece un equipo completo (diseñador, desarrollador, tester), procesos establecidos, garantía de entrega, soporte continuo y respaldo empresarial. Para proyectos críticos de negocio, la relación calidad-precio de una agencia suele ser superior a largo plazo. Ofrecemos precios competitivos que combinan lo mejor de ambos mundos.",
+            "q4_q": "¿Cuánto cuesta el mantenimiento de un sitio web?",
+            "q4_a": "Con nuestros planes de suscripción, el mantenimiento está incluido: actualizaciones de seguridad, backups, monitoreo de rendimiento, correcciones y soporte técnico. De forma independiente, un mantenimiento mensual puede costar entre $50 y $200 USD dependiendo de la complejidad del sitio. Nuestros planes anuales ofrecen el mejor valor con ahorros de hasta un 20%.",
+            "q5_q": "¿El precio incluye diseño responsive para móviles?",
+            "q5_a": "Sí. Todos nuestros proyectos incluyen diseño responsive por defecto. Tu sitio o aplicación se verá y funcionará correctamente en smartphones, tablets y computadoras de escritorio. Hoy en día, más del 60% del tráfico web proviene de dispositivos móviles, por lo que un diseño mobile-first no es opcional, es esencial."
+          }
+        },
+        "process": {
+          "title": "Proceso de Trabajo",
+          "items": {
+            "q1_q": "¿Cuánto tiempo tarda el desarrollo de una aplicación web?",
+            "q1_a": "Depende de la complejidad. Una landing page puede estar lista en 1-2 semanas. Una aplicación web con funcionalidades intermedias toma entre 4-8 semanas. Proyectos más complejos con integraciones avanzadas pueden tomar 3-6 meses. En cada fase te mantenemos informado del progreso con entregas parciales para que veas el avance real de tu proyecto.",
+            "q2_q": "¿Qué necesito para empezar un proyecto de desarrollo?",
+            "q2_a": "Idealmente necesitas: una idea clara de lo que quieres lograr, información sobre tu negocio (logo, colores corporativos, contenido), y disponibilidad para reuniones de planificación. No necesitas conocimientos técnicos; nosotros te guiamos en cada paso. Si no tienes todo definido, no hay problema: comenzamos con una fase de análisis y consultoría para estructurar tu idea.",
+            "q3_q": "¿Cómo es el proceso de desarrollo paso a paso?",
+            "q3_a": "Nuestro proceso tiene 4 fases: (1) Análisis y consulta: entendemos tus necesidades y definimos alcance. (2) Diseño y prototipo: creamos wireframes y diseños interactivos para tu aprobación. (3) Desarrollo: programamos con sprints y te mostramos avances periódicos. (4) Lanzamiento y soporte: desplegamos tu proyecto y brindamos soporte continuo. Todo el proceso es transparente y colaborativo.",
+            "q4_q": "¿Puedo ver avances durante el desarrollo?",
+            "q4_a": "Por supuesto. Trabajamos con metodologías ágiles que incluyen entregas incrementales. Cada 1-2 semanas te mostramos funcionalidades completadas para que puedas dar feedback y ajustar el rumbo si es necesario. No esperamos al final para que veas resultados; todo el proceso es transparente.",
+            "q5_q": "¿Qué pasa si no estoy satisfecho con el resultado?",
+            "q5_a": "Nuestro proceso incluye revisiones en cada fase para asegurar que el resultado coincida con tus expectativas. Si hay aspectos que no cumplen con lo acordado, los corregimos sin costo adicional. Tenemos una política de garantía que cubre correcciones de bugs y ajustes menores después de la entrega. Tu satisfacción es nuestra prioridad."
+          }
+        },
+        "technical": {
+          "title": "Preguntas Técnicas",
+          "items": {
+            "q1_q": "¿Qué tecnologías usan para el desarrollo?",
+            "q1_a": "Utilizamos tecnologías modernas y robustas: React y Next.js para frontend, Node.js y Express para backend, MongoDB y MySQL para bases de datos, React Native para aplicaciones móviles, y Tailwind CSS para diseños responsivos. Elegimos la tecnología más adecuada según las necesidades de cada proyecto, priorizando rendimiento, escalabilidad y mantenibilidad.",
+            "q2_q": "¿Qué es hosting y dominio?",
+            "q2_a": "El dominio es la dirección de tu sitio web (ejemplo: molink.com.co), es como tu 'dirección' en internet. El hosting (alojamiento web) es el 'terreno' donde se guardan los archivos de tu sitio para que estén accesibles 24/7. Ambos son esenciales para tener presencia en línea. Nuestros planes de suscripción incluyen hosting y dominio mientras dure el contrato.",
+            "q3_q": "¿Mi sitio web será seguro?",
+            "q3_a": "Sí. Implementamos medidas de seguridad esenciales: certificado SSL (el candado verde del navegador), protección contra ataques comunes (XSS, SQL injection), validación de datos, y backups periódicos. Además, nuestros planes de mantenimiento incluyen actualizaciones de seguridad continuas para proteger tu sitio contra vulnerabilidades nuevas.",
+            "q4_q": "¿Qué es un diseño responsive?",
+            "q4_a": "Un diseño responsive significa que tu sitio web se adapta automáticamente al tamaño de pantalla del dispositivo que uses: computadora, tablet o smartphone. No es simplemente 'hacerlo más pequeño', sino reorganizar los elementos para que la experiencia sea óptima en cualquier dispositivo. Más del 60% del tráfico web viene de móviles, así que es fundamental.",
+            "q5_q": "¿Puedo administrar mi sitio web yo mismo?",
+            "q5_a": "Sí, en la mayoría de proyectos incluimos un panel de administración intuitivo donde puedes gestionar contenido, productos, usuarios, pedidos y más sin necesitar conocimientos técnicos. Además, brindamos capacitación para que aprendas a usar todas las funciones. Si necesitas ayuda, nuestro soporte está disponible."
+          }
+        },
+        "support": {
+          "title": "Soporte y Garantía",
+          "items": {
+            "q1_q": "¿Ofrecen garantía sobre el trabajo realizado?",
+            "q1_a": "Sí. Todos nuestros proyectos incluyen un período de garantía donde corregimos gratuitamente cualquier bug o error de funcionamiento que no sea causado por modificaciones posteriores del cliente. Nuestro compromiso es que tu proyecto funcione perfectamente desde el día uno y se mantenga así.",
+            "q2_q": "¿Qué incluye el soporte post-lanzamiento?",
+            "q2_a": "El soporte post-lanzamiento incluye: corrección de errores, consultas sobre el uso del sistema, pequeñas modificaciones funcionales, monitoreo de rendimiento y disponibilidad, y actualizaciones de seguridad. Con nuestros planes de suscripción, el soporte es continuo y prioritario, con tiempos de respuesta de menos de 24 horas.",
+            "q3_q": "¿Puedo solicitar cambios después de la entrega?",
+            "q3_a": "Por supuesto. Los proyectos evolucionan y es normal querer agregar funcionalidades o hacer ajustes. Si los cambios están dentro del alcance original, los cubre la garantía. Para nuevas funcionalidades, te damos un presupuesto rápido y los implementamos en la siguiente iteración. Tu proyecto puede crecer contigo.",
+            "q4_q": "¿Cómo contactarlos si tengo un problema?",
+            "q4_a": "Puedes contactarnos por WhatsApp (+57 315 575 6600) para respuestas rápidas, por email (contacto@molink.com.co) para consultas formales, o directamente desde el panel de administración de tu proyecto si tienes un plan activo. Respondemos en menos de 24 horas hábiles.",
+            "q5_q": "¿Hacen rediseño de sitios web existentes?",
+            "q5_a": "Sí. Si ya tienes un sitio web pero necesita una renovación visual, mejoras de rendimiento o actualización de tecnologías, podemos rediseñarlo sin perder tu posicionamiento en Google ni tu contenido existente. Hacemos una auditoría completa y te proponemos un plan de mejora progresivo."
+          }
+        }
+      }
+    }
+  },
+  "portfolio": {
+    "projects": {
+      "gallinas-en-casa": {
+        "title": "Gallinas en casa",
+        "type": "Aplicación Móvil Multiplataforma",
+        "shortDescription": "Proyecto desarrollado en mi etapa lectiva del SENA, es una aplicación movil desarrollada en Flutter con APK para android. Busca ayudar a pequeños granjeros de la region de norte de santander a llevar un control de  la recoleccion de huevos, consejos utiles y un foro de apoyo para toda la comunidad de la app.",
+        "objective": "Crear una aplicación de fácil acceso a través de dispositivos móviles para mayor alcance y beneficio de la comunidad objetivo.",
+        "fullDescription": [
+          "El proyecto Gallinas en casa nació de un reto que debemos cumplir todos los aprendices del SENA donde debemos presentar un proyecto que beneficie a la comunidad en un entorno real.",
+          "Inicié con el análisis de requerimientos basado en la problemática del momento del sector avicultor, donde el SENA buscaba apoyar a familias y pequeños campesinos a optimizar procesos de crianza, cuido y recolección de huevos, siendo este el sustento de muchas familias de mi región Norte de Santander.",
+          "Al ingresar al proyecto el sistema pedirá registro o inicio de sesión, el cual se puede hacer en un formulario gestionado por Authenticator de Firebase o Google como segunda opción.",
+          "El aplicativo muestra un panel de navegación sencillo, permitiendo gestionar el perfil personal, un libro guía, una herramienta que recomienda la cantidad de gallinas que deben haber por metro cuadrado y un espacio para foros de apoyo entre la comunidad que use la aplicación."
+        ]
+      },
+      "proyecto-productivas": {
+        "title": "Proyecto Productivas",
+        "type": "Aplicación Web",
+        "shortDescription": "Desarrollamos en equipo una aplicación web basada en php y js, donde se buscaba tener un control sobre los aprendices que salieron a etapas productivas y requieren llenar un informe cada 15 dias, esta plataforma une a directivos, instructores y aprendices, llevando una trazabilidad de las bitacoras presentadas, control de datos e informes del progreso sobre la etapa productva.",
+        "objective": "Desarrollar un aplicativo en donde se pudieran gestionar múltiples perfiles como directivos, instructores y aprendices, unificando la información y mejorando los procesos en etapas productivas.",
+        "fullDescription": [
+          "Este proyecto se desarrolló bajo un modelo MVC (Modelo Vista Controlador). A partir de una versión inicial, se estructuró la base de datos para gestionar múltiples aspectos de la plataforma, incluyendo: usuarios, aprendices, fichas de aprendizaje, seguimiento de etapas lectivas y productivas, trazabilidad de procesos, y asignación de roles.",
+          "La arquitectura se basó en tres perfiles principales:",
+          "Directivos, con control total para visualizar, crear, editar y eliminar información en toda la plataforma.",
+          "Instructores, con permisos para gestionar a sus aprendices y supervisar bitácoras.",
+          "Aprendices, con la capacidad de cargar sus bitácoras, realizar correcciones, mantener sus datos actualizados y acceder a todos los formatos necesarios para su etapa productiva."
+        ]
+      },
+      "encontrable": {
+        "title": "Encontrable",
+        "type": "Aplicación Web",
+        "shortDescription": "Aportamos al Desarrollo de una plataforma de busqueda de sitios o lugares de interes, donde se recopila información publica y se guia a las personas a lugares basados en su ubicación, tambien es una herramienta para comercios, ofrece multiples soluciones.",
+        "objective": "Contribuimos en el desarrollo de una plataforma que nació como una herramienta para lograr programar viajes a sitios turísticos, dándole una guía al usuario más precisa de lugares de interés.",
+        "fullDescription": [
+          "Mis primeros aportes a este proyecto fueron la traducción de textos en diferentes puntos de la aplicación, rápidamente pasamos a empezar a aportar estructura al proyecto como gestionar lugares por países, categorías de interés, hasta alimentar sitios en puntos conocidos.",
+          "Rápidamente el sistema fue evolucionando y los usuarios que estaban registrados y querían gestionar sus negocios necesitaban un espacio administrativo, en PHP nos ocupamos de aportar en crear la api Rest Full que sería consumida por React.",
+          "La idea principal era que los comercios lograran integrar sus negocios una herramienta que aparte de posicionarlos mejor en la web pudieran por ejemplo restaurantes y cafeterías tener un menú digital más completo, y muchas otras herramientas que se adaptaban a los diferentes tipos de comercios."
+        ]
+      },
+      "power-teams": {
+        "title": "Power Teams",
+        "type": "Aplicación Web y Móvil",
+        "shortDescription": "Aportamos al desarrollo de un aplicativo donde se ofrecen clases virtuales de diferentes tipos de ejercicios, se ofrecen diferentes niveles y planes los cuales se pueden adquirir desde su app mobil.",
+        "objective": "Contribuimos en el desarrollo de una plataforma de administración para el negocio y una aplicación móvil para el usuario final.",
+        "fullDescription": [
+          "En este proyecto nos encargamos de construir en base a una estructura inicial toda la parte del backend que es gestionado por expressJS usando como base de datos MongoDB debido a que se usarían una gran cantidad de datos agrupados en arreglos, fue la alternativa más óptima para el proyecto.",
+          "El frontend de la parte administrativa fue construido en React basado principalmente en la librería Mui Material, ya que ofrece componentes muy dinámicos y estilos modernos para la plataforma.",
+          "En el aplicativo móvil se construyó el acceso a la plataforma recopilando datos con Authenticator de Firebase y almacenando los datos personales en Mongo para usarlos en diferentes puntos del aplicativo."
+        ]
+      },
+      "advise-services": {
+        "title": "Advise Services",
+        "type": "Aplicación Web",
+        "shortDescription": "Contribuimos en el desarrollo de un aplicativo web que se encarga de administrar y gestionar toda el area administrativa de la empresa.",
+        "objective": "Contribuimos en el desarrollo de una plataforma de administración para llevar el control interno de la empresa.",
+        "fullDescription": [
+          "El proyecto fue requerido para mejorar el sistema actual de procesos que manejaba la empresa, se requería una solución más moderna y se empezó a dar forma al proyecto.",
+          "Para el backend se gestionó con ExpressJS y Mysql como base de datos.",
+          "El frontend fue construido en React con Typescript el cual se adaptaba perfectamente a las necesidades del comercio."
+        ]
+      },
+      "distribuciones-liderplast": {
+        "title": "Distribuciones Liderplast",
+        "type": "E-commerce",
+        "shortDescription": "Desarrollamos desde cero un E-commerce para una empresa distribuidora de plasticos, donde se puede ingresar a consultar precios, llenar el carrito, buscar productos, clasificacion por categorias y sub categorias y su area administrativa donde se puede gestionar toda la tienda.",
+        "objective": "Este fue nuestro primer proyecto enfocado en un E-commerce de comercialización de plásticos biodegradables, con el que se busca llegar a más personas a nivel Colombia.",
+        "fullDescription": [
+          "En este proyecto partimos desde el Análisis de requerimientos, donde se analizó de primera mano cómo funcionaba el comercio de manera física, de tal manera que pudiéramos abordar las necesidades reales del comercio para lograr llevar la tienda a presencia en la web.",
+          "Para el FrontEnd se estructuró el proyecto en React - Typescript y Vite para potencializar toda la versatilidad y solidez que ofrecen estos entornos de trabajo.",
+          "El BackEnd fue hecho netamente en Typescript Puro enfocado a un entorno Serverless como lo es los workers de cloudflare, lo que permitirá al E-commerce gestionar grandes volúmenes de usuarios sin contar con servidores propios.",
+          "La base de datos se implementó SQL D1 de cloudflare, la cual es una base de MySQLite preparada para gestionar múltiples compras en fila sin que el usuario perciba alguna espera considerable.",
+          "Cuenta con un storage exclusivo para imágenes, lo que nos permite mantener el proyecto limpio y con una mejor gestión de archivos.",
+          "En la parte administrativa se pueden gestionar: Usuarios, categorías, atributos, productos con variantes, proveedores, inventario, medios de pago, pedidos, gestión de envíos y perfil administrador."
+        ]
+      },
+      "congelados": {
+        "title": "Congelados",
+        "type": "Aplicativo Web y Móvil Web",
+        "shortDescription": "Desarrollo de origen propio donde ofrecemos un aplicativo web para la gestion de heladerias o fruterias, dandole al usuario todo lo que requiere, desde la gestion de empleados, hasta la creacion de recetas en base a los ingredientes, cuenta con una versión siempre libre.",
+        "objective": "El propósito de este proyecto es darle un control y solución a comercios que se dedican a vender postres, helados o derivados.",
+        "fullDescription": [
+          "Este proyecto es enfocado netamente en DevOps; para el FrontEnd usamos una base de React - TypeScript y Vite siendo nuestro stack preferido y donde manejamos mejor los procesos.",
+          "Para el BackEnd es 100% gestionado por Firebase, usamos herramientas como Authenticator, Firestore Database para la gestión y control de los datos.",
+          "El aplicativo fue hecho de la mano de una heladería que buscaba un mayor control en sus procesos.",
+          "Se puede contar con un dashboard muy completo dando una visualización de lo que más interesa al negocio: mejor día del mes, productos estrella, día de mayor rendimiento, ingresos vs gastos.",
+          "Se puede gestionar las ventas en cajas individuales, tener múltiples heladerías ancladas a un mismo administrador, manejo de empleados, permisos granulares para diferentes secciones de la plataforma, creación de recetas a partir de ingredientes, costos estimados de cada receta, gestión de gastos y de compras, configuración de medios de pagos, reportes de ventas, gastos, sesiones y ganancias."
+        ]
+      },
+      "siempre-modo-leon": {
+        "title": "Siempre Modo León",
+        "type": "Tema Para WordPress",
+        "shortDescription": "Plantilla Desarrollada para un sistema wordPress, todo el diseño y funcionalidades fueron hechas a medida para cubrir su uso desde wordpress.",
+        "objective": "El objetivo de este proyecto era ofrecer una página personalizada que no logran los plugins populares de WordPress.",
+        "fullDescription": [
+          "Se diseñó la página basada en la estructura que demanda WordPress para su correcto funcionamiento.",
+          "Se añadió una función al panel WordPress que se encarga de generar URL dinámicas en base a un código de referido.",
+          "TailwindCSS es la base del diseño con algunas clases CSS."
+        ]
+      },
+      "toche-on": {
+        "title": "Toche On",
+        "type": "Aplicación PWA",
+        "shortDescription": "Desarrollo de un aplicativo web PWA, nacido en Talento Tech para ayudar a los usuarios a traves de la inteligencia artificial puedan encontrar lugares de comida saludable cerca de sus coordenadas.",
+        "objective": "El objetivo de este proyecto es que a través de las coordenadas del usuario, la inteligencia artificial buscará los lugares de comida saludable más cercanos.",
+        "fullDescription": [
+          "Se diseñó el sistema para que esté basado en React + Typescript y Vite.",
+          "El sistema maneja autenticación por WhatsApp, Google y Correo.",
+          "Se gestiona la persistencia de datos con Firestore Database, Worker para llamadas a la API de AI, Cloudinary para gestionar imágenes."
+        ]
+      }
+    }
+  },
+  "legal": {
+    "privacy": {
+      "seo_title": "Política de Privacidad",
+      "title": "Política de Privacidad",
+      "last_updated": "Última actualización: 24 de Julio de 2024",
+      "sections": {
+        "info": {
+          "title": "1. INFORMACIÓN GENERAL",
+          "content": "Molink Tecnología es responsable del tratamiento de los datos personales que usted (en adelante, \"el Usuario\") proporciona a través de nuestros canales. Esta Política de Privacidad se aplica a todos los Usuarios, independientemente de su ubicación. Al acceder o utilizar nuestros servicios, el Usuario acepta y se compromete a cumplir con esta Política de Privacidad."
+        },
+        "legal": {
+          "title": "2. MARCO LEGAL",
+          "content": "Esta Política de Privacidad se rige por las leyes de la República de Colombia, en particular por la Ley 1581 de 2012 \"Por la cual se dictan disposiciones generales para la protección de datos personales\" y sus decretos reglamentarios."
+        },
+        "data_collected": {
+          "title": "3. DATOS PERSONALES QUE RECOPILAMOS",
+          "intro": "Recopilamos los siguientes datos personales del Usuario:",
+          "items": [
+            "<strong>Datos de identificación:</strong> Nombre completo, número de identificación, dirección de correo electrónico, número de teléfono.",
+            "<strong>Datos de uso de la Plataforma:</strong> Información sobre cómo el Usuario utiliza nuestros servicios, como las páginas que visita y las búsquedas que realiza.",
+            "<strong>Datos técnicos:</strong> Información sobre el dispositivo y el navegador del Usuario, como la dirección IP, el tipo de dispositivo y el sistema operativo.",
+            "<strong>Datos de pago:</strong> Información necesaria para procesar los pagos de los Servicios, como la información de la tarjeta de crédito o débito, procesada a través de pasarelas de pago seguras."
+          ]
+        },
+        "purpose": {
+          "title": "4. FINALIDAD DEL TRATAMIENTO DE DATOS",
+          "intro": "Tratamos los datos personales del Usuario con las siguientes finalidades:",
+          "items": [
+            "<strong>Prestación de los Servicios:</strong> Para proporcionar los Servicios ofrecidos, incluyendo la creación de cuentas, gestión de pedidos y soporte técnico.",
+            "<strong>Mejora de la Plataforma:</strong> Para analizar el uso y mejorar su funcionamiento, personalizando la experiencia y desarrollando nuevas funcionalidades.",
+            "<strong>Comunicaciones:</strong> Para enviar notificaciones sobre actualizaciones, cambios en los Servicios o información relevante.",
+            "<strong>Marketing:</strong> Para enviar comunicaciones de marketing sobre nuestros productos y servicios, siempre con el consentimiento previo del Usuario.",
+            "<strong>Cumplimiento de la ley:</strong> Para cumplir con nuestras obligaciones legales, como la prevención del fraude y la protección de la seguridad."
+          ]
+        },
+        "consent": {
+          "title": "5. CONSENTIMIENTO DEL USUARIO",
+          "content": "Al utilizar nuestros servicios, el Usuario acepta y consiente el tratamiento de sus datos personales para las finalidades indicadas en esta Política. El Usuario tiene derecho a revocar su consentimiento en cualquier momento contactándonos a través de los medios indicados."
+        },
+        "rights": {
+          "title": "6. DERECHOS DEL USUARIO",
+          "intro": "El Usuario tiene los siguientes derechos sobre sus datos personales:",
+          "items": [
+            "<strong>Derecho de acceso:</strong> A conocer qué datos tenemos y cómo se utilizan.",
+            "<strong>Derecho de rectificación:</strong> A corregir o actualizar datos si son inexactos.",
+            "<strong>Derecho de supresión:</strong> A solicitar la eliminación de sus datos si ya no son necesarios.",
+            "<strong>Derecho de oposición:</strong> A oponerse al tratamiento de sus datos en determinadas circunstancias, como el marketing directo.",
+            "<strong>Derecho de portabilidad:</strong> A solicitar la transferencia de sus datos a otro responsable."
+          ]
+        },
+        "security": {
+          "title": "7. SEGURIDAD DE LOS DATOS",
+          "content": "Hemos adoptado medidas de seguridad técnicas y organizativas para proteger los datos personales del Usuario contra el acceso no autorizado, la pérdida, la alteración o la divulgación."
+        },
+        "third_parties": {
+          "title": "8. TRANSFERENCIA DE DATOS A TERCEROS",
+          "content": "Podemos transferir los datos personales del Usuario a terceros, como proveedores de servicios de tecnología o procesamiento de pagos. En estos casos, nos aseguramos de que los terceros cumplan con las leyes de protección de datos y adopten medidas de seguridad adecuadas."
+        },
+        "cookies": {
+          "title": "9. COOKIES",
+          "content": "Nuestra plataforma utiliza cookies para mejorar la experiencia del Usuario. Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del Usuario. El Usuario puede configurar su navegador para que rechace las cookies o para que le notifique cuando se envíe una cookie."
+        },
+        "modifications": {
+          "title": "10. MODIFICACIONES A LA POLÍTICA DE PRIVACIDAD",
+          "content": "Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Los cambios se publicarán en esta página y entrarán en vigor a partir de su publicación. Se recomienda al Usuario revisar periódicamente esta Política de Privacidad para estar informado sobre cualquier cambio."
+        }
+      }
+    },
+    "terms": {
+      "seo_title": "Términos de Servicio",
+      "title": "Términos de Servicio",
+      "last_updated": "Última actualización: 24 de Julio de 2024",
+      "sections": {
+        "acceptance": {
+          "title": "1. ACEPTACIÓN DE LOS TÉRMINOS",
+          "content": "Al acceder o utilizar los servicios ofrecidos por Molink Tecnología, usted (en adelante, \"el Usuario\") acepta y se compromete a cumplir con los presentes Términos de Servicio. Si no está de acuerdo con estos términos, no podremos prestarle un servicio."
+        },
+        "services": {
+          "title": "2. DESCRIPCIÓN DE LOS SERVICIOS",
+          "intro": "Molink Tecnología ofrece una variedad de servicios, incluyendo pero no limitado a:",
+          "items": [
+            "<strong>Páginas de presentación:</strong> Diseño y desarrollo de páginas web para presentar información sobre negocios, productos o servicios.",
+            "<strong>Desarrollo web:</strong> Creación y mantenimiento de sitios web personalizados, incluyendo diseño, desarrollo front-end y back-end.",
+            "<strong>Desarrollo móvil:</strong> Desarrollo de aplicaciones móviles nativas o multiplataforma para dispositivos iOS y Android.",
+            "<strong>Marketing digital:</strong> Servicios de publicidad en línea, optimización para motores de búsqueda (SEO) y gestión de redes sociales.",
+            "<strong>Venta de licencias de software:</strong> Comercialización de licencias de software de terceros, sujeta a los términos del proveedor.",
+            "<strong>Administración de sitios web:</strong> Mantenimiento técnico, actualizaciones, seguridad y soporte para sitios web existentes.",
+            "<strong>Venta de hosting y dominio:</strong> Servicios de alojamiento web y registro de nombres de dominio como intermediario.",
+            "<strong>Soporte remoto:</strong> Asistencia técnica a distancia para resolver problemas relacionados con los Servicios."
+          ]
+        },
+        "usage": {
+          "title": "3. USO DE LOS SERVICIOS",
+          "intro": "El Usuario se compromete a:",
+          "items": [
+            "Utilizar los Servicios de acuerdo con estos Términos, las leyes aplicables en Colombia y las buenas costumbres.",
+            "Ser responsable de la información que proporciona, garantizando que tiene los derechos necesarios para su uso.",
+            "No utilizar los Servicios para fines ilegales o no autorizados, como la distribución de contenido ilegal, violación de derechos de autor o envío de spam."
+          ]
+        },
+        "accounts": {
+          "title": "4. CUENTAS DE USUARIO",
+          "intro": "Para acceder a ciertos Servicios, puede ser necesario crear una cuenta. El Usuario es responsable de:",
+          "items": [
+            "Mantener la confidencialidad de su contraseña.",
+            "Notificar a Molink Tecnología en caso de uso no autorizado de su cuenta.",
+            "Entender que Molink Tecnología se reserva el derecho de suspender o cancelar cuentas en caso de incumplimiento de estos Términos."
+          ]
+        },
+        "payments": {
+          "title": "5. PAGOS",
+          "content": "Algunos servicios requieren el pago de tarifas. Los precios se indican en la plataforma y pueden estar sujetos a cambios con previo aviso. Los pagos se realizan a través de los métodos disponibles y se emitirán facturas electrónicas conforme a la normativa colombiana. La mora en el pago puede resultar en la suspensión o cancelación de los servicios."
+        },
+        "ip": {
+          "title": "6. PROPIEDAD INTELECTUAL",
+          "content": "La Plataforma y su contenido son propiedad de Molink Tecnología y están protegidos por leyes de propiedad intelectual. El Usuario no puede utilizar el contenido sin autorización previa por escrito. El Usuario conserva la propiedad intelectual del contenido que proporciona, pero otorga a Molink Tecnología una licencia no exclusiva para utilizar dicho contenido en la prestación de los Servicios."
+        },
+        "data_protection": {
+          "title": "7. PROTECCIÓN DE DATOS PERSONALES",
+          "content_link": "En cumplimiento de la Ley 1581 de 2012, trataremos los datos personales del Usuario de acuerdo con nuestra",
+          "link_text": "Política de Privacidad",
+          "content_end": "El Usuario autoriza la recopilación y uso de sus datos para la prestación de los Servicios y tiene derecho a acceder, rectificar, actualizar y suprimir sus datos."
+        },
+        "liability": {
+          "title": "8. LIMITACIÓN DE RESPONSABILIDAD",
+          "content": "Los Servicios se proporcionan \"tal cual\", sin garantías. Molink Tecnología no se hace responsable de daños y perjuicios derivados del uso de los Servicios. Nuestra responsabilidad se limita al monto pagado por el Usuario por los Servicios en los últimos seis (6) meses."
+        },
+        "modifications": {
+          "title": "9. MODIFICACIÓN DE LOS TÉRMINOS",
+          "content": "Nos reservamos el derecho de modificar estos Términos de Servicio en cualquier momento. Los cambios se publicarán en la Plataforma y entrarán en vigor a partir de su publicación, con previo aviso a los usuarios."
+        },
+        "jurisdiction": {
+          "title": "10. LEY APLICABLE Y JURISDICCIÓN",
+          "content": "Estos Términos de Servicio se rigen por las leyes de la República de Colombia. Cualquier disputa se someterá a la jurisdicción exclusiva de los tribunales de Cúcuta, Colombia."
+        }
+      }
+    },
+    "cookies": {
+      "seo_title": "Política de Cookies",
+      "title": "Política de Cookies",
+      "last_updated": "Última actualización: 24 de Julio de 2024",
+      "sections": {
+        "what_are": {
+          "title": "1. ¿QUÉ SON LAS COOKIES?",
+          "content": "Una cookie es un pequeño archivo de texto que un sitio web almacena en su ordenador o dispositivo móvil cuando usted visita el sitio. Esto permite que el sitio web recuerde sus acciones y preferencias (como el inicio de sesión, el idioma, el tamaño de la letra y otras preferencias de visualización) durante un período de tiempo, para que no tenga que volver a introducirlas cada vez que vuelva al sitio o navegue de una página a otra."
+        },
+        "how_we_use": {
+          "title": "2. ¿CÓMO UTILIZAMOS LAS COOKIES?",
+          "intro": "En <strong>Molink Tecnología</strong>, utilizamos cookies y tecnologías similares (como `localStorage`) para mejorar tu experiencia y asegurar el correcto funcionamiento de nuestro sitio. Las clasificamos de la siguiente manera:",
+          "essential": {
+            "label": "Cookies Esenciales o Estrictamente Necesarias:",
+            "desc": "Son indispensables para la navegación y el uso de las funcionalidades básicas del sitio. Sin ellas, servicios como el inicio de sesión o el carrito de compras no podrían funcionar.",
+            "items": [
+              "Mantener su sesión de usuario iniciada.",
+              "Recordar tus preferencias de consentimiento de cookies."
+            ]
+          },
+          "functionality": {
+            "label": "Cookies de Funcionalidad:",
+            "desc": "Nos permiten recordar las elecciones que usted ha hecho para proporcionarle una experiencia más personal.",
+            "items": [
+              "Recordar su preferencia de tema (modo claro u oscuro)."
+            ]
+          },
+          "analytics": {
+            "label": "Cookies de Rendimiento o Analíticas:",
+            "desc": "Recopilan información anónima sobre cómo los visitantes utilizan nuestro sitio web. Nos ayudan a entender qué páginas son más populares, cómo navegan los usuarios y si encuentran algún error. Esta información nos permite mejorar continuamente nuestro sitio."
+          },
+          "marketing": {
+            "label": "Cookies de Publicidad o Marketing:",
+            "desc": "Pueden ser utilizadas por nosotros o por terceros (como redes sociales o socios publicitarios) para mostrarle anuncios que sean relevantes para usted. Estas cookies pueden rastrear su navegación a través de diferentes sitios web."
+          }
+        },
+        "management": {
+          "title": "3. GESTIÓN DE COOKIES",
+          "intro": "Usted tiene el control total sobre las cookies. Puede gestionar y/o eliminar las cookies como lo desee. La mayoría de los navegadores le permiten:",
+          "items": [
+            "Ver qué cookies tiene y eliminarlas individualmente.",
+            "Bloquear las cookies de terceros.",
+            "Bloquear las cookies de sitios específicos.",
+            "Bloquear todas las cookies para que no se instalen.",
+            "Eliminar todas las cookies cuando cierre el navegador."
+          ],
+          "warning": "Tenga en cuenta que si decide bloquear o eliminar las cookies, especialmente las esenciales, es posible que algunas partes de nuestro sitio web no funcionen correctamente y su experiencia de compra se vea afectada.",
+          "browser_links": "Puede encontrar información sobre cómo gestionar las cookies en los sitios web de los navegadores más populares:",
+          "browsers": [
+            "Google Chrome",
+            "Mozilla Firefox",
+            "Apple Safari",
+            "Microsoft Edge"
+          ],
+          "browser_urls": [
+            "https://support.google.com/chrome/answer/95647",
+            "https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias",
+            "https://support.apple.com/es-es/guide/safari/sfri11471/mac",
+            "https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d"
+          ]
+        },
+        "more_info": {
+          "title": "4. MÁS INFORMACIÓN",
+          "privacy_link_text": "Para obtener más detalles sobre cómo tratamos sus datos personales, por favor consulte nuestra",
+          "privacy_link_label": "Política de Privacidad",
+          "contact": "Si tiene alguna pregunta sobre nuestro uso de cookies, puede contactarnos a través del correo electrónico:"
+        }
+      }
+    }
+  }
+}

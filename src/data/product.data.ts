@@ -1,4 +1,4 @@
-import type {Category, Product} from "../types";
+import type {Category2 as Category, Product2 as Product} from "../types";
 import {Display, LightningFill, Lock, Server, ShieldCheck} from "react-bootstrap-icons";
 
 export const MOCK_PRODUCTS: Product[] = [

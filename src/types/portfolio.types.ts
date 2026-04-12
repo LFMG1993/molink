@@ -2,6 +2,7 @@ export interface ProjectLink {
     type: 'live' | 'github' | 'download' | 'video';
     url: string;
     label: string;
+    labelEn?: string;
 }
 
 export interface TechStackItem {
@@ -12,19 +13,23 @@ export interface TechStackItem {
 
 export interface Project {
     id: number;
-    slug: string; // Para URLs amigables (ej: /portfolio/sendero-de-hierro)
-    title: string;
+    slug: string;
+    title?: string;
+    titleEn?: string;
     date: string;
-    projectType: string; // Ej: "Aplicación Web", "E-commerce", "Sitio Corporativo"
-    imageUrl: string; // Imagen para la tarjeta principal
-    videoUrl?: string; // URL del video para la página de detalles
-
-    // Para la tarjeta del portafolio
-    shortDescription: string;
-
-    // Para la página de detalles
-    objective: string; // El propósito del proyecto
-    fullDescription: string[]; // Un array de párrafos para una descripción detallada
+    projectType?: string;
+    projectTypeEn?: string;
+    imageUrl: string;
+    videoUrl?: string;
+    featured?: boolean;
+    // Tarjeta del portafolio
+    shortDescription?: string;
+    shortDescriptionEn?: string;
+    // Página de detalles
+    objective?: string;
+    objectiveEn?: string;
+    fullDescription?: string[];
+    fullDescriptionEn?: string[];
     techStack: TechStackItem[];
     links: ProjectLink[];
 }

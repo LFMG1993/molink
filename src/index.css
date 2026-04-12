@@ -1,5 +1,107 @@
 @import "tailwindcss";
 
+/* Animación marquee (carrusel automático) */
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+    animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+/* Se definen las variables para el tema claro */
+:root {
+    --marquee-duration: 30s; /* Sobreescrita en runtime por ProductCarousel */
+    --color-background: theme('colors.gray.100'); /* Fondo principal */
+    --color-foreground: theme('colors.gray.900'); /* Texto principal */
+    --color-card: theme('colors.white'); /* Fondo de tarjetas, modales, etc. */
+    --color-card-foreground: theme('colors.gray.900'); /* Texto en tarjetas */
+    --color-border: theme('colors.gray.200'); /* Bordes */
+    --color-primary: #4a3084; /* Color primario de la marca */
+    --color-primary-dark: #3b266a; /* Variante más oscura para hover */
+    --color-muted: theme('colors.gray.100'); /* Fondos sutiles */
+    --color-muted-foreground: theme('colors.gray.800'); /* Texto sobre fondos sutiles */
+    --color-primary-foreground: theme('colors.white'); /* Texto sobre el color primario */
+}
+
+/*  Se redefinen las variables para el tema oscuro */
+.dark {
+    --color-background: theme('colors.gray.900');
+    --color-foreground: theme('colors.gray.100');
+    --color-card: theme('colors.gray.800');
+    --color-card-foreground: theme('colors.gray.100');
+    --color-border: theme('colors.gray.700');
+    --color-primary-dark: #5a4094; /* Variante más clara para hover en modo oscuro */
+    --color-muted: theme('colors.gray.700');
+    --color-muted-foreground: theme('colors.gray.200');
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.background-lider {
+    background-color: #4a3084;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.background-lider:hover {
+    /* Cambiamos a un color ligeramente más claro al pasar el cursor */
+    background-color: #5a4094;
+}
+
+/* --- Estilos para la Burbuja de WhatsApp --- */
+#whatsapp-bubble {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transform-origin: bottom right;
+}
+
+/* Clase para ocultar la burbuja con una transición suave */
+#whatsapp-bubble.is-hidden {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    pointer-events: none;
+}
+
+/* Ocultar la barra de scroll en navegadores Webkit (Chrome, Safari) */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ocultar barra de scroll para IE, Edge y Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Efecto para el carrito de compras */
+@keyframes shake {
+    10%, 90% {
+        transform: translateX(-1px);
+    }
+    20%, 80% {
+        transform: translateX(2px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-4px);
+    }
+    40%, 60% {
+        transform: translateX(4px);
+    }
+}
+
+.shake {
+    /* Aplicamos la animación 'shake' durante 0.5 segundos con una curva de aceleración suave */
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
 @layer base {
     /* Definición de variables CSS para colores globales */
     :root {
@@ -164,14 +266,14 @@
 }
 
 .animate-flip-y {
-    animation: flipReboteY 0.9s ease-in-out forwards;
+    animation: flipReboteY 1.2s ease-in-out forwards;
 }
 .animate-flip-y-back {
-    animation: flipReboteYBack 0.9s ease-in-out forwards;
+    animation: flipReboteYBack 1.2s ease-in-out forwards;
 }
 .animate-flip-x {
-    animation: flipReboteX 0.9s ease-in-out forwards;
+    animation: flipReboteX 1.2s ease-in-out forwards;
 }
 .animate-flip-x-back {
-    animation: flipReboteXBack 0.9s ease-in-out forwards;
+    animation: flipReboteXBack 1.2s ease-in-out forwards;
 }

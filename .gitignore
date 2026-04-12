@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 *.env
+
+/scripts
+/docs
+
+.qwen
+.github
+generate-sitemap.mjs
+pnpm-lock.yaml

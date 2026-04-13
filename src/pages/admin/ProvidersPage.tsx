@@ -1,11 +1,11 @@
 import {useState, useMemo, useEffect} from 'react';
 import type {Provider, ProviderCreationData, PaginatedResponse} from '../../types';
-import {providerService} from '../../services/providerService';
-import {useNotification} from '../../context/NotificationContext.tsx';
+import {providerService} from '../../services/admin/providerService.ts';
+import {useNotification} from '../../context/shared/NotificationContext.tsx';
 import {Button} from '../../components/shared/Button.tsx';
 import {PlusCircle} from 'lucide-react';
-import {ProviderTable} from '../../components/providers/ProviderTable.tsx';
-import {ProviderForm} from '../../components/providers/ProviderForm.tsx';
+import {ProviderTable} from '../../components/admin/providers/ProviderTable.tsx';
+import {ProviderForm} from '../../components/admin/providers/ProviderForm.tsx';
 import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';

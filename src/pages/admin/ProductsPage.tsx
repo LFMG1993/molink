@@ -1,18 +1,18 @@
 import {useState, useMemo, useEffect} from 'react';
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
-import {productService} from '../../services/productService.ts';
+import {productService} from '../../services/admin/productService.ts';
 import type {Product, ProductCreationData, PaginatedResponse} from '../../types';
 import {Button} from '../../components/shared/Button.tsx';
 import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
-import {ProductTable} from '../../components/products/ProductTable.tsx';
-import {useNotification} from '../../context/NotificationContext.tsx';
-import {ProductForm, type ProductFormData, createInitialProductState} from '../../components/products/ProductForm.tsx';
-import {attributeService} from "../../services/attributeService.ts";
-import {categoryService} from "../../services/categoryService.ts";
+import {ProductTable} from '../../components/admin/products/ProductTable.tsx';
+import {useNotification} from '../../context/shared/NotificationContext.tsx';
+import {ProductForm, type ProductFormData, createInitialProductState} from '../../components/admin/products/ProductForm.tsx';
+import {attributeService} from "../../services/admin/attributeService.ts";
+import {categoryService} from "../../services/admin/categoryService.ts";
 import type {Attribute, Category} from "../../types";
-import {uploadImage} from "../../services/imageService.ts";
-import {slugify} from "../../utils/utils.ts";
+import {uploadImage} from "../../services/admin/imageService.ts";
+import {slugify} from "../../utils/slugify.ts";
 import {Spinner} from "../../components/shared/Spinner.tsx";
 
 const ProductsPage = () => {

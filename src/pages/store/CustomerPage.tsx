@@ -1,13 +1,13 @@
-import {useUserAuth} from "../../context/UserAuthContext.tsx";
+import {useUserAuth} from "../../context/store/UserAuthContext.tsx";
 import {useNavigate} from 'react-router-dom';
 import {useEffect} from 'react';
 import {Spinner} from '../../components/shared/Spinner.tsx';
-import {SEO} from "../../components/shared/SEO.tsx";
+import {StoreSEO} from "../../components/store/StoreSEO.tsx";
 import {Tabs} from "../../components/shared/Tabs.tsx";
-import {OrderHistory} from "../../components/customer/OrderHistory.tsx";
-import {ShipmentHistory} from "../../components/customer/ShipmentHistory.tsx";
-import {ProfileEditor} from "../../components/customer/ProfileEditor.tsx";
-import {AddressManager} from "../../components/customer/AddressManager.tsx";
+import {OrderHistory} from "../../components/store/customer/OrderHistory.tsx";
+import {ShipmentHistory} from "../../components/store/customer/ShipmentHistory.tsx";
+import {ProfileEditor} from "../../components/store/customer/ProfileEditor.tsx";
+import {AddressManager} from "../../components/store/customer/AddressManager.tsx";
 
 export default function CustomerPage() {
     const {customer, isAuthenticated, isLoading} = useUserAuth();
@@ -36,10 +36,10 @@ export default function CustomerPage() {
 
     return (
         <>
-            <SEO
-                title="Mi Perfil - Liderplast"
-                description="Gestiona tu información personal y revisa tu historial de pedidos en tu cuenta de Liderplast."
-                canonicalUrl="/perfil"
+            <StoreSEO
+                title="Mi Cuenta | Molink Tienda"
+                description="Gestiona tu información personal y revisa tu historial de pedidos en tu cuenta de Molink Tienda."
+                canonicalUrl="/account"
                 noIndex={true}
             />
             <div className="container mx-auto px-6 py-16 bg-[var(--color-background)] text-[var(--color-foreground)]">

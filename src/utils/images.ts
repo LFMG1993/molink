@@ -51,6 +51,7 @@ export const ImagesHome = {
     logoBlack,
     logoWhite
 } as const;
+
 export const ImagesClients = {
     advise,
     encontrable,

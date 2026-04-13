@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
-import {attributeService} from '../../services/attributeService.ts';
+import {attributeService} from '../../services/admin/attributeService.ts';
 import type {Attribute, AttributeValue} from "../../types";
-import {useNotification} from '../../context/NotificationContext.tsx';
+import {useNotification} from '../../context/shared/NotificationContext.tsx';
 import {Button} from '../../components/shared/Button.tsx';
 import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
 import {Plus} from 'lucide-react';
-import {AttributeCard} from '../../components/attributes/AttributeCard.tsx';
-import {AttributeForm} from "../../components/attributes/AttributeForm.tsx";
+import {AttributeCard} from '../../components/admin/attributes/AttributeCard.tsx';
+import {AttributeForm} from "../../components/admin/attributes/AttributeForm.tsx";
 import {Spinner} from "../../components/shared/Spinner.tsx";
 
 const AttributesPage = () => {

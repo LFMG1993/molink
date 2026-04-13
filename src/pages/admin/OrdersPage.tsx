@@ -1,9 +1,9 @@
 import {useState, useEffect, useMemo} from 'react';
 import type {PaymentStatus, Order, PaginatedResponse} from '../../types';
 import {Spinner} from '../../components/shared/Spinner.tsx';
-import {OrdersTable} from "../../components/orders/OrdersTable.tsx";
-import {useNotification} from "../../context/NotificationContext.tsx";
-import {orderService} from "../../services/orderService.ts";
+import {OrdersTable} from "../../components/admin/orders/OrdersTable.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
+import {orderService} from "../../services/admin/orderService.ts";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
 

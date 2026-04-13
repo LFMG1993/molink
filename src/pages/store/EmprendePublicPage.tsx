@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { emprendePostService } from '../../services/emprendePostService';
+import { emprendePostService } from '../../services/shared/emprendePostService.ts';
 import { SEO } from '../../components/shared/SEO.tsx';
 import { Spinner } from '../../components/shared/Spinner.tsx';
 import { Button } from '../../components/shared/Button.tsx';
-import { EmprendePostCard } from '../../components/emprende/EmprendePostCard';
+import { EmprendePostCard } from '../../components/admin/emprende/EmprendePostCard';
 import { useTranslation } from 'react-i18next';
 
 export default function EmprendePublicPage() {

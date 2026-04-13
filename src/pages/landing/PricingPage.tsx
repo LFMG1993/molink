@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { SEO } from '../../components/shared/SEO.tsx';
-import { whatsappNumber } from '../../data/pricing.data.ts';
+import { whatsappNumber } from '../../data/landing/pricing.data.ts';
 import { PricingCalculator } from '../../components/landing/PricingCalculator.tsx';
 import { PricingSection } from '../../components/landing/PricingSection.tsx';
 import { ArrowRight, Globe, Clock, Headset } from 'lucide-react';

@@ -11,26 +11,26 @@ interface SEOProps {
 
 /**
  * Componente reutilizable para gestionar las etiquetas de SEO de cada página.
- * Proporciona valores por defecto y permite sobreescribirlos.
  */
 export const SEO = ({title, description, keywords, canonicalUrl, ogImage, noIndex}: SEOProps) => {
     const siteName = "Molink Tecnología";
     const siteUrl = "https://molink.com.co";
+
     const fullTitle = `${title} | ${siteName}`;
-    const defaultOgImage = `${siteUrl}/og-image.jpg`;
+    const defaultOgImage = `https://molink.com.co/og-image.jpg`;
     const finalOgImage = ogImage || defaultOgImage;
     const finalCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
-    const baseKeywords = "desarrollo de software, desarrollo de aplicaciones, paginas web, aplicaciones moviles, automatizaciones, hosting, dominio, administracion de sitios, trabajo remoto, tecnologia, cúcuta";
-    const finalKeywords = keywords ? `${baseKeywords}, ${keywords}` : baseKeywords;
-
-
-    const businessSchema = {
+    // Keywords servicios de desarrollo
+    const siteKeywords = "desarrollo de software, desarrollo de aplicaciones, páginas web, aplicaciones móviles, automatizaciones, hosting, dominio, administración de sitios, trabajo remoto, tecnología, Cúcuta, desarrollo web Colombia";
+    const finalKeywords = keywords ? `${siteKeywords}, ${keywords}` : siteKeywords;
+    
+    const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Molink Tecnología",
-        "description": "Expertos en desarrollo de software a medida, incluyendo aplicaciones web, móviles, automatizaciones y administración de sitios. Ofrecemos soluciones tecnológicas para potenciar tu negocio desde Cúcuta, Colombia, con modalidad de trabajo remoto.",
-        "image": `${siteUrl}/logo-para-schema.png`,
+        "name": "Molink Tecnología - Desarrollo de Software",
+        "description": description,
+        "image": `https://molink.com.co/og-image.jpg`,
         "@id": siteUrl,
         "url": siteUrl,
         "telephone": "+573155756600",
@@ -116,7 +116,7 @@ export const SEO = ({title, description, keywords, canonicalUrl, ogImage, noInde
 
             {/* Schema.org JSON-LD */}
             <script type="application/ld+json">
-                {JSON.stringify(businessSchema)}
+                {JSON.stringify(schema)}
             </script>
         </Helmet>
     );

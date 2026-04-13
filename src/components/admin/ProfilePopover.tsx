@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from 'react';
 import {useAuthStore} from "../../store/authStore.ts";
 import {User, LogOut, Moon, Sun} from 'lucide-react';
-import {useTheme} from '../../context/ThemeContext.tsx';
+import {useTheme} from '../../context/shared/ThemeContext.tsx';
 
 const ProfilePopover = () => {
     const {user, isAuthenticated, logout} = useAuthStore();

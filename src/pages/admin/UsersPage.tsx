@@ -1,12 +1,12 @@
 import {useState, useMemo} from 'react';
-import {userService} from '../../services/userService.ts';
+import {userService} from '../../services/admin/userService.ts';
 import type {User, UserCreationData, PaginatedResponse} from '../../types'
-import {UserTable} from '../../components/users/UserTable.tsx';
-import {UserForm} from '../../components/users/UserForm.tsx';
+import {UserTable} from '../../components/admin/users/UserTable.tsx';
+import {UserForm} from '../../components/admin/users/UserForm.tsx';
 import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
 import {Button} from '../../components/shared/Button.tsx';
 import {PlusCircle} from 'lucide-react';
-import {useNotification} from "../../context/NotificationContext.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState} from "@tanstack/react-table";

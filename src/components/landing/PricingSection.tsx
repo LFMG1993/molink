@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { subscriptionPlans, pricingPackages, whatsappNumber } from '../../data/pricing.data.ts';
+import { subscriptionPlans, pricingPackages, whatsappNumber } from '../../data/landing/pricing.data.ts';
 import { CheckCircle2, ArrowRight, Star } from 'lucide-react';
 import clsx from 'clsx';
 

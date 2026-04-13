@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useQuery, useMutation} from '@tanstack/react-query';
-import {orderService} from '../../services/orderService';
-import {paymentMethodService} from '../../services/paymentMethodService';
-import {uploadCustomerImage} from "../../services/imageCustomerService.ts";
-import {useCart} from "../../context/CardContext.tsx";
-import {useNotification} from "../../context/NotificationContext.tsx";
+import {orderService} from '../../services/admin/orderService.ts';
+import {paymentMethodService} from '../../services/shared/paymentMethodService.ts';
+import {uploadCustomerImage} from "../../services/store/imageCustomerService.ts";
+import {useCart} from "../../context/store/CardContext.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
 import {Spinner} from '../../components/shared/Spinner.tsx';
 import {ImageUploader} from '../../components/shared/ImageUploader.tsx';
 import {Button} from '../../components/shared/Button.tsx';

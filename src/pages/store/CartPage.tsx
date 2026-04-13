@@ -1,16 +1,18 @@
 import {useState, useCallback, useEffect} from "react";
-import {useCart} from "../../context/CardContext.tsx";
+import {useCart} from "../../context/store/CardContext.tsx";
 import {FileImage, Plus, Trash, Dash, Whatsapp, CreditCard} from "react-bootstrap-icons";
-import {SEO} from "../../components/shared/SEO.tsx";
+import {StoreSEO} from "../../components/store/StoreSEO.tsx";
 import {Link, useNavigate} from "react-router-dom";
 import {ConfirmationModal} from "../../components/shared/ConfirmationModal.tsx";
-import {useUserAuth} from "../../context/UserAuthContext.tsx";
-import {AuthModal} from "../../components/auth/AuthModal.tsx";
-import {orderService} from "../../services/orderService.ts";
-import {useNotification} from "../../context/NotificationContext.tsx";
-import {AddressSelectionModal} from "../../components/customer/AdressSelectionModal.tsx";
+import {useUserAuth} from "../../context/store/UserAuthContext.tsx";
+import {AuthModal} from "../../components/store/auth/AuthModal.tsx";
+import {orderService} from "../../services/admin/orderService.ts";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
+import {AddressSelectionModal} from "../../components/store/customer/AdressSelectionModal.tsx";
+import {useTranslation} from 'react-i18next';
 
 export default function CartPage() {
+    const {t} = useTranslation();
     const {items, removeItem, clearCart, updateQuantity} = useCart();
     const {isAuthenticated} = useUserAuth();
     const navigate = useNavigate();
@@ -106,10 +108,11 @@ export default function CartPage() {
 
     return (
         <>
-            <SEO
-                title="Tu Carrito de Compras"
-                description="Revisa y finaliza tu pedido en Liderplast."
-                canonicalUrl="/carrito"
+            <StoreSEO
+                title={t('store.seo.cart.title')}
+                description={t('store.seo.cart.description')}
+                keywords={t('store.seo.cart.keywords')}
+                canonicalUrl="/cart"
             />
             <div className="container mx-auto py-12 px-4 bg-[var(--color-background)] text-[var(--color-foreground)]">
                 <h1 className="text-3xl font-bold mb-8">Tu Carrito</h1>

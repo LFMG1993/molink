@@ -3,7 +3,7 @@ import type {DashboardSummary} from "../../types";
 import {useQuery} from '@tanstack/react-query';
 import {Users, TrendingUp, MousePointerClick, Hourglass} from 'lucide-react';
 import {Spinner} from '../../components/shared/Spinner.tsx';
-import {analyticsService} from "../../services/analyticsService.ts";
+import {analyticsService} from "../../services/shared/analyticsService.ts";
 
 const StatCard = ({title, value, icon: Icon, isLoading}: {
     title: string,

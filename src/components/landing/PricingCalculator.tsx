@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { pricingPackages, pricingAddons, whatsappNumber } from '../../data/pricing.data.ts';
+import { pricingPackages, pricingAddons, whatsappNumber } from '../../data/landing/pricing.data.ts';
 import { CheckCircle2, ArrowRight, Calculator } from 'lucide-react';
 import clsx from 'clsx';
 

@@ -1,9 +1,9 @@
 import {useEffect, useState, useMemo} from 'react';
 import type {InventoryItem, InventoryUpdateData, PaginatedResponse} from '../../types';
-import {inventoryService} from '../../services/inventoryService';
-import {useNotification} from '../../context/NotificationContext.tsx';
+import {inventoryService} from '../../services/admin/inventoryService.ts';
+import {useNotification} from '../../context/shared/NotificationContext.tsx';
 import {Spinner} from '../../components/shared/Spinner.tsx';
-import {InventoryTable} from '../../components/inventory/InventoryTable.tsx';
+import {InventoryTable} from '../../components/admin/inventory/InventoryTable.tsx';
 import {ConfirmationModal} from "../../components/shared/ConfirmationModal.tsx";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";

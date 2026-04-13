@@ -1,15 +1,15 @@
-import {paymentMethodService} from '../../services/paymentMethodService';
+import {paymentMethodService} from '../../services/shared/paymentMethodService.ts';
 import {Spinner} from '../../components/shared/Spinner.tsx';
 import {useState, useEffect, useMemo} from 'react';
 import {Button} from '../../components/shared/Button.tsx';
 import {PlusCircle} from 'lucide-react';
-import {PaymentMethodsTable} from "../../components/paymentMethods/PaymentMethodsTable.tsx";
+import {PaymentMethodsTable} from "../../components/admin/paymentMethods/PaymentMethodsTable.tsx";
 import type {PaymentMethod, PaymentMethodCreationData, PaymentMethodUpdateData, PaginatedResponse} from "../../types";
-import {useNotification} from "../../context/NotificationContext.tsx";
-import {PaymentMethodForm} from "../../components/paymentMethods/PaymentMethodForm.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
+import {PaymentMethodForm} from "../../components/admin/paymentMethods/PaymentMethodForm.tsx";
 import {ConfirmationModal} from "../../components/shared/ConfirmationModal.tsx";
-import {uploadImage} from "../../services/imageService.ts";
-import {slugify} from "../../utils/utils.ts";
+import {uploadImage} from "../../services/admin/imageService.ts";
+import {slugify} from "../../utils/slugify.ts";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
 

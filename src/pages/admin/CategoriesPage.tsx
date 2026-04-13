@@ -1,15 +1,15 @@
 import {useState, useMemo} from 'react';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
 import {createColumnHelper, getCoreRowModel, getExpandedRowModel, useReactTable} from '@tanstack/react-table';
-import {categoryService} from '../../services/categoryService.ts';
+import {categoryService} from '../../services/admin/categoryService.ts';
 import type {Category, CategoryCreationData, CategoryUpdateData} from "../../types";
-import {useNotification} from "../../context/NotificationContext.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
 import {Button} from '../../components/shared/Button.tsx';
-import {CategoryTable} from '../../components/categories/CategoryTable.tsx';
-import {CategoryForm} from '../../components/categories/CategoryForm.tsx';
+import {CategoryTable} from '../../components/admin/categories/CategoryTable.tsx';
+import {CategoryForm} from '../../components/admin/categories/CategoryForm.tsx';
 import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
-import {uploadImage} from '../../services/imageService.ts';
-import {slugify} from "../../utils/utils.ts";
+import {uploadImage} from '../../services/admin/imageService.ts';
+import {slugify} from "../../utils/slugify.ts";
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {ChevronDown, ChevronRight, Edit, ImageIcon, Trash2} from "lucide-react";
 

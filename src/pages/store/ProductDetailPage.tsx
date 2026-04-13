@@ -1,15 +1,14 @@
 import {useState, useMemo, useEffect} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import {useQuery} from '@tanstack/react-query';
-import {shopService} from '../../services/shopService';
-import {useCart} from '../../context/CardContext.tsx';
-import {SEO} from '../../components/shared/SEO.tsx';
+import {shopService} from '../../services/store/shopService.ts';
+import {useCart} from '../../context/store/CardContext.tsx';
+import {StoreSEO} from '../../components/store/StoreSEO.tsx';
 import {Spinner} from '../../components/shared/Spinner.tsx';
 import {FileImage, Plus, Minus, CheckCircle} from 'lucide-react';
-import {slugify} from "../../utils/utils.ts";
-import {StoreHeader} from "../../components/shop/StoreHeader.tsx";
-import {StoreFooter} from "../../components/shop/StoreFooter.tsx";
-import {Button} from "../../components/shop/Button.tsx";
+import {StoreHeader} from "../../components/store/layout/StoreHeader.tsx";
+import {StoreFooter} from "../../components/store/layout/StoreFooter.tsx";
+import {Button} from "../../components/shared/Button.tsx";
 
 export default function ProductDetailPage() {
     const {id} = useParams<{ id: string }>();
@@ -103,11 +102,11 @@ export default function ProductDetailPage() {
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
             <StoreHeader/>
-            <SEO
-                title={`${product.name} - Molink Tecnología`}
+            <StoreSEO
+                title={`${product.name} | Molink Tienda`}
                 description={product.description || ''}
                 ogImage={product.imageUrl || ''}
-                canonicalUrl={`/producto/${slugify(product.name)}/${product.id}`}
+                canonicalUrl={`/products/${product.id}`}
             />
             <div className="container mx-auto px-4 py-12 pb-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {adminAuthService} from '../services/adminAuthService';
+import {adminAuthService} from '../services/admin/adminAuthService.ts';
 import type {User} from '../types';
 
 interface AuthState {

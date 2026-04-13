@@ -1,7 +1,7 @@
 import type {ComponentProps} from 'react';
 
 type ButtonProps = ComponentProps<'button'> & {
-    variant?: 'primary' | 'secondary' | 'danger' | 'outline' | 'ghost';
+    variant?: 'primary' | 'secondary' | 'danger' | 'gradient' | 'outline' | 'ghost';
     size?: 'sm' | 'md' | 'lg' | 'icon';
 };
 
@@ -9,6 +9,7 @@ const variants = {
     primary: 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:opacity-90 focus:ring-[var(--color-primary)]',
     secondary: 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-gray-400',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+    gradient: 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-indigo-500/30 border border-white/10',
     outline: 'bg-transparent border border-[var(--color-border)] text-[var(--color-foreground)] hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:ring-gray-400',
     ghost: 'bg-transparent text-[var(--color-foreground)] hover:bg-gray-200 dark:hover:bg-gray-700',
 };

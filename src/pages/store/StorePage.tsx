@@ -1,84 +1,18 @@
 import {useState, useEffect} from "react";
-import {
-    Headset,
-    Server,
-    ChevronRight,
-    CreditCard,
-    CheckCircleFill,
-    Download
-} from 'react-bootstrap-icons';
-import {Link} from "react-router-dom";
-import {StoreHeader} from "../../components/shop/StoreHeader.tsx";
-import {StoreFooter} from "../../components/shop/StoreFooter.tsx";
-import {HeroGrid} from "../../components/shop/HeroGrid.tsx";
-import {ProductCarousel} from "../../components/shop/ProductCarousel.tsx";
-import {Button} from "../../components/shop/Button.tsx";
+import {Server} from 'react-bootstrap-icons';
+import {StoreHeader} from "../../components/store/layout/StoreHeader.tsx";
+import {StoreFooter} from "../../components/store/layout/StoreFooter.tsx";
+import {HeroGrid} from "../../components/store/home/HeroGrid.tsx";
+import {FeaturesRow} from "../../components/store/home/FeaturesRow.tsx";
+import {SectionHeading} from "../../components/store/home/SectionHeading.tsx";
+import {ProductCarousel} from "../../components/store/home/ProductCarousel.tsx";
+import {Button} from "../../components/shared/Button.tsx";
 import {useTranslation} from 'react-i18next';
-import {shopService} from "../../services/shopService.ts";
+import {shopService} from "../../services/store/shopService.ts";
 import type {Product} from "../../types";
-import {useCart} from "../../context/CardContext.tsx";
-import {ProductDetailModal} from "../../components/shop/ProductDetailModal.tsx";
-
-const FeaturesRow = () => {
-    const { t } = useTranslation();
-
-    return (
-        <section className="container mx-auto px-4 py-12 border-b border-slate-100">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="flex gap-4 items-start">
-                    <div className="p-3 bg-blue-50 rounded-lg text-blue-600">
-                        <Download className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-800 text-sm">{t('store.features.delivery_title')}</h4>
-                        <p className="text-xs text-slate-500 mt-1 leading-relaxed">{t('store.features.delivery_desc')}</p>
-                    </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                    <div className="p-3 bg-indigo-50 rounded-lg text-indigo-600">
-                        <CheckCircleFill className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-800 text-sm">{t('store.features.original_title')}</h4>
-                        <p className="text-xs text-slate-500 mt-1 leading-relaxed">{t('store.features.original_desc')}</p>
-                    </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                    <div className="p-3 bg-emerald-50 rounded-lg text-emerald-600">
-                        <CreditCard className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-800 text-sm">{t('store.features.secure_title')}</h4>
-                        <p className="text-xs text-slate-500 mt-1 leading-relaxed">{t('store.features.secure_desc')}</p>
-                    </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                    <div className="p-3 bg-purple-50 rounded-lg text-purple-600">
-                        <Headset className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-800 text-sm">{t('store.features.support_title')}</h4>
-                        <p className="text-xs text-slate-500 mt-1 leading-relaxed">{t('store.features.support_desc')}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
-
-const SectionHeading = ({ title, subtitle, action, to }: { title: string, subtitle?: string, action?: string, to?: string }) => (
-    <div className="flex items-end justify-between mb-6 px-1">
-        <div>
-            <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
-            {subtitle && <p className="text-slate-500 text-sm mt-1">{subtitle}</p>}
-        </div>
-        {action && to && (
-            <Link to={to} className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 group">
-                {action} <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-        )}
-    </div>
-);
+import {useCart} from "../../context/store/CardContext.tsx";
+import {ProductDetailModal} from "../../components/store/shop/ProductDetailModal.tsx";
+import {StoreSEO} from "../../components/store/StoreSEO.tsx";
 
 const StorePage = () => {
     const {t} = useTranslation();
@@ -116,6 +50,12 @@ const StorePage = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+            <StoreSEO
+                title={t('store.seo.home.title')}
+                description={t('store.seo.home.description')}
+                keywords={t('store.seo.home.keywords')}
+                canonicalUrl="/"
+            />
             <StoreHeader/>
             <main className="pb-20 space-y-16">
                 <HeroGrid/>

@@ -1,15 +1,15 @@
 import {useState, useEffect, useMemo} from 'react';
 import type {Order, Shipment, ShipmentFormData, PaginatedResponse} from '../../types';
 import {Spinner} from '../../components/shared/Spinner.tsx';
-import {useNotification} from "../../context/NotificationContext.tsx";
-import {orderService} from "../../services/orderService.ts";
-import {ShipmentModal} from "../../components/shipments/ShipmentModal.tsx";
+import {useNotification} from "../../context/shared/NotificationContext.tsx";
+import {orderService} from "../../services/admin/orderService.ts";
+import {ShipmentModal} from "../../components/admin/shipments/ShipmentModal.tsx";
 import {Tabs} from "../../components/shared/Tabs.tsx";
-import {shipmentService} from "../../services/shipmentService.ts";
+import {shipmentService} from "../../services/admin/shipmentService.ts";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
-import {PendingShipmentsTable} from "../../components/shipments/PendingShipmentsTable.tsx";
-import {ExistingShipmentsTable} from "../../components/shipments/ExistingShipmentsTable.tsx";
+import {PendingShipmentsTable} from "../../components/admin/shipments/PendingShipmentsTable.tsx";
+import {ExistingShipmentsTable} from "../../components/admin/shipments/ExistingShipmentsTable.tsx";
 
 const PendingShipments = () => {
     const queryClient = useQueryClient();

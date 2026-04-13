@@ -1,5 +1,5 @@
 import {NavLink} from 'react-router-dom';
-import {dockItems} from '../../models/navigations.ts';
+import {dockItems} from '../../models/store/navigations.ts';
 import ProfilePopover from "./ProfilePopover.tsx";
 
 const Dock = () => {

@@ -1,21 +1,23 @@
 import {useState, Fragment, useMemo} from "react";
-import {useProductFilter} from "../../hooks/useProductFilter.ts";
-import FilterSidebar from "../../components/shop/FilterSidebar.tsx";
-import {ProductCard} from "../../components/shop/ProductCard.tsx";
-import {useCart} from "../../context/CardContext.tsx";
+import {useProductFilter} from "../../hooks/store/useProductFilter.ts";
+import FilterSidebar from "../../components/store/Filters/FilterSidebar.tsx";
+import {ProductCard} from "../../components/store/shop/ProductCard.tsx";
+import {useCart} from "../../context/store/CardContext.tsx";
 import type {Product} from "../../types";
-import {SEO} from "../../components/shared/SEO.tsx";
-import {ProductDetailModal} from "../../components/shop/ProductDetailModal.tsx";
-import {shopService} from '../../services/shopService.ts';
+import {StoreSEO} from "../../components/store/StoreSEO.tsx";
+import {ProductDetailModal} from "../../components/store/shop/ProductDetailModal.tsx";
+import {shopService} from '../../services/store/shopService.ts';
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {Dialog, Transition} from '@headlessui/react';
 import {Filter, X} from 'lucide-react';
 import {useInfiniteQuery} from "@tanstack/react-query";
-import {Button} from "../../components/shop/Button.tsx";
-import {StoreHeader} from "../../components/shop/StoreHeader.tsx";
-import {StoreFooter} from "../../components/shop/StoreFooter.tsx";
+import {Button} from "../../components/shared/Button.tsx";
+import {StoreHeader} from "../../components/store/layout/StoreHeader.tsx";
+import {StoreFooter} from "../../components/store/layout/StoreFooter.tsx";
+import {useTranslation} from 'react-i18next';
 
 export default function AllProductsPage() {
+    const {t} = useTranslation();
     const {
         searchText,
         setSearchText,
@@ -82,9 +84,10 @@ export default function AllProductsPage() {
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
             <StoreHeader/>
-            <SEO
-                title={`Tienda - ${searchText || 'Todos los Productos'}`}
-                description="Explora nuestro catálogo completo de licencias y software original."
+            <StoreSEO
+                title={t('store.seo.products.title')}
+                description={t('store.seo.products.description')}
+                keywords={t('store.seo.products.keywords')}
                 canonicalUrl="/products"
             />
             <section className="py-8 pb-20">

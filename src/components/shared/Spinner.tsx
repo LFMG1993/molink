@@ -1,4 +1,4 @@
-import styles from '../general/Spinner.module.css';
+import styles from '../../style/Spinner.module.css';
 
 interface SpinnerProps {
     size?: string; // Permite personalizar el tamaño, ej: "6em"

@@ -1,0 +1,41 @@
+{
+  "store": {
+    "seo": {
+      "home": {
+        "title": "Original Software & Licenses Store | Molink",
+        "description": "Buy original software licenses with instant digital delivery. Windows, Office, Antivirus and more. Guaranteed activation and expert support.",
+        "keywords": "software licenses, original windows, office 365, antivirus, software Colombia, digital licenses, molink store"
+      },
+      "products": {
+        "title": "Complete Software & Licenses Catalog | Molink",
+        "description": "Explore our complete catalog of original software licenses. Instant digital delivery and activation guarantee.",
+        "keywords": "software catalog, original licenses, business software, digital tools"
+      },
+      "cart": {
+        "title": "Your Shopping Cart | Molink",
+        "description": "Review and finalize your original software license order at Molink.",
+        "keywords": "shopping cart, software licenses, molink checkout"
+      }
+    },
+    "features": {
+      "delivery_title": "Digital Delivery",
+      "delivery_desc": "Licenses sent to your email in seconds.",
+      "original_title": "Original Software",
+      "original_desc": "Lifetime activation guarantee.",
+      "secure_title": "Secure Payments",
+      "secure_desc": "Processed with SSL encryption.",
+      "support_title": "Expert Support",
+      "support_desc": "We help you with the installation."
+    },
+    "bestsellers": {
+      "title": "Best Sellers",
+      "subtitle": "Software preferred by professionals and companies",
+      "action": "View full catalog"
+    },
+    "business": {
+      "title": "Are you a business?",
+      "desc": "Quote volume licenses with wholesale prices and legal electronic invoicing.",
+      "cta": "Contact Corporate Advisor"
+    }
+  }
+}

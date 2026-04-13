@@ -1,0 +1,41 @@
+{
+  "store": {
+    "seo": {
+      "home": {
+        "title": "Tienda de Software y Licencias Originales | Molink",
+        "description": "Compra licencias de software original con entrega digital inmediata. Windows, Office, Antivirus y más. Activación garantizada y soporte experto.",
+        "keywords": "licencias software, windows original, office 365, antivirus, software Colombia, licencias digitales, molink tienda"
+      },
+      "products": {
+        "title": "Catálogo Completo de Software y Licencias | Molink",
+        "description": "Explora nuestro catálogo completo de licencias y software original. Entrega digital inmediata y garantía de activación.",
+        "keywords": "catálogo software, licencias originales, software para empresas, herramientas digitales"
+      },
+      "cart": {
+        "title": "Tu Carrito de Compras | Molink",
+        "description": "Revisa y finaliza tu pedido de licencias de software original en Molink.",
+        "keywords": "carrito compras, licencias software, checkout molink"
+      }
+    },
+    "features": {
+      "delivery_title": "Entrega Digital",
+      "delivery_desc": "Licencias enviadas a tu email en segundos.",
+      "original_title": "Software Original",
+      "original_desc": "Garantía de activación vitalicia.",
+      "secure_title": "Pagos Seguros",
+      "secure_desc": "Procesados con encriptación SSL.",
+      "support_title": "Soporte Experto",
+      "support_desc": "Te ayudamos con la instalación."
+    },
+    "bestsellers": {
+      "title": "Lo más vendido",
+      "subtitle": "El software preferido por profesionales y empresas",
+      "action": "Ver todo el catálogo"
+    },
+    "business": {
+      "title": "¿Eres una empresa?",
+      "desc": "Cotiza licencias por volumen con precios mayoristas y factura legal electrónica.",
+      "cta": "Contactar Asesor Corporativo"
+    }
+  }
+}

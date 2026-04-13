@@ -1,15 +1,15 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient, keepPreviousData } from '@tanstack/react-query';
 import type { PaginationState, SortingState } from "@tanstack/react-table";
-import { emprendePostService } from '../../services/emprendePostService.ts';
+import { emprendePostService } from '../../services/shared/emprendePostService.ts';
 import type { PaginatedResponse, Product, EmprendePost, EmprendePostCreationData, EmprendePostUpdateData } from '../../types';
 import { Button } from '../../components/shared/Button.tsx';
 import { ConfirmationModal } from '../../components/shared/ConfirmationModal.tsx';
 import { Spinner } from "../../components/shared/Spinner.tsx";
-import { useNotification } from "../../context/NotificationContext.tsx";
-import { EmprendeTable } from "../../components/emprende/EmprendeTable.tsx";
-import { EmprendeForm } from "../../components/emprende/EmprendeForm.tsx";
-import { productService } from "../../services/productService.ts";
+import { useNotification } from "../../context/shared/NotificationContext.tsx";
+import { EmprendeTable } from "../../components/admin/emprende/EmprendeTable.tsx";
+import { EmprendeForm } from "../../components/admin/emprende/EmprendeForm.tsx";
+import { productService } from "../../services/admin/productService.ts";
 
 export default function EmprendePage() {
     const queryClient = useQueryClient();

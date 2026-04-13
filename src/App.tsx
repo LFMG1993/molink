@@ -1,14 +1,14 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState} from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import {useAuthStore} from "./store/authStore.ts";
 import {Analytics} from "./components/shared/Analytics.tsx";
-import {NotificationProvider} from "./providers/NotificationProvider.tsx";
-import {CartProvider} from "./context/CardContext.tsx";
-import {UserAuthProvider} from "./context/UserAuthContext.tsx";
+import {NotificationProvider} from "./providers/shared/NotificationProvider.tsx";
+import {CartProvider} from "./context/store/CardContext.tsx";
+import {UserAuthProvider} from "./context/store/UserAuthContext.tsx";
 import {AdminGuard} from "./auth/AdminGuard.tsx";
 import {SuperAdminGuard} from "./auth/SuperAdminGuard.tsx";
 import {SmoothView} from "./components/landing/SmoothView.tsx";
-import {ThemeProvider} from "./context/ThemeContext.tsx";
+import {ThemeProvider} from "./context/shared/ThemeContext.tsx";
 import {CookieBanner} from "./components/landing/CookieBanner.tsx";
 
 // Paginas Principales
@@ -89,13 +89,13 @@ function App() {
 
     useEffect(() => {
         const hostname = window.location.hostname;
+        let newType = 'landing';
         if (hostname.startsWith('admin')) {
-            setDomainType('admin');
+            newType = 'admin';
         } else if (hostname.startsWith('tienda') || hostname.startsWith('shop')) {
-            setDomainType('shop');
-        } else {
-            setDomainType('landing');
+            newType = 'shop';
         }
+        setDomainType(newType);
     }, []);
 
     // ADMINISTRACIÓN

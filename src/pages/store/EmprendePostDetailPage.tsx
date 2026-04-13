@@ -1,10 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import YouTube from 'react-youtube';
-import { emprendePostService } from '../../services/emprendePostService';
+import { emprendePostService } from '../../services/shared/emprendePostService.ts';
 import { SEO } from '../../components/shared/SEO.tsx';
 import { Spinner } from '../../components/shared/Spinner.tsx';
-import { slugify } from '../../utils/utils';
+import { slugify } from '../../utils/slugify.ts';
 import { ShoppingBag } from 'lucide-react';
 
 export default function EmprendePostDetailPage() {

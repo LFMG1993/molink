@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useQuery, useMutation} from '@tanstack/react-query';
-import {orderService} from '../../services/admin/orderService.ts';
+import {orderService} from '../../services/store/orderService.ts';
 import {paymentMethodService} from '../../services/shared/paymentMethodService.ts';
 import {uploadCustomerImage} from "../../services/store/imageCustomerService.ts";
 import {useCart} from "../../context/store/CardContext.tsx";
@@ -16,14 +16,14 @@ export default function CheckoutPage() {
     const {clearCart} = useCart();
     const {addNotification} = useNotification();
 
-    const [selectedMethodId, setSelectedMethodId] = useState<number | null>(null);
+    const [selectedMethodId, setSelectedMethodId] = useState<string | null>(null);
     const [paymentProofFile, setPaymentProofFile] = useState<File | null>(null);
 
     const {data, isLoading, isError, error} = useQuery({
         queryKey: ['checkoutData', orderId],
         queryFn: async () => {
             if (!orderId) throw new Error("ID de orden no válido.");
-            const orderData = await orderService.getById(Number(orderId));
+            const orderData = await orderService.getById(orderId);
             const methodsData = await paymentMethodService.listPublic();
             return {order: orderData, paymentMethods: methodsData};
         },
@@ -34,7 +34,7 @@ export default function CheckoutPage() {
     useEffect(() => {
         if (isError && error) {
             addNotification(`Error al cargar datos: ${error.message}`, 'error');
-            navigate('/perfil');
+            navigate('/account');
         }
     }, [isError, error, addNotification, navigate]);
 
@@ -43,7 +43,7 @@ export default function CheckoutPage() {
     const confirmPaymentMutation = useMutation({
         mutationFn: async ({imageUrl}: { imageUrl: string }) => {
             if (!orderId || !selectedMethodId) throw new Error("Faltan datos para confirmar el pago.");
-            return orderService.confirmPayment(Number(orderId), {
+            return orderService.confirmPayment(orderId, {
                 paymentMethodId: selectedMethodId,
                 paymentConfirmationUrl: imageUrl,
             });
@@ -51,7 +51,7 @@ export default function CheckoutPage() {
         onSuccess: () => {
             addNotification('¡Gracias! Hemos recibido tu comprobante.', 'success');
             clearCart();
-            navigate(`/orden-confirmada/${orderId}`);
+            navigate(`/order-confirmation/${orderId}`);
         },
         onError: (error: any) => {
             addNotification(`Error al enviar el comprobante: ${error.message}`, 'error');
@@ -61,7 +61,7 @@ export default function CheckoutPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!orderId) {
-            navigate('/perfil');
+            navigate('/account');
             return;
         }
 

@@ -6,7 +6,7 @@ import {X} from 'lucide-react';
 import {ImageUploader} from "../../shared/ImageUploader.tsx";
 
 interface PaymentFormData {
-    id: number | null;
+    id: string | null;
     name: string;
     qrCodeUrl: string | null;
     instructions: string | null;

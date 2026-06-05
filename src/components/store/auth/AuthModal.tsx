@@ -7,7 +7,7 @@ import {useUserAuth} from "../../../context/store/UserAuthContext.tsx";
 interface AuthModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSuccess?: () => void; // Callback opcional para ejecutar después de un login exitoso
+    onSuccess?: () => void;
 }
 
 export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
@@ -32,12 +32,8 @@ export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
         setError(null);
         setIsLoading(true);
         try {
-            const response = await authService.requestLoginCode(email);
-            if (response.success) {
-                setStep('code');
-            } else {
-                setError(response.message || 'No se pudo enviar el código. Inténtalo de nuevo.');
-            }
+            await authService.requestLoginCode(email);
+            setStep('code');
         } catch (err) {
             setError('Ocurrió un error de red. Por favor, revisa tu conexión.');
         } finally {
@@ -50,10 +46,10 @@ export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
         setIsLoading(true);
         try {
             const response = await authService.verifyLoginCode(email, code);
-            if (response.success && response.token) {
-                login(response.token);
-                onSuccess?.(); // Ejecuta el callback si existe
-                onClose(); // Cierra el modal
+            if (response.success && response.user) {
+                login(response.user);
+                onSuccess?.();
+                onClose();
             } else {
                 setError(response.error || 'Código incorrecto o expirado.');
             }
@@ -97,12 +93,12 @@ export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
                             leaveTo: "opacity-0 scale-95"
                         }}>
                             <Dialog.Panel
-                                className="w-full max-w-md transform overflow-hidden rounded-2xl bg-[var(--color-card)] text-[var(--color-foreground)] p-6 text-left align-middle shadow-xl transition-all">
+                                className="w-full max-w-md transform overflow-hidden rounded-2xl bg-(--color-card) text-(--color-foreground) p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title as="h3" className="text-lg font-bold leading-6 text-center">
                                     {step === 'email' ? 'Continuar con tu correo' : 'Ingresa tu código'}
                                 </Dialog.Title>
                                 <button onClick={onClose}
-                                        className="absolute top-3 right-3 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-[var(--color-muted)] transition-colors">
+                                        className="absolute top-3 right-3 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-(--color-muted) transition-colors">
                                     <X className="h-5 w-5"/>
                                 </button>
 
@@ -110,26 +106,26 @@ export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
                                 <form onSubmit={handleFormSubmit} className="mt-4 space-y-4">
                                     {step === 'email' ? (
                                         <>
-                                            <p className="text-sm text-[var(--color-foreground)]/80 text-center">Te
+                                            <p className="text-sm text-(--color-foreground)/80 text-center">Te
                                                 enviaremos un código de
                                                 acceso a tu correo para continuar.</p>
                                             <div className="relative">
                                                 <Mail
-                                                    className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--color-foreground)]/50"/>
+                                                    className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-(--color-foreground)/50"/>
                                                 <input type="email" value={email}
                                                        onChange={(e) => setEmail(e.target.value)}
                                                        placeholder="tu@correo.com" required
-                                                       className="w-full pl-10 pr-3 py-2 border border-[var(--color-border)] bg-[var(--color-muted)] rounded-md focus:ring-primary focus:border-primary"/>
+                                                       className="w-full pl-10 pr-3 py-2 border border-(--color-border) bg-(--color-muted) rounded-md focus:ring-primary focus:border-primary"/>
                                             </div>
                                             <button type="submit" disabled={isLoading}
-                                                    className="w-full flex justify-center items-center gap-2 bg-[#4a3084] text-white font-bold py-2 px-4 rounded-md hover:bg-[#3b266a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                                                    className="w-full flex justify-center items-center gap-2 bg-[#f30519] text-white font-bold py-2 px-4 rounded-md hover:bg-[#c0041a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
                                                 {isLoading && <LoaderCircle className="animate-spin h-5 w-5"/>}
                                                 Enviar Código
                                             </button>
                                         </>
                                     ) : (
                                         <>
-                                            <p className="text-sm text-[var(--color-foreground)]/80 text-center">
+                                            <p className="text-sm text-(--color-foreground)/80 text-center">
                                                 Enviamos un código a <span className="font-bold">{email}</span>.
                                                 <button type="button" onClick={() => setStep('email')}
                                                         className="text-xs text-primary hover:underline ml-1">Cambiar
@@ -137,14 +133,14 @@ export function AuthModal({isOpen, onClose, onSuccess}: AuthModalProps) {
                                             </p>
                                             <div className="relative">
                                                 <KeyRound
-                                                    className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--color-foreground)]/50"/>
+                                                    className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-(--color-foreground)/50"/>
                                                 <input type="text" value={code}
                                                        onChange={(e) => setCode(e.target.value)}
                                                        placeholder="123456" required inputMode="numeric" pattern="\d{6}"
-                                                       className="w-full pl-10 pr-3 py-2 border border-[var(--color-border)] bg-[var(--color-muted)] rounded-md focus:ring-primary focus:border-primary"/>
+                                                       className="w-full pl-10 pr-3 py-2 border border-(--color-border) bg-(--color-muted) rounded-md focus:ring-primary focus:border-primary"/>
                                             </div>
                                             <button type="submit" disabled={isLoading}
-                                                    className="w-full flex justify-center items-center gap-2 bg-[#4a3084] text-white font-bold py-2 px-4 rounded-md hover:bg-[#3b266a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                                                    className="w-full flex justify-center items-center gap-2 bg-[#f30519] text-white font-bold py-2 px-4 rounded-md hover:bg-[#c0041a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
                                                 {isLoading && <LoaderCircle className="animate-spin h-5 w-5"/>}
                                                 Verificar e Ingresar
                                             </button>

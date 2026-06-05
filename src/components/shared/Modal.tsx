@@ -7,9 +7,10 @@ interface ModalProps {
     title?: string;
     children: React.ReactNode;
     size?: 'sm' | 'md' | 'lg' | 'xl';
+    className?: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, children, size = 'md'}) => {
+export const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, children, size = 'md', className}) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     // Efecto para cerrar el modal con la tecla 'Escape'
@@ -52,13 +53,13 @@ export const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, children, s
         >
             <div
                 ref={modalRef}
-                className={`bg-[var(--color-card)] text-[var(--color-foreground)] rounded-lg shadow-xl w-full ${sizeClasses[size]} transform transition-all duration-300`}
+                className={`${className || 'bg-[var(--color-card)] text-[var(--color-foreground)]'} rounded-xl shadow-2xl w-full ${sizeClasses[size]} transform transition-all duration-300 border border-white/10`}
             >
-                <div className="flex justify-between items-center p-4 border-b border-[var(--color-border)]">
-                    <h3 className="text-lg font-semibold">{title}</h3>
+                <div className="flex justify-between items-center p-5 border-b border-white/10">
+                    <h3 className="text-lg font-bold">{title}</h3>
                     <button
                         onClick={onClose}
-                        className="text-[var(--color-foreground)]/60 hover:text-[var(--color-foreground)]"
+                        className="text-white/40 hover:text-white transition-colors"
                         aria-label="Cerrar modal"
                     >
                         <X className="h-6 w-6"/>

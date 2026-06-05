@@ -15,13 +15,18 @@ export const addressService = {
         return response.data.address;
     },
 
-    async updateAddress(id: number, addressData: AddressUpdateData): Promise<Address> {
+    async updateAddress(id: string, addressData: AddressUpdateData): Promise<Address> {
         const response = await apiClient.put<{ address: Address }>(`/api/addresses/${id}`, addressData);
         return response.data.address;
     },
 
-    async deleteAddress(id: number): Promise<{ success: boolean }> {
+    async deleteAddress(id: string): Promise<{ success: boolean }> {
         const response = await apiClient.delete(`/api/addresses/${id}`);
+        return response.data;
+    },
+
+    async setDefaultAddress(id: string): Promise<{ success: boolean; message: string }> {
+        const response = await apiClient.post(`/api/addresses/${id}/default`);
         return response.data;
     },
 };

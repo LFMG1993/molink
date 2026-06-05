@@ -29,5 +29,4 @@ dist-ssr
 
 .qwen
 .github
-generate-sitemap.mjs
 pnpm-lock.yaml

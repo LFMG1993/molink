@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {useState, useEffect, useMemo} from 'react';
 import type {Order, Shipment, ShipmentFormData, PaginatedResponse} from '../../types';
 import {Spinner} from '../../components/shared/Spinner.tsx';
@@ -10,6 +11,7 @@ import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack
 import type {PaginationState, SortingState} from "@tanstack/react-table";
 import {PendingShipmentsTable} from "../../components/admin/shipments/PendingShipmentsTable.tsx";
 import {ExistingShipmentsTable} from "../../components/admin/shipments/ExistingShipmentsTable.tsx";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 const PendingShipments = () => {
     const queryClient = useQueryClient();
@@ -47,7 +49,7 @@ const PendingShipments = () => {
     const pageCount = useMemo(() => data?.pageCount ?? -1, [data]);
 
     const createShipmentMutation = useMutation({
-        mutationFn: ({orderId, formData}: { orderId: number, formData: ShipmentFormData }) =>
+        mutationFn: ({orderId, formData}: { orderId: string, formData: ShipmentFormData }) =>
             orderService.createShipment(orderId, formData),
         onSuccess: (_, {orderId}) => {
             addNotification(`Envío para el pedido #${orderId} creado con éxito.`, 'success');
@@ -139,7 +141,7 @@ const ExistingShipments = () => {
     const pageCount = useMemo(() => data?.pageCount ?? -1, [data]);
 
     const updateShipmentMutation = useMutation({
-        mutationFn: ({shipmentId, formData}: { shipmentId: number, formData: Partial<ShipmentFormData> }) =>
+        mutationFn: ({shipmentId, formData}: { shipmentId: string, formData: Partial<ShipmentFormData> }) =>
             shipmentService.updateShipment(shipmentId, formData),
         onSuccess: (_, {shipmentId}) => {
             addNotification(`Envío #${shipmentId} actualizado.`, 'success');
@@ -212,15 +214,25 @@ const ExistingShipments = () => {
 
 
 export default function ShipmentsPage() {
+    const { closeApp } = useWindows98();
     const tabs = [
         {label: 'Pendientes de Envío', content: <PendingShipments/>},
         {label: 'Envíos Realizados', content: <ExistingShipments/>},
     ];
 
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold text-[var(--color-foreground)] mb-4">Gestión de Envíos</h1>
-            <Tabs tabs={tabs}/>
-        </div>
+        <DraggableWindow
+            id="shipments"
+            title="Envíos"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('shipments')}
+        >
+            <div className="p-6 bg-transparent text-[var(--os-text)] min-h-full">
+                <h1 className="text-3xl font-bold text-[var(--color-foreground)] mb-4">Gestión de Envíos</h1>
+                <Tabs tabs={tabs}/>
+            </div>
+        </DraggableWindow>
     );
 }

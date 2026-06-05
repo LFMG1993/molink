@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react';
-import type {User, UserCreationData} from '../../../types';
-import {Button} from '../../shared/Button.tsx';
-import {X} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import type { User, UserCreationData } from '../../../types';
+import { Button } from '../../shared/Button.tsx';
+import { X } from 'lucide-react';
 
 interface UserFormProps {
     isOpen: boolean;
@@ -12,13 +12,13 @@ interface UserFormProps {
 }
 
 const initialState: UserCreationData = {
-    nombre: '',
+    name: '',
     email: '',
     password: '',
     rol: '',
 };
 
-export const UserForm = ({isOpen, onClose, onSubmit, userToEdit, isSubmitting}: UserFormProps) => {
+export const UserForm = ({ isOpen, onClose, onSubmit, userToEdit, isSubmitting }: UserFormProps) => {
     const [formData, setFormData] = useState<UserCreationData>({
         ...initialState
     });
@@ -28,10 +28,10 @@ export const UserForm = ({isOpen, onClose, onSubmit, userToEdit, isSubmitting}: 
     useEffect(() => {
         if (isEditMode) {
             setFormData({
-                nombre: userToEdit.nombre,
-                email: userToEdit.email,
-                rol: userToEdit.rol,
-                password: '', // La contraseña no se precarga por seguridad
+                name: userToEdit.name || (userToEdit as any).nombre || '',
+                email: userToEdit.email || '',
+                rol: userToEdit.rol || '',
+                password: '',
             });
         } else {
             setFormData(initialState);
@@ -39,15 +39,14 @@ export const UserForm = ({isOpen, onClose, onSubmit, userToEdit, isSubmitting}: 
     }, [userToEdit, isEditMode, isOpen]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const {name, value} = e.target;
-        setFormData(prev => ({...prev, [name]: value}));
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const dataToSubmit = {...formData};
+        const dataToSubmit = { ...formData };
         if (isEditMode) {
-            // No enviar la contraseña si no se ha cambiado en modo edición
             if (!dataToSubmit.password) {
                 delete dataToSubmit.password;
             }
@@ -67,45 +66,45 @@ export const UserForm = ({isOpen, onClose, onSubmit, userToEdit, isSubmitting}: 
                     <div className="flex justify-between items-center p-6 border-b border-[var(--color-border)]">
                         <h3 className="text-lg font-medium">{isEditMode ? 'Editar Usuario' : 'Crear Nuevo Usuario'}</h3>
                         <button type="button" onClick={onClose}
-                                className="text-[var(--color-foreground)]/60 hover:text-[var(--color-foreground)]">
-                            <X className="h-6 w-6"/>
+                            className="text-[var(--color-foreground)]/60 hover:text-[var(--color-foreground)]">
+                            <X className="h-6 w-6" />
                         </button>
                     </div>
 
                     <div className="p-6 space-y-4">
                         <div>
                             <label htmlFor="nombre"
-                                   className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre
+                                className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre
                                 Completo</label>
-                            <input type="text" name="nombre" id="nombre" value={formData.nombre}
-                                   onChange={handleChange}
-                                   className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
-                                   required/>
+                            <input type="text" name="name" id="name" value={formData.name}
+                                onChange={handleChange}
+                                className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
+                                required />
                         </div>
                         <div>
                             <label htmlFor="email"
-                                   className="block text-sm font-medium text-[var(--color-foreground)]/80">Email</label>
+                                className="block text-sm font-medium text-[var(--color-foreground)]/80">Email</label>
                             <input type="email" name="email" id="email" value={formData.email}
-                                   onChange={handleChange}
-                                   className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
-                                   required/>
+                                onChange={handleChange}
+                                className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
+                                required />
                         </div>
                         <div>
                             <label htmlFor="password"
-                                   className="block text-sm font-medium text-[var(--color-foreground)]/80">
+                                className="block text-sm font-medium text-[var(--color-foreground)]/80">
                                 Contraseña {isEditMode ? '(Dejar en blanco para no cambiar)' : ''}
                             </label>
                             <input type="password" name="password" id="password"
-                                   value={formData.password || ''}
-                                   onChange={handleChange}
-                                   className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
-                                   required={!isEditMode}/>
+                                value={formData.password || ''}
+                                onChange={handleChange}
+                                className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary"
+                                required={!isEditMode} />
                         </div>
                         <div>
                             <label htmlFor="rol"
-                                   className="block text-sm font-medium text-[var(--color-foreground)]/80">Rol</label>
+                                className="block text-sm font-medium text-[var(--color-foreground)]/80">Rol</label>
                             <select name="rol" id="rol" value={formData.rol} onChange={handleChange}
-                                    className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary">
+                                className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] text-[var(--color-foreground)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary">
                                 <option value="admin">Administrador</option>
                                 <option value="employee">Vendedor</option>
                             </select>

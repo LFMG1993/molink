@@ -1,23 +1,22 @@
-import {useState, Fragment, useMemo} from "react";
-import {useProductFilter} from "../../hooks/store/useProductFilter.ts";
+import { useState, Fragment, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { useProductFilter } from "../../hooks/store/useProductFilter.ts";
 import FilterSidebar from "../../components/store/Filters/FilterSidebar.tsx";
-import {ProductCard} from "../../components/store/shop/ProductCard.tsx";
-import {useCart} from "../../context/store/CardContext.tsx";
-import type {Product} from "../../types";
-import {StoreSEO} from "../../components/store/StoreSEO.tsx";
-import {ProductDetailModal} from "../../components/store/shop/ProductDetailModal.tsx";
-import {shopService} from '../../services/store/shopService.ts';
-import {Spinner} from "../../components/shared/Spinner.tsx";
-import {Dialog, Transition} from '@headlessui/react';
-import {Filter, X} from 'lucide-react';
-import {useInfiniteQuery} from "@tanstack/react-query";
-import {Button} from "../../components/shared/Button.tsx";
-import {StoreHeader} from "../../components/store/layout/StoreHeader.tsx";
-import {StoreFooter} from "../../components/store/layout/StoreFooter.tsx";
-import {useTranslation} from 'react-i18next';
+import { ProductCard } from "../../components/store/shop/ProductCard.tsx";
+import type { Product } from "../../types";
+import { StoreSEO } from "../../components/store/StoreSEO.tsx";
+import { shopService } from '../../services/store/shopService.ts';
+import { Spinner } from "../../components/shared/Spinner.tsx";
+import { Dialog, Transition } from '@headlessui/react';
+import { Filter, X } from 'lucide-react';
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { Button } from "../../components/shared/Button.tsx";
+import { useTranslation } from 'react-i18next';
+import { useCart } from "../../context/store/CardContext.tsx";
 
 export default function AllProductsPage() {
-    const {t} = useTranslation();
+    const navigate = useNavigate();
+    const { t } = useTranslation();
     const {
         searchText,
         setSearchText,
@@ -31,8 +30,7 @@ export default function AllProductsPage() {
         toggleAttribute,
     } = useProductFilter();
 
-    const {addItem} = useCart();
-    const [viewingProduct, setViewingProduct] = useState<Product | null>(null);
+
     const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
     // Extraemos los IDs de los valores de atributos seleccionados
@@ -47,8 +45,8 @@ export default function AllProductsPage() {
         isFetchingNextPage,
         isLoading: isLoadingProducts
     } = useInfiniteQuery({
-        queryKey: ['allPublicProducts', searchText, selectedCategoryIds, selectedAttributes, {isActive:true}],
-        queryFn: ({pageParam = 1}) => shopService.getPublicProducts({
+        queryKey: ['allPublicProducts', searchText, selectedCategoryIds, selectedAttributes, { isActive: true }],
+        queryFn: ({ pageParam = 1 }) => shopService.getPublicProducts({
             page: pageParam,
             limit: 30, // Cargamos de 30 en 30
             search: searchText,
@@ -65,25 +63,33 @@ export default function AllProductsPage() {
 
     const filteredProducts = useMemo(() => data?.pages.flatMap(page => page.data) ?? [], [data]);
 
-    //  Nueva función "inteligente" que decide la acción a tomar.
+    const { addItem } = useCart();
+
     const handleAddOrSelect = async (product: Product) => {
-        try {
-            const fullProduct = await shopService.getPublicProductById(product.id);
-            if (fullProduct.variants && fullProduct.variants.length === 1) {
-                // Si solo hay una variante, la añadimos directamente.
-                addItem(fullProduct, 1);
-            } else {
-                // Si hay múltiples variantes, abrimos el modal de detalles para que el usuario elija.
-                setViewingProduct(fullProduct);
+        if (product.variants && product.variants.length > 1) {
+            navigate(`/products/${product.id}`);
+            return;
+        }
+
+        if (!product.variants?.[0]?.id) {
+            try {
+                const fullProduct = await shopService.getPublicProductById(product.id);
+                if (fullProduct.variants && fullProduct.variants.length > 1) {
+                    navigate(`/products/${product.id}`);
+                } else {
+                    addItem(fullProduct);
+                }
+            } catch (error) {
+                console.error("Error cargando producto completo:", error);
+                navigate(`/products/${product.id}`);
             }
-        } catch (error) {
-            console.error("Error al procesar el producto:", error);
+        } else {
+            addItem(product);
         }
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-            <StoreHeader/>
+        <main className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
             <StoreSEO
                 title={t('store.seo.products.title')}
                 description={t('store.seo.products.description')}
@@ -104,7 +110,7 @@ export default function AllProductsPage() {
                             onClick={() => setIsMobileFilterOpen(true)}
                             className="inline-flex items-center gap-2 px-4 py-2 border border-slate-200 text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50"
                         >
-                            <Filter className="h-5 w-5"/>
+                            <Filter className="h-5 w-5" />
                             Filtros
                         </button>
                     </div>
@@ -113,32 +119,32 @@ export default function AllProductsPage() {
                     <Transition.Root show={isMobileFilterOpen} as={Fragment}>
                         <Dialog as="div" className="relative z-50 md:hidden" onClose={setIsMobileFilterOpen}>
                             <Transition.Child as={Fragment} enter="transition-opacity ease-linear duration-300"
-                                              enterFrom="opacity-0" enterTo="opacity-100"
-                                              leave="transition-opacity ease-linear duration-300"
-                                              leaveFrom="opacity-100" leaveTo="opacity-0">
-                                <div className="fixed inset-0 bg-black bg-opacity-25"/>
+                                enterFrom="opacity-0" enterTo="opacity-100"
+                                leave="transition-opacity ease-linear duration-300"
+                                leaveFrom="opacity-100" leaveTo="opacity-0">
+                                <div className="fixed inset-0 bg-black bg-opacity-25" />
                             </Transition.Child>
                             <div className="fixed inset-0 z-40 flex">
                                 <Transition.Child as={Fragment} enter="transition ease-in-out duration-300 transform"
-                                                  enterFrom="-translate-x-full" enterTo="translate-x-0"
-                                                  leave="transition ease-in-out duration-300 transform"
-                                                  leaveFrom="translate-x-0" leaveTo="-translate-x-full">
+                                    enterFrom="-translate-x-full" enterTo="translate-x-0"
+                                    leave="transition ease-in-out duration-300 transform"
+                                    leaveFrom="translate-x-0" leaveTo="-translate-x-full">
                                     <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
                                         <div className="flex px-4 pt-5 pb-2 justify-end">
                                             <button type="button"
-                                                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-slate-400"
-                                                    onClick={() => setIsMobileFilterOpen(false)}>
-                                                <X className="h-6 w-6" aria-hidden="true"/>
+                                                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-slate-400"
+                                                onClick={() => setIsMobileFilterOpen(false)}>
+                                                <X className="h-6 w-6" aria-hidden="true" />
                                             </button>
                                         </div>
                                         <FilterSidebar searchText={searchText} onSearch={setSearchText}
-                                                       selectedCategoryIds={selectedCategoryIds}
-                                                       toggleCategory={toggleCategory}
-                                                       clearFilters={clearFilters}
-                                                       hierarchicalCategories={hierarchicalCategories}
-                                                       filterableAttributes={filterableAttributes}
-                                                       selectedAttributes={selectedAttributes}
-                                                       toggleAttribute={toggleAttribute}/>
+                                            selectedCategoryIds={selectedCategoryIds}
+                                            toggleCategory={toggleCategory}
+                                            clearFilters={clearFilters}
+                                            hierarchicalCategories={hierarchicalCategories}
+                                            filterableAttributes={filterableAttributes}
+                                            selectedAttributes={selectedAttributes}
+                                            toggleAttribute={toggleAttribute} />
                                     </Dialog.Panel>
                                 </Transition.Child>
                             </div>
@@ -166,7 +172,7 @@ export default function AllProductsPage() {
                         <main className="w-full md:w-3/4 lg:w-4/5">
                             {isLoading || isLoadingProducts ? (
                                 <div className="flex justify-center items-center py-16">
-                                    <Spinner/>
+                                    <Spinner />
                                 </div>
                             ) : (
                                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
@@ -207,12 +213,7 @@ export default function AllProductsPage() {
                         </main>
                     </div>
                 </div>
-                <ProductDetailModal
-                    product={viewingProduct}
-                    onClose={() => setViewingProduct(null)}
-                />
             </section>
-            <StoreFooter/>
-        </div>
+        </main>
     );
 }

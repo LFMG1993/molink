@@ -9,7 +9,7 @@ import {Check, ChevronsUpDown} from "lucide-react";
 interface AddressFormModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSave: (data: AddressCreationData, id?: number) => void;
+    onSave: (data: AddressCreationData, id?: string) => void;
     initialData?: Address | null;
     isSaving: boolean;
 }
@@ -35,7 +35,7 @@ export const AddressFormModal = ({isOpen, onClose, onSave, initialData, isSaving
 
     // Cargar la lista de departamentos al montar el componente
     useEffect(() => {
-        locationService.getDepartments().then(setDepartments);
+        setDepartments(locationService.getDepartments());
     }, []);
 
     useEffect(() => {
@@ -62,9 +62,9 @@ export const AddressFormModal = ({isOpen, onClose, onSave, initialData, isSaving
     // Efecto para actualizar las ciudades cuando cambia el departamento seleccionado
     useEffect(() => {
         if (typeof formData.state === 'string' && formData.state) {
-            locationService.getCitiesByDepartment(formData.state).then(setCities);
+            setCities(locationService.getCitiesByDepartment(formData.state));
         } else {
-            setCities([]); // Si no hay departamento, la lista de ciudades está vacía
+            setCities([]);
         }
     }, [formData.state]);
 
@@ -114,67 +114,68 @@ export const AddressFormModal = ({isOpen, onClose, onSave, initialData, isSaving
             isOpen={isOpen}
             onClose={onClose}
             title={initialData ? 'Editar Dirección' : 'Añadir Nueva Dirección'}
+            className="bg-[#0a0a0a] text-white"
         >
-            <form onSubmit={handleSubmit} className="space-y-4 text-[var(--color-foreground)]">
+            <form onSubmit={handleSubmit} className="space-y-4 text-white">
                 <div>
                     <label htmlFor="recipientName"
-                           className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre de quien
+                           className="block text-sm font-bold text-white/80 uppercase tracking-wider mb-1.5">Nombre de quien
                         recibe</label>
                     <input id="recipientName" name="recipientName" type="text" required value={formData.recipientName}
                            onChange={handleChange}
-                           className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                           className="mt-1 block w-full rounded-lg border-white/10 bg-white/5 text-white shadow-sm focus:border-red-500/60 focus:ring-red-500/60 p-3 transition-colors"/>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label htmlFor="street">Dirección</label>
+                        <label htmlFor="street" className="block text-sm font-bold text-white/80 uppercase tracking-wider mb-1.5">Dirección</label>
                         <input id="street" name="street" type="text" required value={formData.street}
                                onChange={handleChange} placeholder="Calle y Número"
-                               className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                               className="mt-1 block w-full rounded-lg border-white/10 bg-white/5 text-white shadow-sm focus:border-red-500/60 focus:ring-red-500/60 p-3 transition-colors placeholder:text-white/20"/>
                     </div>
                     <div>
-                        <label htmlFor="details">Detalles </label>
+                        <label htmlFor="details" className="block text-sm font-bold text-white/80 uppercase tracking-wider mb-1.5">Detalles </label>
                         <input id="details" name="details" type="text" value={formData.details || ''}
                                onChange={handleChange} placeholder="Apto, Torre, etc."
-                               className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                               className="mt-1 block w-full rounded-lg border-white/10 bg-white/5 text-white shadow-sm focus:border-red-500/60 focus:ring-red-500/60 p-3 transition-colors placeholder:text-white/20"/>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="state"
-                               className="block text-sm font-medium text-[var(--color-foreground)]/80">Departamento</label>
+                               className="block text-sm font-bold text-white/80 uppercase tracking-wider mb-1.5">Departamento</label>
                         <Combobox value={formData.state || ''}
                                   onChange={(value) => handleComboboxChange('state', value)}>
                             <div className="relative mt-1">
                                 <Combobox.Input
-                                    className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-muted)] py-2 pl-3 pr-10 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                                    className="w-full rounded-lg border border-white/10 bg-white/5 text-white py-3 pl-3 pr-10 shadow-sm focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/60 placeholder:text-white/20 transition-colors"
                                     onChange={(event) => setDepartmentQuery(event.target.value)}
                                     displayValue={(department: string) => department}
                                     placeholder="Busca un departamento"
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                    <ChevronsUpDown className="h-5 w-5 text-[var(--color-foreground)]/60"
+                                    <ChevronsUpDown className="h-5 w-5 text-white/40"
                                                     aria-hidden="true"/>
                                 </Combobox.Button>
                                 <Transition as={Fragment} leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100" leaveTo="opacity-0">
                                     <Combobox.Options
-                                        className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-[var(--color-card)] py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-xl bg-[#111] border border-white/10 py-1 text-base shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         {filteredDepartments.length === 0 && departmentQuery !== '' ? (
                                             <div
-                                                className="relative cursor-default select-none py-2 px-4 text-[var(--color-foreground)]/80">No
+                                                className="relative cursor-default select-none py-2 px-4 text-white/50">No
                                                 se encontró.</div>
                                         ) : (
                                             filteredDepartments.map((dep) => (
                                                 <Combobox.Option key={dep} value={dep}
-                                                                 className={({active}) => `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-primary/80 text-primary-foreground' : ''}`}>
+                                                                 className={({active}) => `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-red-600/20 text-white' : 'text-white/80'}`}>
                                                     {({selected, active}) => (
                                                         <>
                                                             <span
-                                                                className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>{dep}</span>
+                                                                className={`block truncate ${selected ? 'font-bold text-white' : 'font-normal'}`}>{dep}</span>
                                                             {selected && <span
-                                                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-primary'}`}><Check
+                                                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-red-400' : 'text-red-500'}`}><Check
                                                                 className="h-5 w-5" aria-hidden="true"/></span>}
                                                         </>
                                                     )}
@@ -188,38 +189,38 @@ export const AddressFormModal = ({isOpen, onClose, onSave, initialData, isSaving
                     </div>
                     <div>
                         <label htmlFor="city"
-                               className="block text-sm font-medium text-[var(--color-foreground)]/80">Ciudad</label>
+                               className="block text-sm font-bold text-white/80 uppercase tracking-wider mb-1.5">Ciudad</label>
                         <Combobox value={formData.city || ''} onChange={(value) => handleComboboxChange('city', value)}
                                   disabled={!formData.state || cities.length === 0}>
                             <div className="relative mt-1">
                                 <Combobox.Input
-                                    className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-muted)] py-2 pl-3 pr-10 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:bg-[var(--color-muted)]/50"
+                                    className="w-full rounded-lg border border-white/10 bg-white/5 text-white py-3 pl-3 pr-10 shadow-sm focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/60 disabled:bg-white/5 disabled:opacity-50 placeholder:text-white/20 transition-colors"
                                     onChange={(event) => setCityQuery(event.target.value)}
                                     displayValue={(city: string) => city}
                                     placeholder="Busca una ciudad"
                                 />
                                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                    <ChevronsUpDown className="h-5 w-5 text-[var(--color-foreground)]/60"
+                                    <ChevronsUpDown className="h-5 w-5 text-white/40"
                                                     aria-hidden="true"/>
                                 </Combobox.Button>
                                 <Transition as={Fragment} leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100" leaveTo="opacity-0">
                                     <Combobox.Options
-                                        className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-[var(--color-card)] py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-xl bg-[#111] border border-white/10 py-1 text-base shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         {filteredCities.length === 0 && cityQuery !== '' ? (
                                             <div
-                                                className="relative cursor-default select-none py-2 px-4 text-[var(--color-foreground)]/80">No
+                                                className="relative cursor-default select-none py-2 px-4 text-white/50">No
                                                 se encontró.</div>
                                         ) : (
                                             filteredCities.map((city) => (
                                                 <Combobox.Option key={city} value={city}
-                                                                 className={({active}) => `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-primary/80 text-primary-foreground' : ''}`}>
+                                                                 className={({active}) => `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-red-600/20 text-white' : 'text-white/80'}`}>
                                                     {({selected, active}) => (
                                                         <>
                                                             <span
-                                                                className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>{city}</span>
+                                                                className={`block truncate ${selected ? 'font-bold text-white' : 'font-normal'}`}>{city}</span>
                                                             {selected && <span
-                                                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-primary'}`}><Check
+                                                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-red-400' : 'text-red-500'}`}><Check
                                                                 className="h-5 w-5" aria-hidden="true"/></span>}
                                                         </>
                                                     )}
@@ -236,15 +237,15 @@ export const AddressFormModal = ({isOpen, onClose, onSave, initialData, isSaving
                 <div className="flex items-center">
                     <input id="isDefault" name="isDefault" type="checkbox" checked={formData.isDefault}
                            onChange={handleChange}
-                           className="h-4 w-4 rounded border-[var(--color-border)] bg-[var(--color-muted)] text-primary focus:ring-primary"/>
-                    <label htmlFor="isDefault" className="ml-2 block text-sm">
+                           className="h-4 w-4 rounded border-white/20 bg-white/5 text-red-600 focus:ring-red-600 focus:ring-offset-0"/>
+                    <label htmlFor="isDefault" className="ml-2 block text-sm text-white/80">
                         Usar como dirección predeterminada
                     </label>
                 </div>
 
-                <div className="pt-4 flex justify-end gap-3">
-                    <Button type="button" variant="secondary" onClick={onClose}>Cancelar</Button>
-                    <Button type="submit" disabled={isSaving}>
+                <div className="pt-6 flex justify-end gap-3 border-t border-white/10 mt-6">
+                    <Button type="button" variant="outline" className="border-white/10 text-white/60 hover:text-white hover:bg-white/5" onClick={onClose}>Cancelar</Button>
+                    <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-bold" disabled={isSaving}>
                         {isSaving ? 'Guardando...' : 'Guardar Dirección'}
                     </Button>
                 </div>

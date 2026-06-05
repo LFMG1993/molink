@@ -21,7 +21,7 @@ export async function uploadCustomerImage(file: File, entityName: string): Promi
     const filename = `${entityName}-${Date.now()}.webp`;
 
     // Pedir la URL de subida segura a nuestro backend
-    const response = await apiClient.post<{ url: string }>('/api/customer/upload-url', {filename, contentType: 'image/webp'});
+    const response = await apiClient.post<{ url: string }>('/api/upload-url', {filename, contentType: 'image/webp'});
     const signedUrl = response.data.url;
 
     // Subir el archivo directamente a R2 usando la URL firmada

@@ -22,14 +22,14 @@ export const SEO = ({title, description, keywords, canonicalUrl, ogImage, noInde
     const finalCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
     // Keywords servicios de desarrollo
-    const siteKeywords = "desarrollo de software, desarrollo de aplicaciones, páginas web, aplicaciones móviles, automatizaciones, hosting, dominio, administración de sitios, trabajo remoto, tecnología, Cúcuta, desarrollo web Colombia";
+    const siteKeywords = "desarrollo de software Cúcuta, agencia de desarrollo web Cúcuta, creación de páginas web, diseño web Cúcuta, desarrollo de tiendas virtuales, e-commerce, comercio electrónico, tiendas online, aplicaciones móviles, programación web, agencias de tecnología Norte de Santander, automatización de procesos, desarrollo a medida en Cúcuta, Villa del Rosario, Los Patios, desarrolladores web Colombia, software Latinoamérica, desarrollo de apps, ecommerce development, consultoría tecnológica, Molink Tecnología";
     const finalKeywords = keywords ? `${siteKeywords}, ${keywords}` : siteKeywords;
     
     const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Molink Tecnología - Desarrollo de Software",
-        "description": description,
+        "name": "Molink Tecnología - Agencia de Desarrollo Web y Software",
+        "description": description || "Agencia experta en desarrollo de software, páginas web, tiendas virtuales (e-commerce) y aplicaciones móviles en Cúcuta y Latinoamérica.",
         "image": `https://molink.com.co/og-image.jpg`,
         "@id": siteUrl,
         "url": siteUrl,
@@ -38,7 +38,7 @@ export const SEO = ({title, description, keywords, canonicalUrl, ogImage, noInde
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Calle 12 # 3 - 59, Trapiches",
-            "addressLocality": "Villa del Rosario",
+            "addressLocality": "Villa del Rosario, Cúcuta",
             "addressRegion": "Norte de Santander",
             "postalCode": "541030",
             "addressCountry": "CO"
@@ -89,7 +89,7 @@ export const SEO = ({title, description, keywords, canonicalUrl, ogImage, noInde
             "https://www.youtube.com/@molink_tecnologia",
             "https://maps.app.goo.gl/CjUAgiT8jMeZfjjW8"
         ],
-        "serviceType": ["Desarrollo de Aplicaciones Web", "Desarrollo de Aplicaciones Móviles", "Automatización de Procesos", "Alojamiento Web (Hosting)", "Registro de Dominios", "Administración de Sitios Web", "Desarrollo de Software a Medida"]
+        "serviceType": ["Desarrollo de Aplicaciones Web", "Desarrollo de Tiendas Virtuales y E-commerce", "Desarrollo de Aplicaciones Móviles", "Automatización de Procesos", "Alojamiento Web (Hosting)", "Registro de Dominios", "Administración de Sitios Web", "Desarrollo de Software a Medida en Cúcuta"]
     };
 
     return (

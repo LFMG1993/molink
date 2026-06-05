@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import { useState, useMemo, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient, keepPreviousData } from '@tanstack/react-query';
 import type { PaginationState, SortingState } from "@tanstack/react-table";
@@ -10,9 +11,11 @@ import { useNotification } from "../../context/shared/NotificationContext.tsx";
 import { EmprendeTable } from "../../components/admin/emprende/EmprendeTable.tsx";
 import { EmprendeForm } from "../../components/admin/emprende/EmprendeForm.tsx";
 import { productService } from "../../services/admin/productService.ts";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 export default function EmprendePage() {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const { addNotification } = useNotification();
 
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -61,7 +64,7 @@ export default function EmprendePage() {
     };
 
     const saveMutation = useMutation({
-        mutationFn: async ({ data, id }: { data: EmprendePostCreationData | EmprendePostUpdateData, id?: number }) => {
+        mutationFn: async ({ data, id }: { data: EmprendePostCreationData | EmprendePostUpdateData, id?: string }) => {
             if (id) {
                 await emprendePostService.update(id, data);
                 return emprendePostService.getById(id);
@@ -79,7 +82,7 @@ export default function EmprendePage() {
     });
 
     const deleteMutation = useMutation({
-        mutationFn: (id: number) => emprendePostService.delete(id),
+        mutationFn: (id: string) => emprendePostService.delete(id),
         onSuccess: () => {
             addNotification('Post eliminado con éxito.', 'success');
             queryClient.invalidateQueries({ queryKey: ['emprendePosts'] });
@@ -93,8 +96,16 @@ export default function EmprendePage() {
     const isLoading = isLoadingPosts && postsData === undefined;
 
     return (
-        <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
+        <DraggableWindow
+            id="emprende"
+            title="Emprende"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('emprende')}
+        >
+            <div className="p-8 bg-transparent text-[var(--os-text)] min-h-full">
+                <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-bold text-[var(--color-foreground)]">Gestionar "Emprende"</h1>
                 <Button onClick={() => { setEditingPost(null); setIsFormOpen(true); }}>Crear Post</Button>
             </div>
@@ -133,6 +144,7 @@ export default function EmprendePage() {
                 title="Confirmar Eliminación"
                 message={`¿Estás seguro de que deseas eliminar el post "${postToDelete?.title}"? Esta acción no se puede deshacer.`}
             />
-        </div>
+            </div>
+        </DraggableWindow>
     );
 }

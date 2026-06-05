@@ -11,8 +11,8 @@ export default function EmprendePostDetailPage() {
     const { id } = useParams<{ id: string }>();
 
     const { data: post, isLoading, isError, error } = useQuery({
-        queryKey: ['publicEmprendePost', id],
-        queryFn: () => emprendePostService.getPublicById(Number(id)),
+        queryKey: ['emprendePost', id],
+        queryFn: () => emprendePostService.getPublicById(id!),
         enabled: !!id,
     });
 

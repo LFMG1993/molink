@@ -15,8 +15,10 @@
       "info_title": "Información de contacto",
       "name": "Nombre completo",
       "email": "Correo electrónico",
+      "subject": "Asunto",
       "message": "Cuéntanos sobre tu proyecto",
-      "send": "Enviar mensaje"
+      "send": "Enviar mensaje",
+      "sending": "Enviando..."
     },
     "footer": {
       "description": "Soluciones tecnológicas a medida para impulsar tu negocio.",
@@ -75,11 +77,12 @@
       "total": "Total estimado"
     },
     "hero": {
-      "title": "Ofrecemos Múltiples Soluciones Tecnológicas",
+      "title": "Transformamos tus Ideas en Software, Apps y Tiendas Virtuales Exitosas",
+      "subtitle": "Agencia de desarrollo web y móvil radicada en Cúcuta, Colombia. Creamos soluciones tecnológicas de alta calidad para toda Latinoamérica.",
       "web_dev": "Desarrollo Web",
       "mobile_dev": "Desarrollo Móvil",
       "admin": "Administración",
-      "software": "Tienda"
+      "software": "Nuestra Tienda"
     },
     "services": {
       "title": "Resumen de servicios",
@@ -223,6 +226,24 @@
             {
               "strong": "SEO continuo:",
               "text": " Mejoramos la visibilidad de tu sitio en los resultados de búsqueda de forma constante."
+            }
+          ]
+        },
+        "service5": {
+          "title": "Tienda Online",
+          "intro": "Nuestra tienda online te permite vender tus productos o servicios de manera eficiente y accesible a través de Internet. Con una plataforma segura y fácil de usar, puedes gestionar tus ventas, controlar el stock y ofrecer una experiencia de compra excepcional a tus clientes.",
+          "features": [
+            {
+              "strong": "Licencias de Software:",
+              "text": "Ofrecemos licencias originales de Microsoft, Autocad y Adobe."
+            },
+            {
+              "strong": "Respaldo:",
+              "text": " Realizamos copias de seguridad regulares de tu sitio para proteger tus datos contra cualquier pérdida o daño."
+            },
+            {
+              "strong": "Precios Competitivos:",
+              "text": " Ofrecemos precios competitivos sin compromisos y sin cargos ocultos ."
             }
           ]
         },

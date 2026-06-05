@@ -6,7 +6,7 @@ type Props = {
     show: boolean;
     item: CartItem | null;
     onClose: () => void;
-    onSave: (variantId: number, quantity: number) => void;
+    onSave: (variantId: string, quantity: number) => void;
 };
 
 export default function EditCartItemModal({

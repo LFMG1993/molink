@@ -85,39 +85,39 @@ export const ProfileEditor = () => {
     }
 
     if (!profile) {
-        return <div className="text-center p-8 text-[var(--color-foreground)]/60">Cargando perfil...</div>;
+        return <div className="text-center p-8 text-slate-600">Cargando perfil...</div>;
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bg-[var(--color-card)] text-[var(--color-foreground)] p-8 rounded-lg shadow-sm border border-[var(--color-border)] max-w-2xl">
+        <form onSubmit={handleSubmit} className="bg-white text-slate-900 p-8 rounded-lg shadow-sm border border-slate-200 max-w-2xl">
             <h2 className="text-xl font-semibold mb-6">Tus Datos Personales y de Facturación</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* 3. Campo de correo (no editable) */}
                 <div className="md:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-medium text-[var(--color-foreground)]/80">Correo
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-900/80">Correo
                         Electrónico</label>
                     <input type="email" name="email" id="email" value={customer?.email || ''} disabled
-                           className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm bg-[var(--color-muted)]/50 cursor-not-allowed p-2.5"/>
+                           className="mt-1 block w-full rounded-md border-slate-200 shadow-sm bg-slate-100/50 cursor-not-allowed p-2.5"/>
                 </div>
                 {/* Campos del formulario */}
                 <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre
+                    <label htmlFor="fullName" className="block text-sm font-medium text-slate-900/80">Nombre
                         Completo</label>
                     <input type="text" name="fullName" id="fullName" value={profile.fullName} onChange={handleChange}
                            required
-                           className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                           className="mt-1 block w-full rounded-md border-slate-200 bg-slate-100 shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
                 </div>
                 <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[var(--color-foreground)]/80">Teléfono</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-slate-900/80">Teléfono</label>
                     <input type="tel" name="phone" id="phone" value={profile.phone || ''} onChange={handleChange}
-                           className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                           className="mt-1 block w-full rounded-md border-slate-200 bg-slate-100 shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
                 </div>
                 <div>
-                    <label htmlFor="documentType" className="block text-sm font-medium text-[var(--color-foreground)]/80">Tipo de
+                    <label htmlFor="documentType" className="block text-sm font-medium text-slate-900/80">Tipo de
                         Documento</label>
                     <select name="documentType" id="documentType" value={profile.documentType || 'CC'}
                             onChange={handleChange}
-                            className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5">
+                            className="mt-1 block w-full rounded-md border-slate-200 bg-slate-100 shadow-sm focus:border-primary focus:ring-primary p-2.5">
                         <option value="CC">Cédula de Ciudadanía</option>
                         <option value="NIT">NIT</option>
                         <option value="CE">Cédula de Extranjería</option>
@@ -125,11 +125,11 @@ export const ProfileEditor = () => {
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="documentNumber" className="block text-sm font-medium text-[var(--color-foreground)]/80">Número de
+                    <label htmlFor="documentNumber" className="block text-sm font-medium text-slate-900/80">Número de
                         Documento</label>
                     <input type="text" name="documentNumber" id="documentNumber" value={profile.documentNumber || ''}
                            onChange={handleChange}
-                           className="mt-1 block w-full rounded-md border-[var(--color-border)] bg-[var(--color-muted)] shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
+                           className="mt-1 block w-full rounded-md border-slate-200 bg-slate-100 shadow-sm focus:border-primary focus:ring-primary p-2.5"/>
                 </div>
             </div>
             <div className="mt-6">

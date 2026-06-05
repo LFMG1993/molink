@@ -1,30 +1,33 @@
-import {useState, useMemo, useEffect} from 'react';
-import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
-import type {PaginationState, SortingState} from "@tanstack/react-table";
-import {productService} from '../../services/admin/productService.ts';
-import type {Product, ProductCreationData, PaginatedResponse} from '../../types';
-import {Button} from '../../components/shared/Button.tsx';
-import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
-import {ProductTable} from '../../components/admin/products/ProductTable.tsx';
-import {useNotification} from '../../context/shared/NotificationContext.tsx';
-import {ProductForm, type ProductFormData, createInitialProductState} from '../../components/admin/products/ProductForm.tsx';
-import {attributeService} from "../../services/admin/attributeService.ts";
-import {categoryService} from "../../services/admin/categoryService.ts";
-import type {Attribute, Category} from "../../types";
-import {uploadImage} from "../../services/admin/imageService.ts";
-import {slugify} from "../../utils/slugify.ts";
-import {Spinner} from "../../components/shared/Spinner.tsx";
+import { useState, useMemo, useEffect } from 'react';
+import { useQuery, useMutation, useQueryClient, keepPreviousData } from '@tanstack/react-query';
+import type { PaginationState, SortingState } from "@tanstack/react-table";
+import { productService } from '../../services/admin/productService.ts';
+import type { Product, ProductCreationData, PaginatedResponse } from '../../types';
+import { Button } from '../../components/shared/Button.tsx';
+import { ConfirmationModal } from '../../components/shared/ConfirmationModal.tsx';
+import { ProductTable } from '../../components/admin/products/ProductTable.tsx';
+import { useNotification } from '../../context/shared/NotificationContext.tsx';
+import { ProductForm, type ProductFormData, createInitialProductState } from '../../components/admin/products/ProductForm.tsx';
+import { attributeService } from "../../services/admin/attributeService.ts";
+import { categoryService } from "../../services/admin/categoryService.ts";
+import type { Attribute, Category } from "../../types";
+import { uploadImage } from "../../services/admin/imageService.ts";
+import { slugify } from "../../utils/slugify.ts";
+import { Spinner } from "../../components/shared/Spinner.tsx";
+import { DraggableWindow } from "../../components/admin/DraggableWindow.tsx";
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 
 const ProductsPage = () => {
     const queryClient = useQueryClient();
-    const {addNotification} = useNotification();
+    const { closeApp } = useWindows98();
+    const { addNotification } = useNotification();
     const [isFormModalOpen, setIsFormModalOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
     const [formData, setFormData] = useState<ProductFormData>(createInitialProductState);
     const [productToDelete, setProductToDelete] = useState<Product | null>(null);
 
     // Estados para las tablas
-    const [{pageIndex, pageSize}, setPagination] = useState<PaginationState>({
+    const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
         pageIndex: 0,
         pageSize: 10,
     });
@@ -59,11 +62,11 @@ const ProductsPage = () => {
     });
 
     // Queries para datos de soporte (atributos y categorías)
-    const {data: attributes = []} = useQuery<Attribute[], Error>({
+    const { data: attributes = [] } = useQuery<Attribute[], Error>({
         queryKey: ['attributes'],
         queryFn: attributeService.getAttributesWithValues,
     });
-    const {data: categories = []} = useQuery<Category[], Error>({
+    const { data: categories = [] } = useQuery<Category[], Error>({
         queryKey: ['categories'],
         queryFn: categoryService.getCategories,
     });
@@ -71,22 +74,28 @@ const ProductsPage = () => {
     const products = useMemo(() => productsData?.data ?? [], [productsData]);
     const pageCount = useMemo(() => productsData?.pageCount ?? -1, [productsData]);
 
-    const handleEdit = async (id: number) => {
+    const handleEdit = async (id: string) => {
         try {
             const productDetails = await productService.getProductById(id);
             // Pre-populamos el estado del formulario para edición.
             setFormData({
                 name: productDetails.name,
                 description: productDetails.description || '',
-                categoryId: productDetails.category.id,
+                categoryId: productDetails.category?.id || '',
                 isFeatured: productDetails.isFeatured,
                 isActive: productDetails.isActive,
                 image_url: productDetails.imageUrl || null,
                 imageFile: null,
                 variants: productDetails.variants.map(v => ({
                     ...v,
+                    sku: v.sku || '',
+                    stock: v.stock ?? '',
+                    isActive: v.isActive ?? true,
+                    imageUrl: v.imageUrl || null,
+                    unitOfMeasure: v.unitOfMeasure || null,
+                    unitsPerItem: v.unitsPerItem || null,
                     imageFile: null,
-                    selectedAttributes: (v.variantValues ?? []).reduce((acc: Record<number, number>, vv) => {
+                    selectedAttributes: (v.variantValues ?? []).reduce((acc: Record<string, string>, vv) => {
                         if (vv.attributeValue && vv.attributeValue.attributeId) {
                             acc[vv.attributeValue.attributeId] = vv.attributeValue.id;
                         }
@@ -136,7 +145,7 @@ const ProductsPage = () => {
                 isActive: formData.isActive,
                 imageUrl: mainImageUrl,
                 variants: formData.variants.map((v, index) => {
-                    const attributeValueIds = Object.values(v.selectedAttributes).filter(id => id && !isNaN(id));
+                    const attributeValueIds = Object.values(v.selectedAttributes).filter(id => id);
                     return {
                         id: v.id,
                         sku: v.sku,
@@ -163,7 +172,7 @@ const ProductsPage = () => {
         onSuccess: () => {
             const successMessage = editingProduct ? 'Producto actualizado.' : 'Producto creado.';
             addNotification(successMessage, 'success');
-            queryClient.invalidateQueries({queryKey: ['products']});
+            queryClient.invalidateQueries({ queryKey: ['products'] });
             setIsFormModalOpen(false);
             setEditingProduct(null);
         },
@@ -175,10 +184,10 @@ const ProductsPage = () => {
     });
 
     const deleteProductMutation = useMutation({
-        mutationFn: (id: number) => productService.deleteProduct(id),
+        mutationFn: (id: string) => productService.deleteProduct(id),
         onSuccess: () => {
             addNotification('Producto eliminado con éxito.', 'success');
-            queryClient.invalidateQueries({queryKey: ['products']});
+            queryClient.invalidateQueries({ queryKey: ['products'] });
             setProductToDelete(null);
         },
         onError: (err: Error) => {
@@ -200,58 +209,74 @@ const ProductsPage = () => {
     const isLoading = isLoadingProducts && productsData === undefined;
 
     return (
-        <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold text-[var(--color-foreground)]">Gestión de Productos</h1>
-                <Button onClick={() => {
-                    setFormData(createInitialProductState);
-                    setEditingProduct(null);
-                    setIsFormModalOpen(true);
-                }}>Crear Producto</Button>
-            </div>
-
-            {isLoading ? (
-                <div className="flex justify-center items-center py-16">
-                    <Spinner/>
+        <DraggableWindow
+            id="products"
+            title="Productos"
+            icon="https://win98icons.alexmeub.com/icons/png/package-0.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 900, height: 600 }}
+            onClose={() => closeApp('products')}
+        >
+            <div className="p-4 sm:p-6 lg:p-8 bg-transparent text-[var(--os-text)] min-h-full">
+                <div className="sm:flex sm:items-center">
+                    <div className="sm:flex-auto">
+                        <h1 className="text-xl font-bold tracking-widest uppercase">Productos</h1>
+                        <p className="mt-2 text-sm opacity-80 font-mono">
+                            Lista de todos los productos.
+                        </p>
+                    </div>
+                    <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                        <Button onClick={() => {
+                            setFormData(createInitialProductState);
+                            setEditingProduct(null);
+                            setIsFormModalOpen(true);
+                        }}>Crear Producto</Button>
+                    </div>
                 </div>
-            ) : isError ? (
-                <p className="text-red-500 text-center">Error: {error.message}</p>
-            ) : (
-                <ProductTable
-                    products={products}
-                    onEdit={handleEdit}
-                    onDelete={handleDelete}
-                    pagination={{pageIndex, pageSize}}
-                    setPagination={setPagination}
-                    sorting={sorting}
-                    setSorting={setSorting}
-                    globalFilter={globalFilter}
-                    setGlobalFilter={setGlobalFilter}
-                    pageCount={pageCount}
+
+                {isLoading ? (
+                    <div className="flex justify-center items-center py-16">
+                        <Spinner />
+                    </div>
+                ) : isError ? (
+                    <p className="text-red-500 text-center">Error: {error.message}</p>
+                ) : (
+                    <ProductTable
+                        products={products}
+                        onEdit={handleEdit}
+                        onDelete={handleDelete}
+                        pagination={{ pageIndex, pageSize }}
+                        setPagination={setPagination}
+                        sorting={sorting}
+                        setSorting={setSorting}
+                        globalFilter={globalFilter}
+                        setGlobalFilter={setGlobalFilter}
+                        pageCount={pageCount}
+                    />
+                )}
+
+                <ProductForm
+                    isOpen={isFormModalOpen}
+                    onClose={handleFormClose}
+                    onSave={(formData) => saveProductMutation.mutate(formData)}
+                    productToEdit={editingProduct}
+                    attributes={attributes}
+                    categories={categories}
+                    isSubmitting={saveProductMutation.isPending}
+                    formData={formData}
+                    setFormData={setFormData}
                 />
-            )}
 
-            <ProductForm
-                isOpen={isFormModalOpen}
-                onClose={handleFormClose}
-                onSave={(formData) => saveProductMutation.mutate(formData)}
-                productToEdit={editingProduct}
-                attributes={attributes}
-                categories={categories}
-                isSubmitting={saveProductMutation.isPending}
-                formData={formData}
-                setFormData={setFormData}
-            />
-
-            <ConfirmationModal
-                isOpen={!!productToDelete}
-                onClose={() => setProductToDelete(null)}
-                onConfirm={handleConfirmDelete}
-                isConfirming={deleteProductMutation.isPending}
-                title="Confirmar Eliminación"
-                message={`¿Estás seguro de que deseas eliminar el producto "${productToDelete?.name}"? Esta acción no se puede deshacer.`}
-            />
-        </div>
+                <ConfirmationModal
+                    isOpen={!!productToDelete}
+                    onClose={() => setProductToDelete(null)}
+                    onConfirm={handleConfirmDelete}
+                    isConfirming={deleteProductMutation.isPending}
+                    title="Confirmar Eliminación"
+                    message={`¿Estás seguro de que deseas eliminar el producto "${productToDelete?.name}"? Esta acción no se puede deshacer.`}
+                />
+            </div>
+        </DraggableWindow>
     );
 };
 

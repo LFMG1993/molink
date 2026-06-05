@@ -4,11 +4,12 @@ import type {Order, PaymentStatus, ShippingStatus, ShipmentCreationData, Paginat
 
 // Tipos para la creación y confirmación de pedidos del cliente
 interface CreateOrderPayload {
-    items: { variantId: number; quantity: number }[];
+    items: { variantId: string; quantity: number; unitPrice: number }[];
+    shippingAddressId?: string;
 }
 
 interface ConfirmPaymentPayload {
-    paymentMethodId: number;
+    paymentMethodId: string;
     paymentConfirmationUrl?: string;
 }
 
@@ -50,22 +51,22 @@ export const orderService = {
         };
     },
 
-    getOrderById: async (orderId: number): Promise<Order> => {
+    getOrderById: async (orderId: string): Promise<Order> => {
         const response = await api.get<{ order: Order }>(`/api/admin/orders/${orderId}`);
         return response.data.order;
     },
 
-    approve: async (orderId: number): Promise<Order> => {
+    approve: async (orderId: string): Promise<Order> => {
         const response = await api.post<{ order: Order }>(`/api/admin/orders/${orderId}/approve`);
         return response.data.order;
     },
 
-    reject: async (orderId: number): Promise<Order> => {
+    reject: async (orderId: string): Promise<Order> => {
         const response = await api.post<{ order: Order }>(`/api/admin/orders/${orderId}/reject`);
         return response.data.order;
     },
 
-    createShipment: async (orderId: number, payload: ShipmentCreationData): Promise<Order> => {
+    createShipment: async (orderId: string, payload: ShipmentCreationData): Promise<Order> => {
         const response = await api.post<{ order: Order }>(`/api/admin/orders/${orderId}/shipments`, payload);
         return response.data.order;
     },
@@ -76,7 +77,7 @@ export const orderService = {
         return response.data.order;
     },
 
-    getById: async (orderId: number): Promise<Order> => {
+    getById: async (orderId: string): Promise<Order> => {
         const response = await apiClient.get<{ order: Order }>(`/api/orders/${orderId}`);
         return response.data.order;
     },
@@ -86,7 +87,7 @@ export const orderService = {
         return response.data.orders;
     },
 
-    confirmPayment: async (orderId: number, payload: ConfirmPaymentPayload): Promise<{
+    confirmPayment: async (orderId: string, payload: ConfirmPaymentPayload): Promise<{
         success: boolean;
         message: string
     }> => {

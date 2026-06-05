@@ -16,7 +16,7 @@ export const AddressManager = () => {
     // Estado para los modales
     const [isFormModalOpen, setIsFormModalOpen] = useState(false);
     const [editingAddress, setEditingAddress] = useState<Address | null>(null);
-    const [deletingAddressId, setDeletingAddressId] = useState<number | null>(null);
+    const [deletingAddressId, setDeletingAddressId] = useState<string | null>(null);
 
     const {data: addresses = [], isLoading, isError, error} = useQuery<Address[], any>({
         queryKey: ['customerAddresses'],
@@ -33,7 +33,7 @@ export const AddressManager = () => {
     }, [isError, error, addNotification]);
 
     const saveMutation = useMutation({
-        mutationFn: ({data, id}: { data: AddressCreationData, id?: number }) =>
+        mutationFn: ({data, id}: { data: AddressCreationData, id?: string }) =>
             id ? addressService.updateAddress(id, data) : addressService.createAddress(data),
         onSuccess: (_, {id}) => {
             addNotification(`Dirección ${id ? 'actualizada' : 'creada'} con éxito.`, 'success');
@@ -46,7 +46,7 @@ export const AddressManager = () => {
     });
 
     const deleteMutation = useMutation({
-        mutationFn: (id: number) => addressService.deleteAddress(id),
+        mutationFn: (id: string) => addressService.deleteAddress(id),
         onSuccess: () => {
             addNotification('Dirección eliminada.', 'success');
             queryClient.invalidateQueries({queryKey: ['customerAddresses']});
@@ -57,7 +57,7 @@ export const AddressManager = () => {
         }
     });
 
-    const handleSave = (data: AddressCreationData, id?: number) => {
+    const handleSave = (data: AddressCreationData, id?: string) => {
         saveMutation.mutate({data, id});
     };
 
@@ -77,7 +77,7 @@ export const AddressManager = () => {
 
     return (
         <div
-            className="bg-[var(--color-card)] text-[var(--color-foreground)] p-8 rounded-lg shadow-sm border border-[var(--color-border)] max-w-4xl">
+            className="bg-white text-slate-900 p-8 rounded-lg shadow-sm border border-slate-200 max-w-4xl">
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Mis Direcciones de Envío</h2>
                 <Button variant="primary" size="md" onClick={() => {
@@ -90,14 +90,14 @@ export const AddressManager = () => {
             </div>
 
             {addresses.length === 0 ? (
-                <p className="text-[var(--color-foreground)]/60">Aún no has añadido ninguna dirección.</p>
+                <p className="text-slate-600">Aún no has añadido ninguna dirección.</p>
             ) : (
                 <div className="space-y-4">
                     {addresses.map(addr => (
                         <div key={addr.id} className="border rounded-lg p-4 flex justify-between items-start">
                             <div>
                                 <div className="flex items-center font-semibold">
-                                    <MapPin className="h-5 w-5 mr-2 text-[var(--color-foreground)]/60"/>
+                                    <MapPin className="h-5 w-5 mr-2 text-slate-600"/>
                                     <span>{addr.recipientName}</span>
                                     {addr.isDefault && (
                                         <span
@@ -106,8 +106,8 @@ export const AddressManager = () => {
                                         </span>
                                     )}
                                 </div>
-                                <p className="text-[var(--color-foreground)]/80 ml-7">{addr.street}, {addr.details}</p>
-                                <p className="text-[var(--color-foreground)]/80 ml-7">{addr.city}, {addr.state}, {addr.country}</p>
+                                <p className="text-slate-900/80 ml-7">{addr.street}, {addr.details}</p>
+                                <p className="text-slate-900/80 ml-7">{addr.city}, {addr.state}, {addr.country}</p>
                             </div>
                             <div className="flex gap-2">
                                 <Button variant="secondary" size="sm" onClick={() => {

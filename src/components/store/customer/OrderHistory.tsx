@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useQuery} from '@tanstack/react-query';
-import {orderService} from '../../../services/admin/orderService.ts';
+import {orderService} from '../../../services/store/orderService.ts';
 import {
     type Order,
     PaymentStatusLabels,
@@ -38,19 +38,19 @@ const OrderDetailsModal = ({order, onClose}: { order: Order | null; onClose: () 
 
                         return (
                             <div key={item.id}
-                                 className="flex items-start gap-4 border-b border-[var(--color-border)] pb-4 last:border-b-0">
+                                 className="flex items-start gap-4 border-b border-slate-200 pb-4 last:border-b-0">
                                 <img
                                     // Priorizamos la imagen de la variante, si no, la del producto.
                                     src={item.variant?.imageUrl ?? item.product.imageUrl ?? '/placeholder.png'}
                                     alt={item.product.name}
-                                    className="w-20 h-20 object-cover rounded-md bg-[var(--color-muted)]"
+                                    className="w-20 h-20 object-cover rounded-md bg-slate-100"
                                 />
                                 <div className="flex-grow">
                                     <p className="font-semibold">{item.product.name}</p>
                                     {/* Mostramos la descripción de la variante si existe */}
                                     {variantDescription &&
-                                        <p className="text-sm text-[var(--color-foreground)]/60">{variantDescription}</p>}
-                                    <p className="text-sm text-[var(--color-foreground)]/80 mt-1">
+                                        <p className="text-sm text-slate-600">{variantDescription}</p>}
+                                    <p className="text-sm text-slate-900/80 mt-1">
                                         {item.quantity} x ${item.price.toLocaleString('es-CO')}
                                     </p>
                                 </div>
@@ -96,11 +96,11 @@ export const OrderHistory = () => {
 
     if (orders.length === 0) {
         return (
-            <div className="text-center py-10 px-4 bg-[var(--color-card)] text-[var(--color-foreground)] rounded-lg">
+            <div className="text-center py-10 px-4 bg-white text-slate-900 rounded-lg">
                 <h3 className="text-lg font-medium">Aún no tienes pedidos</h3>
-                <p className="text-[var(--color-foreground)]/60 mt-2">¡Explora nuestra tienda y encuentra los mejores
+                <p className="text-slate-600 mt-2">¡Explora nuestra tienda y encuentra los mejores
                     productos!</p>
-                <Link to="/tienda" className="mt-4 inline-block">
+                <Link to="/" className="mt-4 inline-block">
                     <Button>Ir a la Tienda</Button>
                 </Link>
             </div>
@@ -112,21 +112,21 @@ export const OrderHistory = () => {
             <div className="space-y-4">
                 {orders.map((order) => (
                     <div key={order.id}
-                         className="bg-[var(--color-card)] text-[var(--color-foreground)] p-4 rounded-lg shadow-sm border border-[var(--color-border)]">
+                         className="bg-white text-slate-900 p-4 rounded-lg shadow-sm border border-slate-200">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
                             <div>
                                 <p className="font-semibold">Pedido <span
                                     className="text-primary">N. {order.id}</span></p>
-                                <p className="text-sm text-[var(--color-foreground)]/60">
+                                <p className="text-sm text-slate-600">
                                     {new Date(order.createdAt).toLocaleDateString()}
                                 </p>
                             </div>
                             <div className="text-left md:text-center">
-                                <p className="text-sm text-[var(--color-foreground)]/60">Total</p>
+                                <p className="text-sm text-slate-600">Total</p>
                                 <p className="font-semibold">${order.total.toLocaleString('es-CO')}</p>
                             </div>
                             <div className="text-left md:text-center">
-                                <p className="text-sm text-[var(--color-foreground)]/60">Estado del Pago</p>
+                                <p className="text-sm text-slate-600">Estado del Pago</p>
                                 <span
                                     className={`px-2 py-1 rounded text-xs font-semibold ${PaymentStatusColors[order.paymentStatus]}`}>
                                     {PaymentStatusLabels[order.paymentStatus]}

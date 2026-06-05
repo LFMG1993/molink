@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { pricingPackages, pricingAddons, whatsappNumber } from '../../data/landing/pricing.data.ts';
-import { CheckCircle2, ArrowRight, Calculator } from 'lucide-react';
+import { CheckCircle2, Calculator, MessageCircle, CreditCard } from 'lucide-react';
 import clsx from 'clsx';
+import { usePlans } from '../../hooks/landing/usePlans.ts';
 
 const pageMultipliers = [1, 1.15, 1.35, 1.6];
 
 export const PricingCalculator = () => {
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
     const isEn = i18n.language?.startsWith('en');
-    
+    const { trm } = usePlans();
+
     const [selectedPackage, setSelectedPackage] = useState<string>('');
     const [pageRange, setPageRange] = useState<number>(0);
     const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set());
@@ -41,6 +45,25 @@ export const PricingCalculator = () => {
             ? `Hi, I used the pricing calculator. I'm interested in: ${pkgName}, ~${pageRange === 0 ? '1-3' : pageRange === 1 ? '4-7' : pageRange === 2 ? '8-15' : '15+'} pages, addons: ${addons || 'none'}. Estimated: $${minEstimate}-$${maxEstimate} USD.`
             : `Hola, usé la calculadora de precios. Me interesa: ${pkgName}, ~${pageRange === 0 ? '1-3' : pageRange === 1 ? '4-7' : pageRange === 2 ? '8-15' : '15+'} páginas, extras: ${addons || 'ninguno'}. Estimado: $${minEstimate}-$${maxEstimate} USD.`;
         return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    };
+
+    const goToWompiCheckout = () => {
+        const pkgName = isEn ? (pkg?.nameEn || '') : (pkg?.name || '');
+        const pageLabel = ['1-3', '4-7', '8-15', '15+'][pageRange] ?? '1-3';
+        const addonsLabel = pricingAddons
+            .filter(a => selectedAddons.has(a.id))
+            .map(a => isEn ? a.nameEn : a.name)
+            .join(', ');
+        navigate('/checkout', {
+            state: {
+                type: 'onetime',
+                productName: pkgName,
+                amountUsdMin: minEstimate,
+                amountUsdMax: maxEstimate,
+                details: `${pageLabel} páginas${addonsLabel ? ` · Extras: ${addonsLabel}` : ''}`,
+                trm: trm ?? null,
+            },
+        });
     };
 
     return (
@@ -151,15 +174,32 @@ export const PricingCalculator = () => {
                                     <div className="text-4xl font-bold text-accent mb-1">
                                         ${minEstimate} - ${maxEstimate}
                                     </div>
-                                    <p className="text-white/50 text-xs mb-6">USD</p>
+                                    <p className="text-white/50 text-xs mb-2">USD</p>
+                                    {trm && (
+                                        <p className="text-white/30 text-xs mb-6">
+                                            ≈ {Math.round(minEstimate * trm.usdCopRate).toLocaleString('es-CO')} –{' '}
+                                            {Math.round(maxEstimate * trm.usdCopRate).toLocaleString('es-CO')} COP
+                                        </p>
+                                    )}
+
+                                    {/* Botón Wompi */}
+                                    <button
+                                        onClick={goToWompiCheckout}
+                                        className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-bold uppercase tracking-wider py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-[#f30519]/50 hover:bg-red-800 hover:scale-105 mb-2"
+                                    >
+                                        <CreditCard size={16} />
+                                        {isEn ? 'Pay with Wompi' : 'Pagar con Wompi'}
+                                    </button>
+
+                                    {/* Botón WhatsApp */}
                                     <a
                                         href={getWhatsAppUrl()}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-bold uppercase tracking-wider py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-[#f30519]/50 hover:bg-red-800 hover:scale-105"
+                                        className="w-full inline-flex items-center justify-center gap-2 border border-white/20 text-white/60 text-sm font-semibold py-2.5 px-6 rounded-lg hover:bg-white/5 transition-colors"
                                     >
-                                        {t('landing.calculator.cta_button')}
-                                        <ArrowRight size={18} />
+                                        <MessageCircle size={15} />
+                                        {isEn ? 'Ask on WhatsApp' : 'Consultar por WhatsApp'}
                                     </a>
                                 </>
                             ) : (

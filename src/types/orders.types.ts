@@ -17,7 +17,7 @@ export type ShippingStatus =
 export type ShippingMethod = 'local_delivery' | 'national_shipping';
 
 export interface PaymentMethod {
-    id: number;
+    id: string;
     name: string;
     qrCodeUrl: string | null;
     instructions?: string | null;
@@ -25,8 +25,8 @@ export interface PaymentMethod {
 }
 
 export interface Shipment {
-    id: number;
-    orderId: number;
+    id: string;
+    orderId: string;
     shippingMethod: ShippingMethod;
     company?: string | null;
     trackingNumber?: string | null;
@@ -41,9 +41,9 @@ export interface Shipment {
 
 
 export interface OrderItem {
-    id: number;
-    orderId: number;
-    productId: number;
+    id: string;
+    orderId: string;
+    productId: string;
     quantity: number;
     price: number;
     // Relaciones que vienen del backend
@@ -52,17 +52,16 @@ export interface OrderItem {
 }
 
 export interface Order {
-    id: number;
-    userId: number;
+    id: string;
+    userId: string;
     paymentStatus: PaymentStatus;
     shippingStatus: ShippingStatus;
     total: number;
-    paymentMethodId?: number | null;
+    paymentMethodId?: string | null;
     paymentConfirmationUrl?: string | null;
-    createdAt: string; // O Date, si se transforma
-    updatedAt?: string | null; // O Date
-    // Relaciones que vienen del backend
-    user: { id: number; nombre: string; email: string; }; // Asumiendo la estructura del usuario en el pedido
+    createdAt: string;
+    updatedAt?: string | null;
+    user: { id: string; nombre: string; email: string; };
     items: OrderItem[];
     paymentMethod?: PaymentMethod | null;
     shipment?: Shipment | null;

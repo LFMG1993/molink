@@ -15,25 +15,35 @@ interface GetPublicProductsParams {
     page: number;
     limit: number;
     search?: string;
-    featured?: boolean;
+    isFeatured?: boolean;
     categoryIds?: string[];
     attributeValueIds?: string[];
     isActive?: boolean;
 }
 
 /**
- * Servicio para las llamadas a la API que son públicas (no requieren autenticación).
+ * Servicio para las llamadas a la API que son públicas.
  */
 export const shopService = {
-    getPublicProducts: async ({ limit, isActive, categoryIds, attributeValueIds, featured, ...restParams }: GetPublicProductsParams): Promise<PaginatedResponse<Product>> => {
+    // Obtiene productos destacados (isFeatured = true)
+    getPublicFeaturedProducts: async (limit: number = 6): Promise<PaginatedResponse<Product>> => {
+        const response = await apiPublic.get<ApiPublicProductsResponse>('/api/products/featured', {
+            params: { pageSize: limit, page: 1 }
+        });
+        return {
+            data: response.data.products,
+            pageCount: response.data.pagination.totalPages,
+        };
+    },
+
+    getPublicProducts: async ({ limit, isActive, categoryIds, attributeValueIds, isFeatured, ...restParams }: GetPublicProductsParams): Promise<PaginatedResponse<Product>> => {
         const apiParams: Record<string, unknown> = {
             ...restParams,
             pageSize: limit,
         };
-        if (featured !== undefined) apiParams.featured = featured ? 'true' : undefined;
+        if (isFeatured !== undefined) apiParams.isFeatured = isFeatured ? 'true' : undefined;
         if (categoryIds && categoryIds.length > 0) apiParams.categoryIds = categoryIds.join(',');
         if (attributeValueIds && attributeValueIds.length > 0) apiParams.attributeValueIds = attributeValueIds.join(',');
-        // El filtro isActive no es soportado por la API pública (solo devuelve activos)
         const response = await apiPublic.get<ApiPublicProductsResponse>('/api/products', {params: apiParams});
         return {
             data: response.data.products,
@@ -50,8 +60,6 @@ export const shopService = {
     getPublicCategories: async (): Promise<Category[]> => {
         const response = await apiPublic.get<{ categories: Category[] }>('/api/categories');
         const all = response.data.categories;
-        // Excluimos las categorías que son "padre" de otras — son organizadoras de proveedor
-        // (ej. "KeyXpress") y no deben aparecer en la tienda pública.
         const parentIds = new Set(all.filter(c => c.parentId).map(c => c.parentId!));
         return all.filter(c => !parentIds.has(c.id));
     },

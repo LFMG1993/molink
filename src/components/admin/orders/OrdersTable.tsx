@@ -24,9 +24,9 @@ import {
 
 interface OrdersTableProps {
     orders: Order[];
-    onApprove: (orderId: number) => void;
-    onReject: (orderId: number) => void;
-    processingOrderId: number | null;
+    onApprove: (orderId: string) => void;
+    onReject: (orderId: string) => void;
+    processingOrderId: string | null;
     pagination: PaginationState;
     setPagination: Dispatch<SetStateAction<PaginationState>>;
     sorting: SortingState;
@@ -38,7 +38,7 @@ interface OrdersTableProps {
 
 const columnHelper = createColumnHelper<Order>();
 
-const columns = (onApprove: (id: number) => void, onReject: (id: number) => void, processingOrderId: number | null) => [
+const columns = (onApprove: (id: string) => void, onReject: (id: string) => void, processingOrderId: string | null) => [
     columnHelper.accessor('id', {
         header: '# Orden',
         cell: info => `#${info.getValue()}`

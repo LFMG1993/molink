@@ -1,12 +1,12 @@
 import type { Product } from './index';
 
 export interface EmprendePostProduct {
-    productId: number;
+    productId: string;
     product: Product;
 }
 
 export interface EmprendePost {
-    id: number;
+    id: string;
     title: string;
     description: string | null;
     youtubeUrl: string;
@@ -16,7 +16,7 @@ export interface EmprendePost {
 }
 
 export type EmprendePostCreationData = Omit<EmprendePost, 'id' | 'createdAt' | 'updatedAt' | 'products'> & {
-    productIds: number[];
+    productIds: string[];
 };
 
 export type EmprendePostUpdateData = Partial<EmprendePostCreationData>;

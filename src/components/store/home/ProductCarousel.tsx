@@ -38,7 +38,7 @@ export const ProductCarousel = ({products, onAdd, speed = 20}: Props) => {
                 {items.map((product, index) => (
                     <div
                         key={`${product.id}-${index}`}
-                        className="w-52 sm:w-60 flex-shrink-0"
+                        className="w-52 sm:w-60 shrink-0"
                     >
                         <ProductCard
                             product={product}

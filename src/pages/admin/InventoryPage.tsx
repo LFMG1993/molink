@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {useEffect, useState, useMemo} from 'react';
 import type {InventoryItem, InventoryUpdateData, PaginatedResponse} from '../../types';
 import {inventoryService} from '../../services/admin/inventoryService.ts';
@@ -7,9 +8,11 @@ import {InventoryTable} from '../../components/admin/inventory/InventoryTable.ts
 import {ConfirmationModal} from "../../components/shared/ConfirmationModal.tsx";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 const InventoryPage = () => {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const {addNotification} = useNotification();
 
     const [updateToConfirm, setUpdateToConfirm] = useState<{
@@ -92,8 +95,16 @@ const InventoryPage = () => {
     const isLoading = isLoadingInventory && inventoryData === undefined;
 
     return (
-        <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
+        <DraggableWindow
+            id="inventory"
+            title="Inventario"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('inventory')}
+        >
+            <div className="p-8 bg-transparent text-[var(--os-text)] min-h-full">
+                <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-bold text-[var(--color-foreground)]">Gestión de Inventario</h1>
             </div>
 
@@ -125,7 +136,8 @@ const InventoryPage = () => {
                 title="Confirmar Actualización"
                 message="¿Estás seguro de que deseas guardar este cambio en el inventario?"
             />
-        </div>
+            </div>
+        </DraggableWindow>
     );
 };
 

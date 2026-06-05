@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useQuery} from '@tanstack/react-query';
-import {orderService} from '../../../services/admin/orderService.ts';
+import {orderService} from '../../../services/store/orderService.ts';
 import type {Order} from '../../../types';
 import {ShippingStatusLabels, ShippingStatusColors} from '../../../types';
 import {Spinner} from '../../shared/Spinner.tsx';
@@ -19,17 +19,17 @@ const ShipmentCard = ({order}: { order: Order }) => {
 
     return (
         <div
-            className="bg-[var(--color-card)] text-[var(--color-foreground)] p-4 rounded-lg shadow-sm border border-[var(--color-border)]">
+            className="bg-white text-slate-900 p-4 rounded-lg shadow-sm border border-slate-200">
             <div className="flex flex-wrap justify-between items-start gap-4">
                 <div>
                     <p className="font-semibold">Pedido <span
                         className="text-primary">N. {order.id}</span></p>
-                    <p className="text-sm text-[var(--color-foreground)]/60">
+                    <p className="text-sm text-slate-600">
                         Fecha del pedido: {new Date(order.createdAt).toLocaleDateString()}
                     </p>
                 </div>
                 <div className="text-right">
-                    <p className="text-sm text-[var(--color-foreground)]/60">Estado del Envío</p>
+                    <p className="text-sm text-slate-600">Estado del Envío</p>
                     <span
                         className={`px-2 py-1 rounded text-xs font-semibold ${ShippingStatusColors[shippingStatus]}`}>
                         {ShippingStatusLabels[shippingStatus]}
@@ -37,22 +37,22 @@ const ShipmentCard = ({order}: { order: Order }) => {
                 </div>
             </div>
             {shippingAddress && (
-                <div className="mt-4 border-t border-[var(--color-border)] pt-4">
+                <div className="mt-4 border-t border-slate-200 pt-4">
                     <h4 className="font-semibold mb-2 flex items-center">
-                        <PinMapFill className="h-5 w-5 mr-2 text-[var(--color-foreground)]/60"/>
+                        <PinMapFill className="h-5 w-5 mr-2 text-slate-600"/>
                         Enviado a
                     </h4>
-                    <div className="text-sm text-[var(--color-foreground)]/80 pl-7">
+                    <div className="text-sm text-slate-900/80 pl-7">
                         <p><strong>{shippingAddress.recipientName}</strong></p>
                         <p>{shippingAddress.street}, {shippingAddress.details}</p>
                         <p>{shippingAddress.city}, {shippingAddress.state}</p>
                     </div>
                 </div>
             )}
-            <div className="mt-4 border-t border-[var(--color-border)] pt-4 space-y-2 text-sm">
+            <div className="mt-4 border-t border-slate-200 pt-4 space-y-2 text-sm">
                 {shipment ? (
                     <div>
-                        <p className="text-[var(--color-foreground)]/80 mb-2"><strong>Fecha de
+                        <p className="text-slate-900/80 mb-2"><strong>Fecha de
                             envío:</strong> {new Date(shipment.createdAt).toLocaleDateString()}</p>
                         {shipment.shippingMethod === 'national_shipping' && (
                             <>
@@ -62,7 +62,7 @@ const ShipmentCard = ({order}: { order: Order }) => {
                                         <p><strong>Guía:</strong> {shipment.trackingNumber}</p>
                                         <button onClick={() => copyToClipboard(shipment.trackingNumber!)}
                                                 title="Copiar guía"
-                                                className="text-[var(--color-foreground)]/60 hover:text-primary">
+                                                className="text-slate-600 hover:text-primary">
                                             <Clipboard
                                                 className="h-5 w-5"/>
                                         </button>
@@ -82,7 +82,7 @@ const ShipmentCard = ({order}: { order: Order }) => {
                         )}
                     </div>
                 ) : (
-                    <p className="text-sm text-[var(--color-foreground)]/60">Los detalles del envío aparecerán aquí una
+                    <p className="text-sm text-slate-600">Los detalles del envío aparecerán aquí una
                         vez que sea procesado.</p>
                 )}
             </div>
@@ -113,9 +113,9 @@ export const ShipmentHistory = () => {
 
     if (ordersWithShipmentInfo.length === 0) {
         return (
-            <div className="text-center py-10 px-4 bg-[var(--color-card)] text-[var(--color-foreground)] rounded-lg">
+            <div className="text-center py-10 px-4 bg-white text-slate-900 rounded-lg">
                 <h3 className="text-lg font-medium">No tienes envíos para mostrar</h3>
-                <p className="text-[var(--color-foreground)]/60 mt-2">Cuando tus pedidos sean preparados para el envío,
+                <p className="text-slate-600 mt-2">Cuando tus pedidos sean preparados para el envío,
                     aparecerán en esta
                     sección.</p>
             </div>

@@ -1,6 +1,6 @@
 export interface Address {
-    id: number;
-    userId: number;
+    id: string;
+    userId: string;
     recipientName: string;
     street: string;
     city: string;

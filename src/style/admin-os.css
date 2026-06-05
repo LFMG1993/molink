@@ -1,0 +1,112 @@
+/* 
+  admin-os.css
+  Estilos exclusivos para el Panel de Administración (Híbrido Cyber-Terminal / Blueprint OS)
+*/
+
+:root {
+  /* ========================================================
+     TEMA POR DEFECTO: Cyber-Terminal (Negro y Verde Neón)
+     ======================================================== */
+  --os-bg: #050505;
+  --os-grid-color: rgba(0, 255, 0, 0.02); /* Extremely subtle grid */
+  --os-grid-size: 30px;
+  
+  --os-window-bg: rgba(10, 10, 10, 0.95);
+  --os-window-border: #1a3320; /* Very dark muted green, not glowing */
+  --os-window-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Normal dark shadow instead of neon glow */
+  --os-window-title-bg: #0a1f12; /* Subtle dark green */
+  
+  --os-text: #00ff41;
+  --os-text-muted: #008f11;
+  --os-text-soft: #e0ffe6; /* Softer green for reading/writing */
+  --os-accent: #00ff41;
+  --os-accent-hover: #008f11;
+  
+  --os-taskbar-bg: rgba(0, 0, 0, 0.9);
+  --os-taskbar-border: #00ff41;
+  
+  --os-font-main: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+[data-theme="blueprint"] {
+  /* ========================================================
+     TEMA: Blueprint (Azul Marino y Cian)
+     ======================================================== */
+  --os-bg: #0a1128;
+  --os-grid-color: rgba(0, 204, 255, 0.03);
+  --os-grid-size: 30px;
+  
+  --os-window-bg: rgba(10, 17, 40, 0.95);
+  --os-window-border: #13274f; /* Muted dark blue */
+  --os-window-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Normal dark shadow */
+  --os-window-title-bg: #0b1a3d; /* Subtle dark blue */
+  
+  --os-text: #00ccff;
+  --os-text-muted: #5e7a9e;
+  --os-text-soft: #e0f7ff; /* Softer blue for reading/writing */
+  --os-accent: #00ccff;
+  --os-accent-hover: #0099cc;
+  
+  --os-taskbar-bg: rgba(5, 10, 25, 0.9);
+  --os-taskbar-border: #00ccff;
+  
+  --os-font-main: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Base global para el contenedor del OS */
+.admin-os-container {
+  font-family: var(--os-font-main);
+  background-color: var(--os-bg);
+  color: var(--os-text);
+  /* Patrón de cuadrícula (Blueprint / Hacker Grid) */
+  background-image: 
+    linear-gradient(var(--os-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--os-grid-color) 1px, transparent 1px);
+  background-size: var(--os-grid-size) var(--os-grid-size);
+  background-position: center center;
+
+  /* Overrides de variables globales de la tienda para adaptar componentes compartidos al OS */
+  --color-background: transparent;
+  --color-foreground: var(--os-text);
+  --color-card: var(--os-window-title-bg);
+  --color-card-foreground: var(--os-text);
+  --color-border: var(--os-window-border);
+  --color-primary: var(--os-accent);
+  --color-primary-foreground: var(--os-bg);
+  --color-secondary: var(--os-window-title-bg);
+  --color-secondary-foreground: var(--os-text);
+  --color-muted: var(--os-window-title-bg);
+  --color-muted-foreground: var(--os-text-muted);
+}
+
+/* Efecto de desenfoque de fondo para ventanas (Glassmorphism técnico) */
+.admin-os-window {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Forzar estilos técnicos en tablas e inputs dentro del OS ignorando los de la tienda */
+.admin-os-container table thead {
+  background-color: var(--os-window-title-bg) !important;
+}
+.admin-os-container table th {
+  color: var(--os-text) !important;
+  font-weight: bold;
+}
+.admin-os-container table td {
+  color: var(--os-text-soft) !important;
+  opacity: 0.95;
+}
+.admin-os-container table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+.admin-os-container input, .admin-os-container select, .admin-os-container textarea {
+  background-color: rgba(0,0,0,0.6) !important;
+  color: var(--os-text-soft) !important;
+  border: 1px solid var(--os-window-border) !important;
+  border-radius: 4px !important; /* Slightly rounded for comfort */
+}
+.admin-os-container input:focus, .admin-os-container textarea:focus {
+  outline: 1px solid var(--os-accent) !important;
+  box-shadow: 0 0 8px var(--os-window-title-bg) !important;
+}

@@ -1,5 +1,6 @@
 import type {Product} from "../../../types";
 import {Cart3, FileImage, LightningFill} from "react-bootstrap-icons";
+import {useNavigate} from "react-router-dom";
 
 interface Props {
     product: Product;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const ProductCard = ({product, onAdd}: Props) => {
+    const navigate = useNavigate();
     const displayVariant = product.variants?.[0];
     const displayPrice = displayVariant?.salePrice ?? displayVariant?.price;
     const hasDiscount = !!(displayVariant?.salePrice && displayVariant.salePrice < displayVariant.price);
@@ -14,8 +16,13 @@ export const ProductCard = ({product, onAdd}: Props) => {
         ? Math.round((1 - displayVariant!.salePrice! / displayVariant!.price) * 100)
         : null;
 
+    const goToDetail = () => navigate(`/products/${product.id}`);
+
     return (
-        <div className="bg-white rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+        <div
+            className="bg-white rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 group flex flex-col h-full relative overflow-hidden cursor-pointer"
+            onClick={goToDetail}
+        >
 
             {/* Badge de descuento */}
             {discountPct && (
@@ -39,6 +46,7 @@ export const ProductCard = ({product, onAdd}: Props) => {
                 {onAdd && (
                     <button
                         onClick={(e) => {
+                            e.preventDefault();
                             e.stopPropagation();
                             onAdd();
                         }}
@@ -79,7 +87,7 @@ export const ProductCard = ({product, onAdd}: Props) => {
                             </span>
                         </div>
                         <span className="text-xs font-medium text-blue-600 group-hover:underline cursor-pointer">
-                            Ver detalle
+                            Ver detalle →
                         </span>
                     </div>
                 </div>

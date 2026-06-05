@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {useState, useMemo} from 'react';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
 import {createColumnHelper, getCoreRowModel, getExpandedRowModel, useReactTable} from '@tanstack/react-table';
@@ -12,10 +13,12 @@ import {uploadImage} from '../../services/admin/imageService.ts';
 import {slugify} from "../../utils/slugify.ts";
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {ChevronDown, ChevronRight, Edit, ImageIcon, Trash2} from "lucide-react";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 const columnHelper = createColumnHelper<Category>();
 const CategoriesPage = () => {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const {addNotification} = useNotification();
 
     const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -38,7 +41,7 @@ const CategoriesPage = () => {
 
             if (isUpdate) {
                 savedCategory = await categoryService.updateCategory((data as CategoryUpdateData & {
-                    id: number
+                    id: string
                 }).id, data);
             } else {
                 savedCategory = await categoryService.createCategory(data as CategoryCreationData);
@@ -65,7 +68,7 @@ const CategoriesPage = () => {
     });
 
     const deleteMutation = useMutation({
-        mutationFn: (id: number) => categoryService.deleteCategory(id),
+        mutationFn: (id: string) => categoryService.deleteCategory(id),
         onSuccess: () => {
             addNotification('Categoría eliminada con éxito.', 'success');
             queryClient.invalidateQueries({queryKey: ['categories']});
@@ -152,8 +155,16 @@ const CategoriesPage = () => {
     });
 
     return (
-        <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
+        <DraggableWindow
+            id="categories"
+            title="Categorías"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('categories')}
+        >
+            <div className="p-8 bg-transparent text-[var(--os-text)] min-h-full">
+                <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-bold">Gestión de Categorías</h1>
                 <Button onClick={() => {
                     setEditingCategory(null);
@@ -184,7 +195,8 @@ const CategoriesPage = () => {
                 title="Confirmar Eliminación"
                 message={`¿Estás seguro de que deseas eliminar la categoría "${categoryToDelete?.name}"? Eliminar una categoría también eliminará todas sus subcategorías. Esta acción no se puede deshacer.`}
             />
-        </div>
+            </div>
+        </DraggableWindow>
     );
 };
 

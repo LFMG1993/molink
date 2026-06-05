@@ -18,8 +18,8 @@
     --color-card: theme('colors.white'); /* Fondo de tarjetas, modales, etc. */
     --color-card-foreground: theme('colors.gray.900'); /* Texto en tarjetas */
     --color-border: theme('colors.gray.200'); /* Bordes */
-    --color-primary: #4a3084; /* Color primario de la marca */
-    --color-primary-dark: #3b266a; /* Variante más oscura para hover */
+    --color-primary: #f30519; /* Color primario de la marca */
+    --color-primary-dark: #c0041a; /* Variante más oscura para hover */
     --color-muted: theme('colors.gray.100'); /* Fondos sutiles */
     --color-muted-foreground: theme('colors.gray.800'); /* Texto sobre fondos sutiles */
     --color-primary-foreground: theme('colors.white'); /* Texto sobre el color primario */
@@ -32,7 +32,7 @@
     --color-card: theme('colors.gray.800');
     --color-card-foreground: theme('colors.gray.100');
     --color-border: theme('colors.gray.700');
-    --color-primary-dark: #5a4094; /* Variante más clara para hover en modo oscuro */
+    --color-primary-dark: #ff2535; /* Variante más clara para hover en modo oscuro */
     --color-muted: theme('colors.gray.700');
     --color-muted-foreground: theme('colors.gray.200');
 }
@@ -43,17 +43,17 @@ body {
     color: var(--color-foreground);
     transition: background-color 0.3s ease, color 0.3s ease;
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .background-lider {
-    background-color: #4a3084;
+    background-color: #f30519;
     transition: background-color 0.3s ease-in-out;
 }
 
 .background-lider:hover {
     /* Cambiamos a un color ligeramente más claro al pasar el cursor */
-    background-color: #5a4094;
+    background-color: #ff2535;
 }
 
 /* --- Estilos para la Burbuja de WhatsApp --- */

@@ -1,3 +1,5 @@
+export * from './auth.types.ts';
+export * from './contact.type.ts';
 export * from './adress.types.ts'
 export * from './attribute.types.ts'
 export * from './customerProfile.types.ts'
@@ -12,3 +14,6 @@ export * from './category.types.ts'
 export * from './user.types.ts'
 export * from './orders.types.ts'
 export * from './pricing.types.ts'
+export * from './wompi.types.ts';
+export * from './coupon.types.ts';
+export * from './packages.types.ts';

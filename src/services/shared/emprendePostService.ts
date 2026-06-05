@@ -1,6 +1,6 @@
 import { api } from '../admin/api.ts';
-import {apiPublic} from "./apiPublic.ts";
-import type { PaginatedResponse, EmprendePost, EmprendePostCreationData, EmprendePostUpdateData  } from '../../types';
+import { apiPublic } from "./apiPublic.ts";
+import type { PaginatedResponse, EmprendePost, EmprendePostCreationData, EmprendePostUpdateData } from '../../types';
 
 interface ApiEmprendePostsResponse {
     posts: EmprendePost[];
@@ -10,7 +10,7 @@ interface ApiEmprendePostsResponse {
 }
 
 export const emprendePostService = {
-    // --- Administrador ---
+    // Administrador
     listAdmin: async (params: {
         page: number,
         pageSize: number,
@@ -25,7 +25,7 @@ export const emprendePostService = {
         };
     },
 
-    getById: async (id: number): Promise<EmprendePost> => {
+    getById: async (id: string): Promise<EmprendePost> => {
         const response = await api.get<{ post: EmprendePost }>(`/api/admin/emprende/${id}`);
         return response.data.post;
     },
@@ -35,17 +35,17 @@ export const emprendePostService = {
         return response.data.post;
     },
 
-    update: async (id: number, data: EmprendePostUpdateData): Promise<{ success: boolean }> => {
+    update: async (id: string, data: EmprendePostUpdateData): Promise<{ success: boolean }> => {
         const response = await api.put(`/api/admin/emprende/${id}`, data);
         return response.data;
     },
 
-    delete: async (id: number): Promise<{ success: boolean }> => {
+    delete: async (id: string): Promise<{ success: boolean }> => {
         const response = await api.delete(`/api/admin/emprende/${id}`);
         return response.data;
     },
 
-    // --- Publico ---
+    // Publico
     listPublic: async (params: {
         page: number,
         pageSize: number,
@@ -57,7 +57,7 @@ export const emprendePostService = {
         };
     },
 
-    getPublicById: async (id: number): Promise<EmprendePost> => {
+    getPublicById: async (id: string): Promise<EmprendePost> => {
         const response = await apiPublic.get<{ post: EmprendePost }>(`/api/emprende/${id}`);
         return response.data.post;
     },

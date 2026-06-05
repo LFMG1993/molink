@@ -44,6 +44,11 @@ import typescript from "../assets/languages/typescript.webp"
 import ubuntu from "../assets/languages/ubuntu.webp"
 import vite from "../assets/languages/vite.webp"
 
+// Imagenes Redes Sociales
+import instagramIcon from "../assets/svg/instagram.svg";
+import facebookIcon from "../assets/svg/facebook.svg";
+import tiktokIcon from "../assets/svg/tiktok.svg";
+
 export const ImagesHome = {
     fondoGuadua,
     fondoGuaduaMobile,
@@ -92,3 +97,5 @@ export const ImagesLanguages = {
     ubuntu,
     vite
 }
+
+export const ImagesSocial = {instagramIcon, facebookIcon, tiktokIcon}

@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {paymentMethodService} from '../../services/shared/paymentMethodService.ts';
 import {Spinner} from '../../components/shared/Spinner.tsx';
 import {useState, useEffect, useMemo} from 'react';
@@ -12,9 +13,11 @@ import {uploadImage} from "../../services/admin/imageService.ts";
 import {slugify} from "../../utils/slugify.ts";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 export default function PaymentMethodsPage() {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const {addNotification} = useNotification();
 
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -71,7 +74,7 @@ export default function PaymentMethodsPage() {
 
     const saveMutation = useMutation({
         mutationFn: async ({data, imageFile}: {
-            data: PaymentMethodUpdateData & { id?: number | null },
+            data: PaymentMethodUpdateData & { id?: string | null },
             imageFile: File | null
         }) => {
             let finalData = {...data};
@@ -107,7 +110,7 @@ export default function PaymentMethodsPage() {
     });
 
     const deleteMutation = useMutation({
-        mutationFn: (id: number) => paymentMethodService.delete(id),
+        mutationFn: (id: string) => paymentMethodService.delete(id),
         onSuccess: () => {
             addNotification('Método de pago eliminado con éxito.', 'success');
             queryClient.invalidateQueries({queryKey: ['paymentMethods']});
@@ -124,7 +127,7 @@ export default function PaymentMethodsPage() {
         }
     };
 
-    const handleSave = (data: PaymentMethodUpdateData & { id?: number | null }, imageFile: File | null) => {
+    const handleSave = (data: PaymentMethodUpdateData & { id?: string | null }, imageFile: File | null) => {
         saveMutation.mutate({data, imageFile});
     };
 
@@ -135,7 +138,15 @@ export default function PaymentMethodsPage() {
     }
 
     return (
-        <div className="p-4 sm:p-6 lg:p-8">
+        <DraggableWindow
+            id="paymentMethods"
+            title="Pagos"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('payment-methods')}
+        >
+            <div className="p-4 sm:p-6 lg:p-8 bg-transparent text-[var(--os-text)] min-h-full">
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                     <h1 className="text-3xl font-bold text-[var(--color-foreground)]">Métodos de Pago (QR)</h1>
@@ -189,6 +200,7 @@ export default function PaymentMethodsPage() {
                 title="Confirmar Eliminación"
                 message={`¿Estás seguro de que deseas eliminar el método "${methodToDelete?.name}"? Esta acción no se puede deshacer.`}
             />
-        </div>
+            </div>
+        </DraggableWindow>
     );
 }

@@ -31,9 +31,9 @@ const LoginPage = () => {
 
     if (isLoading) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-screen bg-[var(--color-background)]">
+            <div className="flex flex-col items-center justify-center min-h-screen bg-(--color-background)">
                 <Spinner/>
-                <p className="mt-4 text-lg text-[var(--color-foreground)]/80">Iniciando sesión...</p>
+                <p className="mt-4 text-lg text-(--color-foreground)/80">Iniciando sesión...</p>
             </div>
         );
     }
@@ -45,26 +45,26 @@ const LoginPage = () => {
             />
             <div className="absolute inset-0 bg-black/50"/>
             {/* El z-10 asegura que el formulario esté por encima del overlay */}
-            <div className="relative z-10 w-full max-w-md bg-[var(--color-card)] p-8 space-y-6 rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold text-center text-[var(--color-foreground)]">Iniciar Sesión</h1>
+            <div className="relative z-10 w-full max-w-md bg-(--color-card) p-8 space-y-6 rounded-lg shadow-md">
+                <h1 className="text-2xl font-bold text-center text-(--color-foreground)">Iniciar Sesión</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-[var(--color-foreground)]/80">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-(--color-foreground)/80">Email</label>
                         <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                               className="w-full px-3 py-2 mt-1 border rounded-md bg-[var(--color-muted)] border-[var(--color-border)] focus:ring-primary focus:border-primary"
+                               className="w-full px-3 py-2 mt-1 border rounded-md bg-(--color-muted) border-(--color-border) focus:ring-primary focus:border-primary"
                                required disabled={isSubmitting}/>
                     </div>
                     <div>
                         <label htmlFor="password"
-                               className="block text-sm font-medium text-[var(--color-foreground)]/80">Contraseña</label>
+                               className="block text-sm font-medium text-(--color-foreground)/80">Contraseña</label>
                         <input id="password" type="password" value={password}
                                onChange={(e) => setPassword(e.target.value)}
-                               className="w-full px-3 py-2 mt-1 border rounded-md bg-[var(--color-muted)] border-[var(--color-border)] focus:ring-primary focus:border-primary"
+                               className="w-full px-3 py-2 mt-1 border rounded-md bg-(--color-muted) border-(--color-border) focus:ring-primary focus:border-primary"
                                required disabled={isSubmitting}/>
                     </div>
                     {error && <p className="text-sm text-danger">{error}</p>}
                     <button type="submit"
-                            className="w-full py-2 rounded-md bg-[#4a3084] text-white hover:bg-[#3b266a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="w-full py-2 rounded-md bg-[#f30519] text-white hover:bg-[#c0041a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                             disabled={isSubmitting}>
                         {isSubmitting ? 'Entrando...' : 'Entrar'}
                     </button>

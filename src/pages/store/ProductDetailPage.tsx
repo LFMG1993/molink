@@ -6,8 +6,6 @@ import {useCart} from '../../context/store/CardContext.tsx';
 import {StoreSEO} from '../../components/store/StoreSEO.tsx';
 import {Spinner} from '../../components/shared/Spinner.tsx';
 import {FileImage, Plus, Minus, CheckCircle} from 'lucide-react';
-import {StoreHeader} from "../../components/store/layout/StoreHeader.tsx";
-import {StoreFooter} from "../../components/store/layout/StoreFooter.tsx";
 import {Button} from "../../components/shared/Button.tsx";
 
 export default function ProductDetailPage() {
@@ -100,8 +98,7 @@ export default function ProductDetailPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-            <StoreHeader/>
+        <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
             <StoreSEO
                 title={`${product.name} | Molink Tienda`}
                 description={product.description || ''}
@@ -212,7 +209,6 @@ export default function ProductDetailPage() {
                     </div>
                 </div>
             </div>
-            <StoreFooter/>
         </div>
     );
 }

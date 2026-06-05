@@ -25,7 +25,7 @@ import {
 
 interface ProductTableProps {
     products: Product[];
-    onEdit: (id: number) => void;
+    onEdit: (id: string) => void;
     onDelete: (product: Product) => void;
     pagination: PaginationState;
     setPagination: Dispatch<SetStateAction<PaginationState>>;

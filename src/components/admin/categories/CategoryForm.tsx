@@ -1,21 +1,21 @@
 import * as React from "react";
-import {type JSX, useEffect, useState} from 'react';
-import type {Category, CategoryCreationData, CategoryUpdateData} from "../../../types";
-import {Button} from '../../shared/Button.tsx';
-import {X} from 'lucide-react';
-import {ImageUploader} from "../../shared/ImageUploader.tsx";
+import { type JSX, useEffect, useState } from 'react';
+import type { Category, CategoryCreationData, CategoryUpdateData } from "../../../types";
+import { Button } from '../../shared/Button.tsx';
+import { X } from 'lucide-react';
+import { ImageUploader } from "../../shared/ImageUploader.tsx";
 
 interface CategoryFormProps {
     isOpen: boolean;
     onClose: () => void;
     onSave: (data: CategoryCreationData | CategoryUpdateData, imageFile: File | null) => void;
     categoryToEdit: Category | null;
-    allCategories: Category[]; // Necesitamos todas las categorías para el selector de padre
+    allCategories: Category[];
     isSubmitting: boolean;
 }
 
 interface CategoryFormData {
-    id: number | null;
+    id: string | null;
     name: string;
     description: string;
     parentId: string | null;
@@ -33,7 +33,7 @@ const initialState: CategoryFormData = {
 };
 
 // Muestra la jerarquía visualmente para que el usuario entienda dónde está colocando la nueva categoría.
-const renderCategoryOptions = (categories: Category[], level = 0, categoryToEditId: number | null) => {
+const renderCategoryOptions = (categories: Category[], level = 0, categoryToEditId: string | null) => {
     let options: JSX.Element[] = [];
     for (const category of categories) {
         // Una categoría no puede ser su propio padre.
@@ -52,7 +52,7 @@ const renderCategoryOptions = (categories: Category[], level = 0, categoryToEdit
 };
 
 // Esta función puede encontrar una categoría por su ID en cualquier nivel de la jerarquía,
-const findCategoryById = (categories: Category[], id: number): Category | undefined => {
+const findCategoryById = (categories: Category[], id: string): Category | undefined => {
     for (const category of categories) {
         if (category.id === id) {
             return category;
@@ -66,13 +66,13 @@ const findCategoryById = (categories: Category[], id: number): Category | undefi
 };
 
 export function CategoryForm({
-                                 isOpen,
-                                 onClose,
-                                 onSave,
-                                 categoryToEdit,
-                                 allCategories,
-                                 isSubmitting
-                             }: CategoryFormProps) {
+    isOpen,
+    onClose,
+    onSave,
+    categoryToEdit,
+    allCategories,
+    isSubmitting
+}: CategoryFormProps) {
     const [formData, setFormData] = useState(initialState);
 
     useEffect(() => {
@@ -93,24 +93,24 @@ export function CategoryForm({
     }, [categoryToEdit, isOpen]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const {name, value} = e.target;
-        setFormData(prev => ({...prev, [name]: value === '' ? null : value}));
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value === '' ? null : value }));
     };
 
     const handleFileChange = (file: File | null) => {
-        setFormData(prev => ({...prev, imageFile: file}));
+        setFormData(prev => ({ ...prev, imageFile: file }));
         // Si se elimina el archivo, también eliminamos la URL existente.
         if (!file) {
-            setFormData(prev => ({...prev, imageUrl: null}));
+            setFormData(prev => ({ ...prev, imageUrl: null }));
         }
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const {imageFile, ...dataToSave} = formData;
+        const { imageFile, ...dataToSave } = formData;
         const finalData = {
             ...dataToSave,
-            parentId: formData.parentId ? Number(formData.parentId) : null,
+            parentId: formData.parentId ? String(formData.parentId) : null,
         };
         onSave(finalData, imageFile);
     };
@@ -120,15 +120,15 @@ export function CategoryForm({
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start pt-10">
             <div className="bg-[var(--color-card)] rounded-lg shadow-xl w-full max-w-3xl"
-                 onClick={(e) => e.stopPropagation()}>
+                onClick={(e) => e.stopPropagation()}>
                 <form onSubmit={handleSubmit} className="flex flex-col h-full">
                     <div className="flex justify-between items-center p-6 border-b border-[var(--color-border)]">
                         <h3 className="text-lg font-medium text-[var(--color-foreground)]">
                             {categoryToEdit ? `Editando "${categoryToEdit.name}"` : 'Crear Nueva Categoría'}
                         </h3>
                         <button type="button" onClick={onClose}
-                                className="text-[var(--color-foreground)]/60 hover:text-[var(--color-foreground)]">
-                            <X className="h-8 w-8"/>
+                            className="text-[var(--color-foreground)]/60 hover:text-[var(--color-foreground)]">
+                            <X className="h-8 w-8" />
                         </button>
                     </div>
                     <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
@@ -144,45 +144,45 @@ export function CategoryForm({
                         <div className="space-y-8">
                             <div>
                                 <label htmlFor="name"
-                                       className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre de
+                                    className="block text-sm font-medium text-[var(--color-foreground)]/80">Nombre de
                                     la Categoría</label>
                                 <input type="text" name="name" id="name" value={formData.name}
-                                       onChange={handleInputChange}
-                                       className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary bg-[var(--color-muted)] text-[var(--color-foreground)] p-2.5"
-                                       required/>
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary bg-[var(--color-muted)] text-[var(--color-foreground)] p-2.5"
+                                    required />
                             </div>
                             <div>
                                 <label htmlFor="parentId"
-                                       className="block text-sm font-medium text-[var(--color-foreground)]/80">Ubicación
+                                    className="block text-sm font-medium text-[var(--color-foreground)]/80">Ubicación
                                     en la Jerarquía</label>
                                 {categoryToEdit?.parentId && (
                                     <p className="text-xs text-[var(--color-foreground)]/60 mt-1">
                                         Actualmente es una subcategoría
-                                        de: <strong>{findCategoryById(allCategories, categoryToEdit.parentId)?.name || 'Categoría no encontrada'}</strong>
+                                        de: <strong>{findCategoryById(allCategories, String(categoryToEdit.parentId))?.name || 'Categoría no encontrada'}</strong>
                                     </p>
                                 )}
                                 <select name="parentId" id="parentId" value={formData.parentId || ''}
-                                        onChange={handleInputChange}
-                                        className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary p-2.5 bg-[var(--color-muted)] text-[var(--color-foreground)]">
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary p-2.5 bg-[var(--color-muted)] text-[var(--color-foreground)]">
                                     <option value="">Ninguna (Será una Categoría Principal)</option>
                                     {renderCategoryOptions(allCategories, 0, categoryToEdit?.id || null)}
                                 </select>
                             </div>
                             <div>
                                 <label htmlFor="description"
-                                       className="block text-sm font-medium text-[var(--color-foreground)]/80">Descripción</label>
+                                    className="block text-sm font-medium text-[var(--color-foreground)]/80">Descripción</label>
                                 <textarea name="description" id="description" value={formData.description || ''}
-                                          onChange={handleInputChange} rows={4}
-                                          className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary bg-[var(--color-muted)] text-[var(--color-foreground)]"></textarea>
+                                    onChange={handleInputChange} rows={4}
+                                    className="mt-1 block w-full rounded-md border-[var(--color-border)] shadow-sm focus:border-liderplast-primary focus:ring-liderplast-primary bg-[var(--color-muted)] text-[var(--color-foreground)]"></textarea>
                             </div>
                         </div>
                     </div>
                     <div
                         className="flex justify-end gap-4 p-6 border-t border-[var(--color-border)] bg-[var(--color-card)]">
                         <Button type="button" variant="secondary" onClick={onClose}
-                                disabled={isSubmitting}>Cancelar</Button>
+                            disabled={isSubmitting}>Cancelar</Button>
                         <Button type="submit"
-                                disabled={isSubmitting}>{isSubmitting ? 'Guardando...' : 'Guardar'}</Button>
+                            disabled={isSubmitting}>{isSubmitting ? 'Guardando...' : 'Guardar'}</Button>
                     </div>
                 </form>
             </div>

@@ -19,12 +19,12 @@ export default function OrderConfirmationPage() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Link to="/perfil">
+                <Link to="/account">
                     <Button variant="primary">
                         Ir a Mi Perfil
                     </Button>
                 </Link>
-                <Link to="/tienda">
+                <Link to="/">
                     <Button variant="secondary">Seguir Comprando</Button>
                 </Link>
             </div>

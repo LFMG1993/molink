@@ -83,8 +83,11 @@ const HomePage = () => {
                     <div className="absolute inset-0 bg-black/70"></div>
                 </div>
                 <div className="relative z-10 container mx-auto text-center px-8">
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <h1 className="font-nav font-bold text-5xl md:text-6xl">{t('landing.hero.title')}</h1>
+                        <p className="mt-6 text-xl text-white/90 font-light">
+                            {t('landing.hero.subtitle')}
+                        </p>
                     </div>
                     <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
                         <Link to="/details#service2"
@@ -131,7 +134,7 @@ const HomePage = () => {
                                 <div key={index}
                                      className="bg-surface p-8 text-center border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-2 flex flex-col justify-center items-center rounded-lg h-[380px] sm:h-[360px] md:h-[400px] lg:h-[380px] xl:h-[400px]">
                                     <div
-                                        className="mx-auto mb-5 flex h-20 w-20 shrink-0 items-center justify-center rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                                        className="mx-auto mb-5 flex h-20 w-20 shrink-0 items-center justify-center rounded-md bg-white/70 text-red-800 border border-red-800/80">
                                         <IconComponent size={40}/>
                                     </div>
                                     <h3 className="text-xl font-bold mb-3 text-white min-h-14 flex items-center justify-center leading-tight line-clamp-2">{title}</h3>
@@ -154,28 +157,28 @@ const HomePage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
-                            <div className="absolute top-4 right-4 font-heading text-6xl text-yellow-400">01</div>
+                            <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">01</div>
                             <div className="mb-4 text-accent"><Search size={40} className="mx-auto"/></div>
                             <h3 className="text-xl font-bold mb-2 text-white">{t('landing.process.steps.analysis.title')}</h3>
                             <p className="text-white/90">{t('landing.process.steps.analysis.description')}</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
-                            <div className="absolute top-4 right-4 font-heading text-6xl text-yellow-400">02</div>
+                            <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">02</div>
                             <div className="mb-4 text-accent"><Palette size={40} className="mx-auto"/></div>
                             <h3 className="text-xl font-bold mb-2 text-white">{t('landing.process.steps.design.title')}</h3>
                             <p className="text-white/90">{t('landing.process.steps.design.description')}</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
-                            <div className="absolute top-4 right-4 font-heading text-6xl text-yellow-400">03</div>
+                            <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">03</div>
                             <div className="mb-4 text-accent"><Code size={40} className="mx-auto"/></div>
                             <h3 className="text-xl font-bold mb-2 text-white">{t('landing.process.steps.development.title')}</h3>
                             <p className="text-white/90">{t('landing.process.steps.development.description')}</p>
                         </div>
                         <div
                             className="relative p-8 border border-white/10 text-center hover:shadow-lg hover:shadow-[#f30519]/40 hover:-translate-y-3">
-                            <div className="absolute top-4 right-4 font-heading text-6xl text-yellow-400">04</div>
+                            <div className="absolute top-4 right-4 font-heading text-6xl text-red-800">04</div>
                             <div className="mb-4 text-accent"><Rocket size={40} className="mx-auto"/></div>
                             <h3 className="text-xl font-bold mb-2 text-white">{t('landing.process.steps.launch.title')}</h3>
                             <p className="text-white/90">{t('landing.process.steps.launch.description')}</p>
@@ -183,14 +186,14 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            <hr className="container mx-auto border-t border-white/30 my-16"/>
+            <hr className="container mx-auto border-t border-white/30"/>
 
             {/* Pricing Section */}
             <section id={"pricing"}>
                 <PricingSection/>
             </section>
 
-            <hr className="container mx-auto border-t border-white/30 my-16"/>
+            <hr className="container mx-auto border-t border-white/30"/>
 
             {/* FAQ Teaser Section */}
             <section className="py-16 bg-black text-white">
@@ -206,13 +209,13 @@ const HomePage = () => {
                         {t('landing.faq.hero_subtitle')}
                     </p>
                     <Link to="/faq"
-                          className="w-full inline-flex items-center justify-center gap-2 bg-accent text-white font-bold uppercase tracking-wider py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-[#f30519]/50 hover:bg-red-800 hover:scale-105">
+                          className="inline-flex items-center justify-center gap-2 bg-accent text-white font-bold uppercase tracking-wider py-3 px-8 mt-8 rounded-lg transition-all duration-300 shadow-lg shadow-[#f30519]/50 hover:bg-red-800 hover:scale-105">
                         {t('landing.nav.faq')}
                     </Link>
                 </div>
             </section>
 
-            <hr className="container mx-auto border-t border-white/30 my-16"/>
+            <hr className="container mx-auto border-t border-white/30"/>
             {/* Portfolio Section */}
             <section id="portfolio" className="py-16 bg-surface">
                 <div className="container mx-auto px-4">
@@ -226,7 +229,7 @@ const HomePage = () => {
                             {t('landing.portfolio.cta')}
                         </Link>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-12 items-center">
                         <div className="flex justify-center items-center p-4">
                             <img src={ImagesClients.liderplast} alt="Logo del cliente Liderplast"
                                  className="h-16 w-full object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110"/>

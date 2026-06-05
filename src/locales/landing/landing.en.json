@@ -15,8 +15,10 @@
       "info_title": "Contact Information",
       "name": "Full Name",
       "email": "Email Address",
+      "subject": "Subject",
       "message": "Tell us about your project",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sending": "Sending..."
     },
     "footer": {
       "description": "Custom technology solutions to boost your business.",
@@ -75,11 +77,12 @@
       "total": "Estimated total"
     },
     "hero": {
-      "title": "We Offer Multiple Technology Solutions",
+      "title": "We Transform Your Ideas into Successful Software, Apps and Virtual Stores",
+      "subtitle": "Web and mobile development agency based in Cúcuta, Colombia. We create high-quality technological solutions for all of Latin America.",
       "web_dev": "Web Development",
       "mobile_dev": "Mobile Development",
       "admin": "Administration",
-      "software": "Store"
+      "software": "Our Store"
     },
     "services": {
       "title": "Services Overview",
@@ -223,6 +226,24 @@
             {
               "strong": "Continuous SEO:",
               "text": " We constantly improve your site's visibility in search results."
+            }
+          ]
+        },
+        "service5": {
+          "title": "Online Stores",
+          "intro": "Our online store allows you to sell your products or services efficiently and accessibly over the Internet. With a secure and easy-to-use platform, you can manage your sales, control stock, and offer an exceptional shopping experience to your customers.",
+          "features": [
+            {
+              "strong": "Software Licenses:",
+              "text": "We offer original licenses for Microsoft, Autocad, and Adobe."
+            },
+            {
+              "strong": "Backup:",
+              "text": " We perform regular backups of your site to protect your data against any loss or damage."
+            },
+            {
+              "strong": "Competitive Prices:",
+              "text": " We offer competitive prices with no commitments and no hidden fees."
             }
           ]
         },

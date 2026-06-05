@@ -1,7 +1,16 @@
 import {LightningFill, ShieldCheck} from "react-bootstrap-icons";
 import {Button} from "../../shared/Button.tsx";
+import { useNavigate } from "react-router-dom";
+import type { Product } from "../../../types";
 
-export const HeroGrid = () => {
+interface Props {
+    mainProduct?: Product;
+    onAdd?: (product: Product) => void;
+}
+
+export const HeroGrid = ({ mainProduct, onAdd }: Props) => {
+    const navigate = useNavigate();
+
     return (
         <section className="container mx-auto px-4 mt-6 md:mt-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-100">
@@ -11,27 +20,42 @@ export const HeroGrid = () => {
                     {/* Background Image with Gradient Overlay */}
                     <div className="absolute inset-0">
                         <img
-                            src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200"
-                            className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
-                            alt="Hero"
+                            src={mainProduct?.imageUrl || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200"}
+                            className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                            alt={mainProduct ? mainProduct.name : "Hero"}
                         />
-                        <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent"></div>
                     </div>
 
                     <div className="relative h-full flex flex-col justify-center p-8 md:p-12 max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold mb-6 w-fit backdrop-blur-sm">
-                            <LightningFill className="w-3 h-3 fill-current" /> NUEVO LANZAMIENTO
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-bold mb-6 w-fit backdrop-blur-sm">
+                            <LightningFill className="w-3 h-3 fill-current" /> DESTACADO
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                            Potencia Digital <br/>
-                            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-indigo-400">Sin Límites</span>
+                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
+                            {mainProduct ? mainProduct.name : "Potencia Digital"} <br/>
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-red-400 drop-shadow-md">
+                                {mainProduct ? "Premium" : "Sin Límites"}
+                            </span>
                         </h1>
-                        <p className="text-slate-300 mb-8 text-lg max-w-md">
-                            Actualiza a Windows 11 Pro y obtén las herramientas de IA más avanzadas para tu equipo.
-                        </p>
                         <div className="flex gap-4">
-                            <Button variant="gradient" className="px-8">Comprar ahora</Button>
-                            <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 hover:text-white hover:border-white">Ver detalles</Button>
+                            <Button 
+                                variant="gradient" 
+                                className="px-8 bg-linear-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white shadow-lg shadow-red-500/30 border-0"
+                                onClick={() => {
+                                    if (mainProduct && onAdd) onAdd(mainProduct);
+                                }}
+                            >
+                                Comprar ahora
+                            </Button>
+                            <Button 
+                                variant="outline" 
+                                className="text-white border-white/20 hover:bg-white/10 hover:text-white hover:border-white transition-all backdrop-blur-sm"
+                                onClick={() => {
+                                    if (mainProduct) navigate(`/products/${mainProduct.id}`);
+                                }}
+                            >
+                                Ver detalles
+                            </Button>
                         </div>
                     </div>
                 </div>

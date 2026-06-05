@@ -26,7 +26,7 @@ export const shipmentService = {
         };
     },
 
-    updateShipment: async (shipmentId: number, payload: ShipmentUpdateData): Promise<Shipment> => {
+    updateShipment: async (shipmentId: string, payload: ShipmentUpdateData): Promise<Shipment> => {
         const response = await api.put<{ shipment: Shipment }>(`/api/admin/shipments/${shipmentId}`, payload);
         return response.data.shipment;
     }

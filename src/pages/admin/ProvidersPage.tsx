@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {useState, useMemo, useEffect} from 'react';
 import type {Provider, ProviderCreationData, PaginatedResponse} from '../../types';
 import {providerService} from '../../services/admin/providerService.ts';
@@ -10,9 +11,11 @@ import {ConfirmationModal} from '../../components/shared/ConfirmationModal.tsx';
 import {Spinner} from "../../components/shared/Spinner.tsx";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 const ProvidersPage = () => {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const {addNotification} = useNotification();
 
     const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -117,8 +120,16 @@ const ProvidersPage = () => {
     const isLoading = isLoadingProviders && providersData === undefined;
 
     return (
-        <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
+        <DraggableWindow
+            id="providers"
+            title="Proveedores"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('providers')}
+        >
+            <div className="p-8 bg-transparent text-[var(--os-text)] min-h-full">
+                <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-bold text-[var(--color-foreground)]">Gestión de Proveedores</h1>
                 <Button onClick={handleCreate} variant="primary">
                     <PlusCircle className="h-5 w-5 mr-2"/>
@@ -158,7 +169,8 @@ const ProvidersPage = () => {
                 title="Confirmar Eliminación"
                 message={`¿Estás seguro de que deseas eliminar al proveedor "${providerToDelete?.name}"? Esta acción no se puede deshacer.`}
             />
-        </div>
+            </div>
+        </DraggableWindow>
     );
 };
 

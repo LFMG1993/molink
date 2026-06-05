@@ -1,3 +1,4 @@
+import { useWindows98 } from "../../context/admin/Windows98Context.tsx";
 import {useState, useEffect, useMemo} from 'react';
 import type {PaymentStatus, Order, PaginatedResponse} from '../../types';
 import {Spinner} from '../../components/shared/Spinner.tsx';
@@ -6,6 +7,7 @@ import {useNotification} from "../../context/shared/NotificationContext.tsx";
 import {orderService} from "../../services/admin/orderService.ts";
 import {useQuery, useMutation, useQueryClient, keepPreviousData} from '@tanstack/react-query';
 import type {PaginationState, SortingState} from "@tanstack/react-table";
+import {DraggableWindow} from "../../components/admin/DraggableWindow.tsx";
 
 const statusTabs: { label: string; status: PaymentStatus | null }[] = [
     {label: 'Todos', status: null},
@@ -17,6 +19,7 @@ const statusTabs: { label: string; status: PaymentStatus | null }[] = [
 
 export default function OrdersPage() {
     const queryClient = useQueryClient();
+    const { closeApp } = useWindows98();
     const {addNotification} = useNotification();
 
     const [activeStatus, setActiveStatus] = useState<PaymentStatus | null>('pending_confirmation');
@@ -58,7 +61,7 @@ export default function OrdersPage() {
     const pageCount = useMemo(() => ordersData?.pageCount ?? -1, [ordersData]);
 
     const approveMutation = useMutation({
-        mutationFn: (orderId: number) => orderService.approve(orderId),
+        mutationFn: (orderId: string) => orderService.approve(orderId),
         onSuccess: (_, orderId) => {
             addNotification(`Orden #${orderId} aprobada con éxito.`, 'success');
             queryClient.invalidateQueries({queryKey: ['orders']});
@@ -69,7 +72,7 @@ export default function OrdersPage() {
     });
 
     const rejectMutation = useMutation({
-        mutationFn: (orderId: number) => orderService.reject(orderId),
+        mutationFn: (orderId: string) => orderService.reject(orderId),
         onSuccess: (_, orderId) => {
             addNotification(`Orden #${orderId} rechazada.`, 'success');
             queryClient.invalidateQueries({queryKey: ['orders']});
@@ -82,8 +85,16 @@ export default function OrdersPage() {
     const isLoading = isLoadingOrders && ordersData === undefined;
 
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold text-[var(--color-foreground)] mb-4">Gestión de Órdenes</h1>
+        <DraggableWindow
+            id="orders"
+            title="ÓRDENES_MODULE.exe"
+            icon="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+            defaultMaximized={true}
+            defaultSize={{ width: 800, height: 600 }}
+            onClose={() => closeApp('orders')}
+        >
+            <div className="p-6 bg-transparent text-[var(--os-text)] min-h-full">
+                <h1 className="text-3xl font-bold text-[var(--color-foreground)] mb-4">Gestión de Órdenes</h1>
 
             <div className="border-b border-[var(--color-border)] mb-4">
                 <nav className="-mb-px flex space-x-6 overflow-x-auto">
@@ -124,6 +135,7 @@ export default function OrdersPage() {
                     pageCount={pageCount}
                 />
             )}
-        </div>
+            </div>
+        </DraggableWindow>
     );
 }

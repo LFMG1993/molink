@@ -13,6 +13,8 @@ import {
 
 const HomePage = () => {
     const {t} = useTranslation();
+    const isLocal = import.meta.env.DEV;
+    const tiendaUrl = isLocal ? 'http://tienda.localhost:5173' : 'https://tienda.molink.com.co';
     const services = [
         {
             IconComponent: Code2,
@@ -108,7 +110,7 @@ const HomePage = () => {
                             <h2 className="font-bold mt-3 text-lg text-white/80 group-hover:text-accent transition-colors">
                                 {t('landing.hero.admin')}</h2>
                         </Link>
-                        <a href="http://tienda.localhost:5173"
+                        <a href={tiendaUrl}
                            target="_blank"
                            rel="noopener noreferrer"
                            className="group flex flex-col items-center justify-center p-6 border border-white/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40 transition-all duration-300 h-full">

@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {ImagesHome} from "../../utils/images.ts";
+import { ImagesHome } from "../../utils/images.ts";
 import { Menu, X, Globe, User, LogOut, ChevronDown } from 'lucide-react';
 import { useUserAuth } from '../../context/store/UserAuthContext.tsx';
-import { LoginModal } from './LoginModal.tsx';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
     const { customer, isAuthenticated, logout } = useUserAuth();
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
 
     const getStoreUrl = () => {
@@ -61,37 +59,37 @@ const Header = () => {
                         <ul className="flex items-center space-x-1">
                             <li>
                                 <Link to="/#start" aria-label="boton inicio"
-                                          className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.home')}
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/portfolio" aria-label="boton Portafolio"
-                                      className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.portfolio')}
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/details" aria-label="boton de servicios"
-                                          className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.services')}
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/pricing" aria-label="boton precios"
-                                          className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.pricing')}
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/faq" aria-label="boton preguntas frecuentes"
-                                          className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.faq')}
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/contact" aria-label="boton contacto"
-                                          className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
+                                    className="block rounded-md px-3 py-2 font-nav text-base text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#f30519]/40">
                                     {t('landing.nav.contact')}
                                 </Link>
                             </li>
@@ -139,13 +137,13 @@ const Header = () => {
                                         )}
                                     </div>
                                 ) : (
-                                    <button
-                                        onClick={() => setShowLoginModal(true)}
+                                    <a
+                                        href={`${storeUrl}/?login=true`}
                                         className="flex items-center justify-center ml-2 w-9 h-9 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all"
-                                        aria-label="Ingresar"
+                                        aria-label="Ingresar" target="_blank"
                                     >
                                         <User size={17} />
-                                    </button>
+                                    </a>
                                 )}
                             </li>
                         </ul>
@@ -197,12 +195,9 @@ const Header = () => {
                         </>
                     ) : (
                         <li>
-                            <button
-                                onClick={() => { setShowLoginModal(true); setMobileMenuOpen(false); }}
-                                className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white font-nav text-lg hover:bg-white/10 transition-all"
-                            >
+                            <a href={`${storeUrl}/?login=true`} className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white font-nav text-lg hover:bg-white/10 transition-all">
                                 <User size={20} /> Ingresar
-                            </button>
+                            </a>
                         </li>
                     )}
                     <li>
@@ -218,8 +213,6 @@ const Header = () => {
                 </ul>
             </div>
 
-            {/* Modal de login */}
-            {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
         </>
     );
 };

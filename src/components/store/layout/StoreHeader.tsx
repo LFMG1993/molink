@@ -9,7 +9,7 @@ import {
     X,
 } from "react-bootstrap-icons";
 import { ImagesHome } from "../../../utils/images.ts";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import LanguageSelector from "../../shared/LanguageSelector.tsx";
 import CartDropdown from "../header/CartDropdown";
 import { useUserAuth } from "../../../context/store/UserAuthContext.tsx";
@@ -23,6 +23,16 @@ export const StoreHeader = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [categories, setCategories] = useState<Category[]>([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    // Revisa si viene de la Landing con ?login=true
+    useEffect(() => {
+        if (searchParams.get('login') === 'true' && !isAuthenticated) {
+            setIsAuthModalOpen(true);
+            searchParams.delete('login');
+            setSearchParams(searchParams, { replace: true });
+        }
+    }, [searchParams, isAuthenticated, setSearchParams]);
 
     useEffect(() => {
         shopService.getPublicCategories()
@@ -116,13 +126,13 @@ export const StoreHeader = () => {
                         <CartDropdown isTransparent={true} />
                         {/* Perfil del Usuario */}
                         {isAuthenticated ? (
-                            <div className="relative group ml-2">
+                            <div className="hidden md:block relative group ml-2">
                                 <button className="flex flex-col items-center gap-0.5 hover:text-white transition-colors cursor-pointer group">
-                                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:bg-blue-500 transition-colors">
+                                    <div className="w-8 h-8 bg-slate-700 border border-slate-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:bg-slate-600 transition-colors">
                                         {customer?.name?.charAt(0).toUpperCase() || 'U'}
                                     </div>
                                 </button>
-                                <div className="absolute right-0 top-full mt-2 w-56 bg-white/10 border border-slate-700 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div className="absolute right-0 top-full mt-2 w-56 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                     <div className="p-3 border-b border-slate-700">
                                         <p className="text-sm font-semibold text-white truncate">{customer?.name}</p>
                                         <p className="text-xs text-white/40 truncate">{customer?.email}</p>
@@ -227,7 +237,7 @@ export const StoreHeader = () => {
                             {isAuthenticated ? (
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-3 px-3 py-2">
-                                        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                                        <div className="w-10 h-10 bg-slate-700 border border-slate-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
                                             {customer?.name?.charAt(0).toUpperCase() || 'U'}
                                         </div>
                                         <div>
@@ -243,7 +253,7 @@ export const StoreHeader = () => {
                                     </button>
                                 </div>
                             ) : (
-                                <button onClick={() => { setIsAuthModalOpen(true); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors text-sm font-medium justify-center">
+                                <button onClick={() => { setIsAuthModalOpen(true); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors text-sm font-medium justify-center border border-white/10">
                                     <User className="w-4 h-4" /> Ingresar / Registrarse
                                 </button>
                             )}

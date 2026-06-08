@@ -14,14 +14,21 @@ import LanguageSelector from "../../shared/LanguageSelector.tsx";
 import CartDropdown from "../header/CartDropdown";
 import { useUserAuth } from "../../../context/store/UserAuthContext.tsx";
 import { AuthModal } from "../auth/AuthModal.tsx";
-
-// Eliminado getCategoryIcon ya que las categorías ahora están en StoreCategoriesBar
+import { shopService } from "../../../services/store/shopService.ts";
+import type { Category } from "../../../types";
 
 export const StoreHeader = () => {
 
     const { isAuthenticated, customer, logout } = useUserAuth();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [categories, setCategories] = useState<Category[]>([]);
+
+    useEffect(() => {
+        shopService.getPublicCategories()
+            .then(res => setCategories(res))
+            .catch(console.error);
+    }, []);
 
     // Cierra el menú móvil si el viewport pasa a escritorio (md)
     useEffect(() => {
@@ -87,7 +94,9 @@ export const StoreHeader = () => {
 
                     {/* Acciones */}
                     <div className="flex items-center gap-2 md:gap-4 text-white/70 ml-auto md:ml-0">
-                        <LanguageSelector isTransparent={true} />
+                        <div className="hidden md:block">
+                            <LanguageSelector isTransparent={true} />
+                        </div>
 
                         <button
                             className="hidden md:flex flex-col items-center gap-0.5 hover:text-white transition-colors group">
@@ -147,7 +156,7 @@ export const StoreHeader = () => {
 
             {/* Menú móvil — drawer lateral */}
             {mobileOpen && (
-                <div className="fixed inset-0 z-100 md:hidden">
+                <div className="fixed inset-0 z-[100] md:hidden">
                     {/* Overlay */}
                     <div
                         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -181,16 +190,64 @@ export const StoreHeader = () => {
                             </div>
                         </div>
 
-                        {/* Categorías (Eliminadas del menú móvil global, movidas a la tienda) */}
+                        {/* Menú de Navegación Móvil */}
                         <nav className="flex-1 p-4">
-                            <div className="mt-2 pt-2">
+                            <div className="space-y-1 mt-2 pt-2">
+                                <div className="mb-2">
+                                    <LanguageSelector isTransparent={true} toggleOnly={true} />
+                                </div>
+                                <a href="/products"
+                                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/10 transition-colors text-sm font-medium"
+                                    onClick={() => setMobileOpen(false)}>
+                                    <List className="w-4 h-4" /> Todos los productos
+                                </a>
                                 <a href="/products?offers=true"
                                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors text-sm font-semibold"
                                     onClick={() => setMobileOpen(false)}>
                                     <Fire className="w-4 h-4" /> Ofertas Flash
                                 </a>
+                                
+                                {categories.length > 0 && (
+                                    <div className="pt-4 mt-4 border-t border-white/10">
+                                        <p className="px-3 text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Categorías</p>
+                                        {categories.map(cat => (
+                                            <a key={cat.id} href={`/products?category=${cat.id}`}
+                                                className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 transition-colors text-sm"
+                                                onClick={() => setMobileOpen(false)}>
+                                                {cat.name}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </nav>
+
+                        {/* User / Auth Mobile */}
+                        <div className="p-4 border-t border-white/10">
+                            {isAuthenticated ? (
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-3 px-3 py-2">
+                                        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                                            {customer?.name?.charAt(0).toUpperCase() || 'U'}
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-semibold text-white">{customer?.name}</p>
+                                            <p className="text-xs text-white/40">{customer?.email}</p>
+                                        </div>
+                                    </div>
+                                    <Link to="/profile" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors text-sm">
+                                        <User className="w-4 h-4 text-blue-400" /> Mi Cuenta
+                                    </Link>
+                                    <button onClick={() => { logout(); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-500/20 text-red-400 hover:text-red-500 transition-colors text-sm font-medium">
+                                        Cerrar Sesión
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => { setIsAuthModalOpen(true); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors text-sm font-medium justify-center">
+                                    <User className="w-4 h-4" /> Ingresar / Registrarse
+                                </button>
+                            )}
+                        </div>
 
                         {/* Footer del panel */}
                         <div className="p-4 border-t border-white/10 space-y-3">

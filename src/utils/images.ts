@@ -4,6 +4,9 @@ import fondoGuaduaMobile from "../assets/background/cucutaGuadua-mobile.avif"
 import fondoGuaduaTablet from "../assets/background/cucutaGuadua-tablet.avif"
 import logoBlack from "../assets/logo-black.webp"
 import logoWhite from "../assets/logo-white.webp"
+import fondoCodigo from "../assets/background/codigo.avif"
+import fondoCodigoTablet from "../assets/background/codigo-tablet.avif"
+import fondoCodigoMobile from "../assets/background/codigo-mobile.avif"
 
 // Imagenes clientes
 import advise from "../assets/clients/advise.webp";
@@ -54,7 +57,10 @@ export const ImagesHome = {
     fondoGuaduaMobile,
     fondoGuaduaTablet,
     logoBlack,
-    logoWhite
+    logoWhite,
+    fondoCodigo,
+    fondoCodigoTablet,
+    fondoCodigoMobile
 } as const;
 
 export const ImagesClients = {
@@ -66,7 +72,8 @@ export const ImagesClients = {
     gallinasCasa,
     congelados,
     tocheOn,
-    masterYoel} as const;
+    masterYoel
+} as const;
 
 export const VideoClients = {
     productivasVideo,
@@ -98,4 +105,4 @@ export const ImagesLanguages = {
     vite
 }
 
-export const ImagesSocial = {instagramIcon, facebookIcon, tiktokIcon}
+export const ImagesSocial = { instagramIcon, facebookIcon, tiktokIcon }

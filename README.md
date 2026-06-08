@@ -4,79 +4,50 @@
    <p><em>Transformando ideas en productos digitales de alto impacto.</em></p>
  </div>
 
-Este repositorio contiene la plataforma principal de **Molink**, una Single Page Application (SPA) de alto rendimiento desarrollada con **React** y **TypeScript**. Más que un portafolio, es un ecosistema digital diseñado para gestionar servicios de desarrollo web, móvil y consultoría tecnológica.
+Este repositorio contiene la plataforma principal de **Molink**, un ecosistema digital de alto rendimiento desarrollado con **React** y **TypeScript**. Más que un portafolio o una landing page, es una plataforma completa diseñada para gestionar servicios de desarrollo web, consultoría tecnológica y e-commerce interactivo.
 
-La plataforma está optimizada para la conversión, con un enfoque en la experiencia de usuario (UX), el SEO internacional y la escalabilidad modular.
+La plataforma está optimizada para la conversión, con un enfoque implacable en la experiencia de usuario (UX), el rendimiento en Core Web Vitals, SEO técnico internacional y escalabilidad modular.
 
- ---
+---
 
-## ✨ Características Principales
+## ✨ Capacidades y Arquitectura
 
-*   **🌍 Multi-idioma (i18n):** Soporte completo para Español e Inglés, permitiendo una expansión global.
-*   **📊 Calculadora de Presupuestos:** Herramienta interactiva para que los clientes estimen el costo de sus proyectos en tiempo real.
-*   **💳 Modelos de Negocio Flexibles:** Gestión de suscripciones mensuales (con beneficios de hosting/soporte) y paquetes de pago único.
-*   **🚀 Portafolio Curado:** Sistema de proyectos destacados y filtrado cronológico con detalles técnicos profundos.
-*   **🔍 SEO & Rich Snippets:** Implementación de datos estructurados (JSON-LD) para FAQs y servicios, optimizando la visibilidad en Google.
-*   **📱 UI/UX Premium:** Diseño "Dark Mode" moderno, 100% responsivo, utilizando **Lucide Icons** para una iconografía limpia y consistente.
-*   **✉️ Centro de Contacto:** Página dedicada con integración de Google Maps y múltiples canales de comunicación (WhatsApp, Email).
+*   **🌍 Ecosistema Multi-dominio:** Arquitectura escalable para manejar la Landing Page corporativa, la Tienda Virtual (`tienda.molink.com.co`) y el Panel de Administración (`admin.molink.com.co`) desde el mismo core tecnológico.
+*   **🛒 Tienda Virtual Premium:** E-commerce con pagos integrados (Wompi), carrito inteligente, filtrado por categorías, productos dinámicos con múltiples variantes y un flujo de checkout con Dark Mode inmersivo.
+*   **📊 Calculadora de Presupuestos:** Herramienta interactiva para que los clientes estimen el costo de sus proyectos de software en tiempo real.
+*   **💳 Modelos de Suscripción:** Gestión de Suscripciones como Servicio (SaaS), facturación recurrente, paquetes de pago único y cupones de descuento.
+*   **🌍 Multi-idioma (i18n):** Soporte completo para Español e Inglés con cambio en caliente y preservación de estado.
+*   **🔍 SEO Avanzado:** Implementación de datos estructurados (JSON-LD), React Helmet Async, OpenGraph dinámico y renderizado enfocado en indexación de Google.
+*   **📱 UI/UX Premium & Accesibilidad:** Diseño con sistema "Dark Mode / Light Mode" intercambiable, animaciones fluidas (Framer Motion / CSS Transitions) y 100% responsivo.
 
-## 🗺️ Roadmap de Desarrollo
+## 🛠️ Stack Tecnológico
 
-Molink está en constante evolución. Estos son los próximos módulos en desarrollo:
+Seleccionamos tecnologías de vanguardia para asegurar escalabilidad, seguridad y tiempos de respuesta de milisegundos:
 
-1.  **🛒 Tienda Molink (Store):** Plataforma e-commerce independiente (`tienda.molink.com.co`) para la venta de licencias de software, hardware y gadgets tecnológicos.
-2.  **🔐 Panel de Administración:** Dashboard privado para que los clientes gestionen sus suscripciones, tickets de soporte y vean el progreso de sus desarrollos.
-3.  **🤝 Red de Aliados:** Espacio dedicado para partners y colaboradores estratégicos, fortaleciendo el ecosistema de soluciones tecnológicas.
+*   **Core:** React 19, TypeScript
+*   **Estilización & UI:** Tailwind CSS (Utility-First), Headless UI, Lucide Icons
+*   **Gestión de Estado:** Zustand (Global State), Context API
+*   **Routing & Navegación:** React Router 6 con pre-fetching y code-splitting
+*   **Pagos & Finanzas:** Wompi API Integration
+*   **Infraestructura:** Vite, Cloudflare Pages (Edge Network)
 
-## 🛠️ Tecnologías Utilizadas
+## 🔐 Aviso de Propiedad Intelectual
 
-*   **Framework Frontend:** React
-*   **Tipado:** TypeScript
-*   **Bundler:** Vite
-*   **Estilos:** Tailwind CSS (Arquitectura Utility-First)
-*   **Internacionalización:** i18next
-*   **Enrutamiento:** React Router 6
-*   **Iconografía:** Lucide React
-*   **SEO:** React Helmet Async & JSON-LD Structured Data
-*   **Gestión de Clases:** clsx
+Este repositorio actúa como una **muestra técnica** (Showcase) de las capacidades de ingeniería, diseño y arquitectura de software de **Molink**. 
 
-## 📂 Estructura del Proyecto
+El código fuente aquí presentado es **propiedad exclusiva de Molink Tecnología y es de código cerrado (Proprietary)**. No se otorga ninguna licencia (implícita ni explícita) para su clonación, distribución, replicación, modificación o uso personal/comercial por parte de terceros. 
 
-```
-/src
-├── assets/         # Archivos estáticos (imágenes, fuentes, videos).
-├── components/     # Componentes reutilizables de React.
-│   ├── general/    # Componentes globales (Header, Footer, etc.).
-│   └── portfolio/  # Componentes específicos del portafolio.
-├── data/           # Archivos de datos que simulan una BBDD.
-├── pages/          # Componentes que representan las páginas de la aplicación.
-├── types/          # Definiciones de tipos de TypeScript.
-├── utils/          # Funciones de utilidad y centralización de assets.
-├── App.tsx         # Componente raíz y configuración de rutas.
-├── main.tsx        # Punto de entrada de la aplicación.
-└── index.css       # Estilos globales y personalizados.
- ```
+El propósito de esta documentación es exhibir el nivel técnico, los estándares de calidad y las arquitecturas de alto nivel que implementamos para nuestros clientes.
 
-## 🚀 Cómo Empezar
-Sigue estos pasos para ejecutar el proyecto en tu entorno local.
+## 🤝 Hablemos de tu próximo proyecto
 
-1.  **Clona el repositorio:**
-     ```bash
-     git clone https://github.com/tu-usuario/tu-repositorio.git
+En Molink transformamos requerimientos complejos en soluciones digitales rentables. Si estás interesado en desarrollar una plataforma, aplicación web, SaaS o tienda virtual con estándares premium, nos encantaría conocer tu visión.
 
-2. **Instala Dependencias:**
-    ```bash    
-    pnpm install
-    ``` 
-3. **Ejecuta el servidor de desarrollo:**
-    ```bash    
-    pnpm dev
-    ```
-La aplicación estará disponible en `http://localhost:5173` (o el puerto que indique Vite).
+*   **Sitio Web:** [molink.com.co](https://molink.com.co)
+*   **Email Comercial:** [contacto@molink.com.co](mailto:contacto@molink.com.co)
 
-## 📜 Scripts Disponibles
-
-*   `npm run dev`: Inicia el servidor de desarrollo con Hot-Module Replacement (HMR).
-*   `npm run build`: Compila la aplicación para producción en el directorio `dist/`.
-*   `npm run lint`: Ejecuta ESLint para analizar el código en busca de errores.
-*   `npm run preview`: Sirve localmente la versión de producción generada por `build`.
+---
+<div align="center">
+    <p>Hecho con ❤️ por el equipo de ingeniería de Molink.</p>
+    <p>&copy; 2026 Molink Tecnología. Todos los derechos reservados.</p>
+</div>

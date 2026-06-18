@@ -269,9 +269,9 @@
     },
     "seo": {
       "home": {
-        "title": "Web & Mobile Development in Cúcuta",
-        "description": "Custom technology solutions.",
-        "keywords": "web development, mobile development, websites, programmer, Cúcuta, Colombia, Molink"
+        "title": "Web, App & E-commerce Development Agency in Cúcuta, Colombia",
+        "description": "Molink Tecnología: FullStack development agency in Cúcuta, Colombia. We build websites, e-commerce stores, web applications, and mobile apps for businesses in Norte de Santander, Colombia, and Latin America. Contact us today.",
+        "keywords": "web developer Cúcuta, web development agency Cúcuta, fullstack programmer Colombia, build website Cúcuta, online store Cúcuta, e-commerce Norte de Santander, software development Cúcuta, mobile apps Colombia, hire developer Colombia, Molink Tecnología"
       }
     },
     "faq": {
@@ -358,6 +358,44 @@
             "q4_a": "You can contact us via WhatsApp (+57 315 575 6600) for quick answers, by email (contacto@molink.com.co) for formal inquiries, or directly from your project's admin panel if you have an active plan. We respond within 24 business hours.",
             "q5_q": "Do you redesign existing websites?",
             "q5_a": "Yes. If you already have a website but needs a visual refresh, performance improvements, or technology updates, we can redesign it without losing your Google ranking or existing content. We do a complete audit and propose a progressive improvement plan."
+          }
+        },
+        "local": {
+          "title": "Developers in Cúcuta & Colombia",
+          "items": {
+            "q1_q": "Where can I find a web developer in Cúcuta, Colombia?",
+            "q1_a": "Molink Tecnología is a web and mobile development agency based in Villa del Rosario, Cúcuta, Norte de Santander, Colombia. We are a team of FullStack developers specializing in web pages, online stores, web applications, and mobile apps. Contact us via WhatsApp at +57 315 575 6600, by email at contacto@molink.com.co, or visit molink.com.co. We're available Monday–Friday 8 AM–9 PM and Saturday 9 AM–6 PM.",
+            "q2_q": "Who builds websites and e-commerce stores in Cúcuta, Norte de Santander?",
+            "q2_a": "Molink Tecnología is a web development agency headquartered in Cúcuta (Villa del Rosario), Norte de Santander. We build everything from corporate websites to full e-commerce stores with shopping cart, integrated payment gateways (Wompi, PayPal), and admin panels. We also serve Los Patios, Ocaña, Villa del Rosario, and the wider region.",
+            "q3_q": "Is there a software development company in Cúcuta, Colombia?",
+            "q3_a": "Yes. Molink Tecnología is a Colombian software development company located in Cúcuta (Villa del Rosario), Norte de Santander. We offer web development, iOS and Android mobile applications, e-commerce, process automation, and technology consulting services. We work with local SMBs and also remotely across Colombia and Latin America.",
+            "q4_q": "How do I hire a FullStack developer in Colombia?",
+            "q4_a": "To hire a FullStack developer in Colombia, contact Molink Tecnología directly. Our tech stack includes React, TypeScript, Vite, Node.js, Go (Golang), Express, PostgreSQL, MongoDB, MySQL, Firebase, Cloudflare Workers, Flutter, and React Native. We offer custom development, free initial consultations, and no-obligation quotes. Reach us via WhatsApp at +57 315 575 6600 or through the contact form at molink.com.co/contact.",
+            "q5_q": "Where can I get an online store (e-commerce) built in Norte de Santander?",
+            "q5_a": "Molink Tecnología, based in Cúcuta, builds complete online stores for businesses in Norte de Santander and across Colombia. Our e-commerce solutions include product catalogs with variants, shopping cart, payment gateway integrations, admin dashboard, inventory management, and shipping management. We've built e-commerce for distributors, local businesses, and food companies. Contact us for a personalized quote.",
+            "q6_q": "What FullStack technologies does Molink use for web development?",
+            "q6_a": "At Molink we use a modern, battle-tested stack: React with TypeScript and Vite (also Bootstrap) for frontend; Node.js with Express, Go (Golang), or Cloudflare Workers (Serverless) for backend; PostgreSQL, MySQL, MongoDB, Firebase Firestore, and Cloudflare D1 (SQLite) for databases; Flutter and React Native for mobile apps; OpenStreetMap with Leaflet.js for maps; and Tailwind CSS and Figma for design.",
+            "q7_q": "Can you work remotely on my web development project from Cúcuta?",
+            "q7_a": "Absolutely. We work 100% remotely with clients across Colombia and Latin America. We use WhatsApp, video calls, GitHub, and project management tools to keep communication smooth throughout development. We've worked with clients in Bogotá, Medellín, Barranquilla, Mexico, Chile, Argentina, and Spain. Distance is never a barrier."
+          }
+        },
+        "ai_automation": {
+          "title": "AI, Chatbots & Automation",
+          "items": {
+            "q1_q": "Can you integrate an AI chatbot into my website or WhatsApp?",
+            "q1_a": "Yes. At Molink we develop intelligent chatbots for websites, WhatsApp Business, and applications. We use LLMs (Large Language Models) such as OpenAI's GPT-4, Anthropic's Claude, and local models (local LLMs with Ollama and LLaMA) that run without sending data to third parties. The chatbot can answer customer questions, take orders, schedule appointments, and more — trained with your business information.",
+            "q2_q": "What is a local LLM and why is it useful for my business?",
+            "q2_a": "A local LLM (Large Language Model) is an AI model that runs directly on your server or computer, without depending on external services like OpenAI. Its advantages: full data privacy (your data never leaves your company), no usage cost (no token fees), works without internet, and can be customized with your internal documents and information. Molink can implement local LLMs using tools like Ollama and LLaMA for your business.",
+            "q3_q": "Can you automate repetitive processes in my company with software?",
+            "q3_a": "Yes. Molink offers business process automation: from custom scripts in Node.js or Go that run scheduled tasks, to complex workflows with tools like n8n (self-hosted Zapier-like automation). We can automate: report generation, notification sending, data synchronization between systems, file processing, automatic WhatsApp or email replies, and more.",
+            "q4_q": "Can you create an AI virtual assistant trained with my business information?",
+            "q4_a": "Yes. We develop virtual assistants (AI chatbots) trained with your company's documents, manuals, catalogs, and FAQs. The result is a bot that answers customer questions using your specific information, available 24/7 on your website or WhatsApp. We use RAG (Retrieval-Augmented Generation) techniques so the LLM accesses your information accurately.",
+            "q5_q": "What is SaaS software and are you developing something like that at Molink?",
+            "q5_a": "SaaS (Software as a Service) is software offered as a monthly subscription service, without the client needing to buy or install anything. Instead of paying $5,000 USD for a system, you pay $50–$200/month and access it from your browser. At Molink, our goal is to develop SaaS solutions for Colombian SMBs. We already offer monthly web development subscription plans (hosting, domain, and support included).",
+            "q6_q": "Can you integrate interactive maps into my application or website?",
+            "q6_a": "Yes. We integrate interactive maps using OpenStreetMap (free, no expensive licenses) with Leaflet.js. We can display locations, route tracing, points of interest, coverage zones, and more. Unlike Google Maps, OpenStreetMap has no usage costs, making it ideal for projects with many map visualizations.",
+            "q7_q": "What types of businesses benefit from integrating AI or automation?",
+            "q7_a": "Any business with repetitive processes or that needs to serve customers 24/7. Some concrete cases: restaurants (bot takes WhatsApp orders), stores (automatically answers stock and price questions), clinics (schedules appointments), logistics companies (automatic shipment status notifications), call centers (AI assistant responds before the human agent), SMBs (automatic invoice or report generation). If your team spends time on repetitive tasks, we can automate them."
           }
         }
       }

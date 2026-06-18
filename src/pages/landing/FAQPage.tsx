@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../../components/shared/SEO.tsx';
-import { ChevronDown, ChevronUp, Lightbulb, Settings, Cpu, Headset } from 'lucide-react';
+import { ChevronDown, ChevronUp, Lightbulb, Settings, Cpu, Headset, MapPin, Bot } from 'lucide-react';
 import clsx from 'clsx';
 
 interface FAQ {
@@ -37,7 +37,7 @@ const FAQItem = ({ question, answer }: FAQ) => {
             <div
                 className={clsx(
                     'overflow-hidden transition-all duration-300',
-                    isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                    isOpen ? 'max-h-500 opacity-100' : 'max-h-0 opacity-0'
                 )}
             >
                 <div className="p-6 bg-surface/50 text-white/80 leading-relaxed text-base">
@@ -188,6 +188,76 @@ const FAQPage = () => {
                 {
                     question: t('landing.faq.categories.support.items.q5_q'),
                     answer: t('landing.faq.categories.support.items.q5_a'),
+                },
+            ],
+        },
+        {
+            id: 'local',
+            icon: MapPin,
+            title: t('landing.faq.categories.local.title'),
+            items: [
+                {
+                    question: t('landing.faq.categories.local.items.q1_q'),
+                    answer: t('landing.faq.categories.local.items.q1_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q2_q'),
+                    answer: t('landing.faq.categories.local.items.q2_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q3_q'),
+                    answer: t('landing.faq.categories.local.items.q3_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q4_q'),
+                    answer: t('landing.faq.categories.local.items.q4_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q5_q'),
+                    answer: t('landing.faq.categories.local.items.q5_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q6_q'),
+                    answer: t('landing.faq.categories.local.items.q6_a'),
+                },
+                {
+                    question: t('landing.faq.categories.local.items.q7_q'),
+                    answer: t('landing.faq.categories.local.items.q7_a'),
+                },
+            ],
+        },
+        {
+            id: 'ai_automation',
+            icon: Bot,
+            title: t('landing.faq.categories.ai_automation.title'),
+            items: [
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q1_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q1_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q2_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q2_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q3_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q3_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q4_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q4_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q5_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q5_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q6_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q6_a'),
+                },
+                {
+                    question: t('landing.faq.categories.ai_automation.items.q7_q'),
+                    answer: t('landing.faq.categories.ai_automation.items.q7_a'),
                 },
             ],
         },

@@ -27,7 +27,7 @@ i18n
         },
         fallbackLng: 'es',
         detection: {
-            order: ['navigator', 'htmlTag', 'querystring', 'cookie', 'localStorage'],
+            order: ['localStorage', 'cookie', 'querystring', 'navigator', 'htmlTag'],
             caches: ['localStorage', 'cookie']
         },
         interpolation: {

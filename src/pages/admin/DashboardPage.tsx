@@ -31,12 +31,12 @@ const DashboardPage = () => {
             {/* Icono de Escritorio: Bienvenida */}
             <div 
                 onDoubleClick={() => toggleWindow('welcome')}
-                className="w-24 flex flex-col items-center gap-2 cursor-pointer group p-2 hover:bg-[var(--os-window-title-bg)] rounded-sm transition-colors border border-transparent hover:border-[var(--os-window-border)]"
+                className="w-24 flex flex-col items-center gap-2 cursor-pointer group p-2 hover:bg-(--os-window-title-bg) rounded-sm transition-colors border border-transparent hover:border-[var(--os-window-border)]"
             >
-                <div className="w-12 h-12 flex items-center justify-center text-[var(--os-accent)] group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 flex items-center justify-center text-(--os-accent) group-hover:scale-110 transition-transform">
                     <Terminal className="w-10 h-10" strokeWidth={1.5} />
                 </div>
-                <span className="text-[var(--os-text)] text-xs text-center px-1 font-medium tracking-wide bg-[var(--os-bg)] group-hover:bg-transparent">README.txt</span>
+                <span className="text-[var(--os-text)] text-xs text-center px-1 font-medium tracking-wide bg-(--os-bg) group-hover:bg-transparent">README.txt</span>
             </div>
 
             {/* Icono de Escritorio: Estadísticas */}

@@ -1,4 +1,5 @@
 import {Helmet} from 'react-helmet-async';
+import {useTranslation} from 'react-i18next';
 
 interface StoreSEOProps {
     title: string;
@@ -14,6 +15,11 @@ interface StoreSEOProps {
  * Maneja meta tags, Open Graph y schema.org específicos para e-commerce.
  */
 export const StoreSEO = ({title, description, keywords, canonicalUrl, ogImage, noIndex}: StoreSEOProps) => {
+    const {i18n} = useTranslation();
+    const currentLang = i18n.language?.startsWith('en') ? 'en' : 'es';
+    const ogLocale = currentLang === 'en' ? 'en_US' : 'es_CO';
+    const ogLocaleAlternate = currentLang === 'en' ? 'es_CO' : 'en_US';
+
     const siteName = "Molink Tienda";
     const storeUrl = "https://tienda.molink.com.co";
 
@@ -91,21 +97,26 @@ export const StoreSEO = ({title, description, keywords, canonicalUrl, ogImage, n
     };
 
     return (
-        <Helmet>
+        <Helmet htmlAttributes={{lang: currentLang}}>
             {noIndex && <meta name="robots" content="noindex, nofollow"/>}
             <title>{fullTitle}</title>
             <meta name="description" content={description}/>
             <meta name="keywords" content={finalKeywords}/>
             <link rel="canonical" href={finalCanonicalUrl}/>
+            <link rel="alternate" hrefLang="es" href={storeUrl}/>
+            <link rel="alternate" hrefLang="es-CO" href={storeUrl}/>
+            <link rel="alternate" hrefLang="en" href={storeUrl}/>
+            <link rel="alternate" hrefLang="x-default" href={storeUrl}/>
 
             {/* Open Graph - exclusivo para tienda */}
             <meta property="og:type" content="website"/>
+            <meta property="og:locale" content={ogLocale}/>
+            <meta property="og:locale:alternate" content={ogLocaleAlternate}/>
             <meta property="og:title" content={fullTitle}/>
             <meta property="og:description" content={description}/>
             <meta property="og:image" content={finalOgImage}/>
             <meta property="og:url" content={finalCanonicalUrl}/>
             <meta property="og:site_name" content={siteName}/>
-            <meta property="og:locale" content="es_CO"/>
 
             {/* Twitter Cards */}
             <meta name="twitter:card" content="summary_large_image"/>

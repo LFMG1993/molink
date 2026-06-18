@@ -269,9 +269,9 @@
     },
     "seo": {
       "home": {
-        "title": "Desarrollo Web y Móvil en Cúcuta",
-        "description": "Soluciones tecnológicas a medida.",
-        "keywords": "desarrollo web, desarrollo movil, paginas web, programador, Cúcuta, Colombia, Molink"
+        "title": "Agencia de Desarrollo Web, Apps, Chatbots IA y E-commerce en Cúcuta, Colombia",
+        "description": "Molink Tecnología: agencia de desarrollo FullStack en Cúcuta, Norte de Santander. Creamos páginas web, tiendas virtuales, aplicaciones web y móviles, chatbots con IA y automatizaciones para empresas en Colombia y Latinoamérica.",
+        "keywords": "desarrollador web Cúcuta, agencia desarrollo web Cúcuta, programador fullstack Colombia, hacer página web Cúcuta, tienda virtual Cúcuta, e-commerce Norte de Santander, desarrollo software Cúcuta, aplicaciones móviles Colombia, chatbot empresas Colombia, automatización procesos pymes, inteligencia artificial Colombia, LLM integración empresas, software SaaS Colombia, PostgreSQL Go Golang Colombia, contratar desarrollador Colombia, Molink Tecnología"
       }
     },
     "faq": {
@@ -358,6 +358,44 @@
             "q4_a": "Puedes contactarnos por WhatsApp (+57 315 575 6600) para respuestas rápidas, por email (contacto@molink.com.co) para consultas formales, o directamente desde el panel de administración de tu proyecto si tienes un plan activo. Respondemos en menos de 24 horas hábiles.",
             "q5_q": "¿Hacen rediseño de sitios web existentes?",
             "q5_a": "Sí. Si ya tienes un sitio web pero necesita una renovación visual, mejoras de rendimiento o actualización de tecnologías, podemos rediseñarlo sin perder tu posicionamiento en Google ni tu contenido existente. Hacemos una auditoría completa y te proponemos un plan de mejora progresivo."
+          }
+        },
+        "local": {
+          "title": "Desarrolladores en Cúcuta y Colombia",
+          "items": {
+            "q1_q": "¿Dónde puedo conseguir un desarrollador web en Cúcuta?",
+            "q1_a": "Molink Tecnología es una agencia de desarrollo web y móvil radicada en Villa del Rosario, Cúcuta, Norte de Santander. Somos un equipo de desarrolladores FullStack especializados en crear páginas web, tiendas virtuales, aplicaciones web y móviles. Puedes contactarnos por WhatsApp al +57 315 575 6600, por correo a contacto@molink.com.co, o visitar molink.com.co. Atendemos de lunes a viernes de 8:00 AM a 9:00 PM y sábados de 9:00 AM a 6:00 PM.",
+            "q2_q": "¿Quién hace páginas web y e-commerce en Cúcuta, Norte de Santander?",
+            "q2_a": "Molink Tecnología es una agencia de desarrollo web con sede en Cúcuta (Villa del Rosario), Norte de Santander. Desarrollamos desde páginas corporativas hasta tiendas virtuales (e-commerce) completas con carrito de compras, pasarelas de pago integradas (Wompi, PayPal) y panel de administración. También damos servicio a Los Patios, Ocaña, Villa del Rosario y toda la región.",
+            "q3_q": "¿Existe una empresa de desarrollo de software en Cúcuta, Colombia?",
+            "q3_a": "Sí. Molink Tecnología es una empresa colombiana de desarrollo de software ubicada en Cúcuta (Villa del Rosario), Norte de Santander. Ofrecemos servicios de desarrollo web, aplicaciones móviles (iOS y Android), e-commerce, automatización de procesos, chatbots con IA y consultoría tecnológica. Trabajamos con pymes locales y también para toda Colombia y Latinoamérica de forma remota.",
+            "q4_q": "¿Cómo contratar un programador FullStack en Colombia?",
+            "q4_a": "Para contratar un desarrollador FullStack en Colombia puedes contactar directamente a Molink Tecnología. Nuestro stack tecnológico incluye React, TypeScript, Vite, Node.js, Go (Golang), Express, PostgreSQL, MongoDB, MySQL, Firebase, Cloudflare Workers, Flutter y React Native, entre otros. Ofrecemos desarrollo a medida, consultas iniciales gratuitas y presupuestos sin compromiso. Escríbenos por WhatsApp al +57 315 575 6600 o a través del formulario en molink.com.co/contact.",
+            "q5_q": "¿Dónde hacer una tienda virtual (e-commerce) en Norte de Santander?",
+            "q5_a": "Molink Tecnología, con sede en Cúcuta, desarrolla tiendas virtuales completas para empresas de Norte de Santander y toda Colombia. Nuestros e-commerce incluyen catálogo de productos con variantes, carrito de compras, integración con pasarelas de pago, panel de administración, gestión de inventario y envíos. Hemos desarrollado e-commerce para distribuidoras, heladerías y comercios locales. Contáctanos para un presupuesto personalizado.",
+            "q6_q": "¿Qué tecnologías FullStack usa Molink para desarrollo web?",
+            "q6_a": "En Molink utilizamos un stack moderno y probado: para el frontend usamos React con TypeScript y Vite (también Bootstrap); para el backend, Node.js con Express, Go (Golang) o Cloudflare Workers en arquitectura Serverless; para bases de datos, PostgreSQL, MySQL, MongoDB, Firebase Firestore y SQLite (D1 de Cloudflare); para aplicaciones móviles, Flutter y React Native; para mapas, OpenStreetMap con Leaflet.js; para diseño, Tailwind CSS y Figma. Elegimos la tecnología más adecuada según las necesidades de cada cliente.",
+            "q7_q": "¿Pueden hacer mi proyecto de desarrollo web de forma remota desde Cúcuta?",
+            "q7_a": "Absolutamente. Trabajamos en modalidad 100% remota con clientes en todo Colombia y Latinoamérica. Usamos WhatsApp, videollamadas, GitHub y herramientas de gestión de proyectos para mantener comunicación fluida durante todo el desarrollo. Hemos trabajado con clientes en Bogotá, Medellín, Barranquilla, México, Chile, Argentina y España. La distancia nunca es un obstáculo."
+          }
+        },
+        "ai_automation": {
+          "title": "IA, Chatbots y Automatización",
+          "items": {
+            "q1_q": "¿Pueden integrar un chatbot con IA en mi página web o WhatsApp?",
+            "q1_a": "Sí. En Molink desarrollamos chatbots inteligentes para páginas web, WhatsApp Business y aplicaciones. Usamos LLMs (Modelos de Lenguaje) como GPT-4 de OpenAI, Claude de Anthropic y también modelos locales (LLMs locales con Ollama y LLaMA) que corren sin enviar datos a terceros. El chatbot puede responder preguntas de clientes, tomar pedidos, agendar citas y más, entrenado con la información de tu negocio.",
+            "q2_q": "¿Qué es un LLM local y por qué es útil para mi empresa?",
+            "q2_a": "Un LLM (Large Language Model) local es un modelo de inteligencia artificial que funciona directamente en tu servidor o computadora, sin depender de servicios externos como OpenAI. Sus ventajas: privacidad total de tus datos (no salen de tu empresa), sin costo por uso (no pagas por tokens), funcionamiento sin internet y personalización con tus documentos e información interna. Molink puede implementar LLMs locales con herramientas como Ollama y LLaMA para tu negocio.",
+            "q3_q": "¿Pueden automatizar procesos repetitivos en mi empresa con software?",
+            "q3_a": "Sí. Molink ofrece automatización de procesos empresariales: desde scripts personalizados en Node.js o Go que corren tareas programadas, hasta flujos complejos con herramientas como n8n (automatización tipo Zapier pero autohospedada). Podemos automatizar: generación de reportes, envío de notificaciones, sincronización de datos entre sistemas, procesamiento de archivos, respuestas automáticas por correo o WhatsApp y más.",
+            "q4_q": "¿Pueden crear un asistente virtual con IA entrenado con la información de mi negocio?",
+            "q4_a": "Sí. Desarrollamos asistentes virtuales (chatbots con IA) que se entrenan con documentos, manuales, catálogos y preguntas frecuentes de tu empresa. El resultado es un bot que responde preguntas de clientes usando tu información específica, disponible 24/7 en tu sitio web o WhatsApp. Usamos técnicas de RAG (Retrieval-Augmented Generation) para que el LLM acceda a tu información de forma precisa.",
+            "q5_q": "¿Qué es el software SaaS y están desarrollando algo así en Molink?",
+            "q5_a": "SaaS (Software as a Service) es software que se ofrece como servicio por suscripción mensual, sin que el cliente deba comprar ni instalar nada. En lugar de pagar $5,000 USD por un sistema, pagas $50–$200/mes y accedes a él desde el navegador. En Molink tenemos como objetivo desarrollar soluciones SaaS especializadas para pymes colombianas. Actualmente ya ofrecemos planes de desarrollo web por suscripción mensual (hosting, dominio y soporte incluidos).",
+            "q6_q": "¿Pueden integrar mapas interactivos en mi aplicación o sitio web?",
+            "q6_a": "Sí. Integramos mapas interactivos usando OpenStreetMap (gratuito, sin licencias costosas) con Leaflet.js. Podemos mostrar ubicaciones, trazado de rutas, puntos de interés, zonas de cobertura y más. A diferencia de Google Maps, OpenStreetMap no tiene costos por uso, lo que lo hace ideal para proyectos con muchas visualizaciones de mapa.",
+            "q7_q": "¿Para qué tipo de empresas es útil integrar IA o automatizaciones?",
+            "q7_a": "Para cualquier empresa que tenga procesos repetitivos o necesite atender clientes 24/7. Algunos casos concretos: restaurantes (bot que toma pedidos por WhatsApp), tiendas (responde preguntas de stock y precios automáticamente), clínicas (agenda citas), empresas de logística (notificaciones automáticas de estado de envío), call centers (asistente que responde antes del agente humano), pymes (generación automática de facturas o reportes). Si tu equipo dedica tiempo a tareas repetitivas, podemos automatizarlas."
           }
         }
       }

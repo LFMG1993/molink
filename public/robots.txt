@@ -4,3 +4,6 @@ Disallow:
 
 # Ubicación del mapa del sitio.
 Sitemap: https://molink.com.co/sitemap.xml
+
+# Archivo de contexto para modelos de lenguaje (LLMs).
+LLMs: https://molink.com.co/llms.txt
